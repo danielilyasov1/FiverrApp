@@ -16,15 +16,13 @@ export default {
     setGigs(state, { gigs }) {
       state.gigs = gigs
     },
-    
+
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
-    
   },
   actions: {
     loadGigs({ commit, state }) {
- 
       gigService.query(state.filterBy).then((gigs) => {
         commit({ type: 'setGigs', gigs })
       })

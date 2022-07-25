@@ -15,7 +15,6 @@
           <vueper-slide v-for="(img, i) in gig.imgs" :key="i" :image="img">
           </vueper-slide>
         </vueper-slides>
-
         <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
           @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
           :visible-slides="gig.imgs.length" fixed-height="75px" :bullets="false" :touchable="false" :gap="2.5"
@@ -24,8 +23,6 @@
             @click.native="$refs.vueperslides2.goToSlide(i)">
           </vueper-slide>
         </vueper-slides>
-
-
         <div class="about-gig">
           <div class="reviews">
             <button>See all reviews</button>
@@ -35,7 +32,6 @@
             <pre> {{ gig.description }}</pre>
           </div>
         </div>
-
         <h2 class="aboutH2">About The Seller</h2>
         <div class="about-seller">
           <img :src="gig.owner.imgUrl">
@@ -43,10 +39,8 @@
             <div class="owner-fullname">{{ gig.owner.fullname }}</div>
             <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> (730)</div>
             <el-button @click='' class="btn-contact" type="info" plain>Contact Me</el-button>
-
           </div>
         </div>
-
         <div class="extended-owner-details">
           <ul class="user-state flex clean-list">
             <li>From <br><strong>{{ gig.owner.loc }}</strong></li>
@@ -57,9 +51,14 @@
           <hr>
           <pre>{{ gig.owner.about }}</pre>
         </div>
-
       </div>
-
+      <!-- <vs-collapse>
+          <vs-collapse-item>
+            <div slot="header">
+              FAQ
+            </div>
+          </vs-collapse-item>
+          </vs-collapse> -->
     </div>
     <div class="side-details sticky">
       <div class="side-price">{{ gig.price }} $</div>
@@ -69,25 +68,12 @@
         <img src="/clock.png.png" />
         <div>{{ gig.daysToMake }} Days Delivery</div>
       </div>
-
-      <!-- <vs-collapse>
-     <vs-collapse-item>
-       <div slot="header">
-          What's Included <span>arrow</span>
-       </div>
-       <ul class="order-features clean-list" v-for="feats in gig.orderFeats" :key="feats">
-          <li><i class="checkMark">&#10003;</i>{{feats}}</li>
-        </ul>
-     </vs-collapse-item>
-     </vs-collapse> -->
-
       <ul class="order-features clean-list" v-for="feats in gig.orderFeats" :key="feats">
         <li><i class="checkMark">&#10003;</i>{{ feats }}</li>
       </ul>
       <footer>
         <el-button class="side-btn" @click="createOrder" type="success">Continue ({{ gig.price }} $)</el-button>
       </footer>
-
     </div>
   </section>
 </template>
@@ -98,20 +84,15 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
 export default {
-
   name: 'gig-detail',
   data() {
     return {
       gig: null,
-
-
     }
   },
   async created() {
-
     const { gigId } = this.$route.params
     this.gig = await gigService.getById(gigId)
-
     console.log('gig s only.\n✔ 100% ')
   },
   computed: {
@@ -132,7 +113,6 @@ export default {
         "buyer": "mini-user",
         "seller": "mini-user",
         "gig": {
-          // "_id": this.gig._id,
           "name": "DDDDDDDDD",
           "price": 20
         },
