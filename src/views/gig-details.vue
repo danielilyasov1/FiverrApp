@@ -7,7 +7,7 @@
         <div class="owner-fullname">{{ gig.owner.fullname }}</div>
         <div>&nbsp;{{ gig.owner.level }}</div>
         <div class="space">&nbsp;|&nbsp;</div>
-        <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (730)</div>
+        <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> ({{gig.review}})</div>
       </div>
       <div class="block text-center" m="t-4">
         <vueper-slides ref="vueperslides1" :touchable="false" fade :autoplay="false" :bullets="false"
@@ -37,7 +37,7 @@
           <img :src="gig.owner.imgUrl">
           <div class="owner-details">
             <div class="owner-fullname">{{ gig.owner.fullname }}</div>
-            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> (730)</div>
+            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> ({{gig.review}})</div>
             <el-button @click='' class="btn-contact" type="info" plain>Contact Me</el-button>
           </div>
         </div>
@@ -63,7 +63,7 @@
     <div class="side-details sticky">
       <div class="side-price">US${{ gig.price }}</div>
       <div class="side-title">Order Details</div>
-      <div class="side-subtitle">{{ gig.title }}</div>
+      <div class="side-subtitle">{{ gig.more }}</div>
       <div class="side-delivery flex">
         <img src="/clock.png.png" />
         <div>{{ gig.daysToMake }} Days Delivery</div>
