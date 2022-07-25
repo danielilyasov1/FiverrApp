@@ -271,23 +271,14 @@
         }
 
         .play{
-            height: 10%;
-            width:10%;
-            font-size: rem(35px);
-            border-radius: 50%;
-            background-color: #00000088;
-            text-align: center;
-            // align-self: center;
-            line-height: rem(100px);
+            font-size: rem(55px);
+            line-height: rem(65px);
             color: #fff;
-            position: relative;
-            left: 45%;
-            top: -60%;
-            // bottom: 40%;
-
-            z-index: 99;
-
+            z-index: 3;
+            text-align: center;
+            
             i{
+                text-shadow: 2px 2px black;
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -318,25 +309,6 @@
     }
 }
 
-// .founders{
-//     display: flex;
-//     .img{
-//         border-radius: 4px;
-//         margin-right: rem(20px);
-//         // min-width: rem(245px);
-//         // height: rem(355px);
-//         width: 40%;
-//         height: auto;
-//         background-repeat: no-repeat;
-//         background-size: cover;
-//         cursor: pointer;
-//         background-image:url("https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg");
-//     }
-//     .description{
-//         width: 60%;
-//     }
-
-// }
 .founders{
     margin-top: rem(100px);
     display: flex;
@@ -370,7 +342,7 @@
             font-family: 'Abhaya Libre', serif;
             font-weight: 500;
             font-style: oblique;
-            color: #336133;
+            color: #003912;
             font-size: rem(34px);
             line-height: 47px;
         }

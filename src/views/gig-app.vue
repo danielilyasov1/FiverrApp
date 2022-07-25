@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="main-layout">
     <h1 class="hcategory">{{ headercategory }}</h1>
     <div class="gig-list">
       <gig-list :gigs="gigs" />

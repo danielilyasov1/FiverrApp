@@ -1,5 +1,5 @@
 <template >
-  <section class="details-page flex">
+  <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
       <h1>{{ gig.title }}</h1>
       <div class="owner-details">
