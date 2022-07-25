@@ -1,0 +1,99 @@
+
+//ORDER-BOX
+.order-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 60px;
+    font-family: sans-serif;
+    
+
+    .order-box {
+        padding: 1em 1.5rem;
+        width: fit-content;        
+        
+        img {
+            width: 150px;
+            height: 100px;
+        }
+        .seller-detaile{
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items:flex-start;
+            gap: 20px;
+            padding-bottom: 30px;
+            padding-top: 0px;
+            margin-top: 0%;
+            h3{
+                height: fit-content;
+                margin-top: 0px;
+            }
+            h4{
+                height: fit-content;
+                margin-top: 0px;
+                padding-top: 0.5%;
+                color: $clr2;
+            }
+        
+        }
+
+         
+        .order-details-container {
+
+
+             
+            ul{
+                padding:20px;
+                li {
+                    margin: 20px;
+                    display: flex;
+                    gap: 25px;
+                    align-items: center;
+                    font-family:sans-serif;
+
+    
+
+                }
+            } 
+        }
+    }
+}
+
+
+// CHECKOUT-BOX
+
+.chckout-box{
+    display:flex;
+    flex-direction: column;
+    position: sticky;
+    border: $borders1;
+    border-radius: 5px;
+    gap:50px;
+    padding: 2em 1.5rem;
+    hr {
+        width: 100%;
+        color: $borders2;
+    }
+    ul {
+        
+        li{
+            padding:5px;
+            display: flex;
+            justify-content:space-between;
+            gap: 250px;
+            span {
+                display: flex;
+                justify-content: flex-end;
+    
+            }
+        }
+
+    }
+
+   
+
+    
+}

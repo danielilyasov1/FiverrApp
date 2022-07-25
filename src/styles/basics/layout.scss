@@ -1,0 +1,31 @@
+
+
+.main-layout {
+    position: relative;
+    display: grid;
+    // grid-template-columns: $mainLayoutPadding 1fr $mainLayoutPadding;
+    // grid-template-columns: 1fr 82.5rem 1fr;
+    // grid-template-columns: 1fr 5fr 1fr;
+    // display: grid;
+    grid-template-columns: $mainLayoutPadding 1fr $mainLayoutPadding;
+    >* {
+        grid-column: 2;
+    }
+    >*.full {
+        grid-column: 1 / -1;
+        
+    }
+}
+
+
+.header-layout {
+    display: flex;
+    padding-inline-start: $mainLayoutPadding;
+    padding-inline-end: $mainLayoutPadding;
+}
+
+// .main-layout {
+//     /* box-sizing: content-box; */
+//     padding-inline-start: 20px;
+//     padding-inline-end: 20px;
+// }

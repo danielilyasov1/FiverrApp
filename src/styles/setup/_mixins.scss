@@ -1,0 +1,27 @@
+
+
+
+
+
+//Media Queries Mixin
+
+@mixin for-small-layout {
+    @media (max-width: $break-small) {
+      @content;
+    }
+  }
+  
+  @mixin for-medium-layout {
+    @media (max-width: $break-medium) {
+      @content;
+    }
+  }
+  
+  @mixin for-larg-layout {
+    @media (max-width: $break-larg) {
+      @content;
+    }
+  }
+
+
+  

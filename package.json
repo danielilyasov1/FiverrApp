@@ -1,0 +1,27 @@
+{
+  "name": "fiverrapp",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "element-plus": "^2.2.9",
+    "lightgallery": "^2.5.0",
+    "material-icons": "^1.11.7",
+    "sass": "^1.53.0",
+    "swiper": "^8.3.1",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.2",
+    "vue3-carousel": "^0.1.40",
+    "vueperslides": "^3.4.2",
+    "vuesax": "^3.12.2",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "vite": "^3.0.1",
+    "vue2-collapse": "^1.0.15"
+  }
+}

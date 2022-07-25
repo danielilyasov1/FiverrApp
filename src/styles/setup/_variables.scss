@@ -1,0 +1,38 @@
+// COLOR PALETTE
+$clr1: #404145; //כותרות
+$clr2:  #91949b;
+$clr3: #347138;
+$clr4: rgb(251, 245, 245);
+$clr5:#1ea968; // repetetive element color
+$clr6: rgba(127, 129, 130, 0.638);
+$clr7: #1dbf73;
+
+
+$layoutPadding: 20px;
+// $clr4:  #fff; // root app color
+// $clr7: darken($clr3, 40%);
+
+// borders 
+$borders1: 0.5px solid rgba(191, 193, 193, 0.802);
+$borders2: 0.5px solid rgba(215, 217, 218, 0.788);
+
+// LAYOUT
+// $layoutPadding: 259px;
+$mainLayoutPadding: rem(249px);
+// $mainLayoutPadding: 5em;
+
+// $testLayout: rem(20px);
+
+//header layouts 
+$topLayout: 100%;
+
+// Padding
+// $layoutPadding: 32px;
+$relativePadding: 1rem 1rem;
+
+// LAYOUT BREAKPOINTS
+
+// Header Breakpoints 
+$break-small: 600px;
+$break-medium: 900px;
+$break-larg: 1100px;

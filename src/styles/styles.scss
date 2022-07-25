@@ -1,0 +1,27 @@
+// setup
+@import 'setup/typography';
+@import 'setup/mixins';
+@import 'setup/functions';
+@import 'setup/variables';
+
+// basics
+@import 'basics/base';
+@import 'basics/helpers';
+@import 'basics/layout';
+
+// components
+@import 'components/header/header';
+@import 'components/header/header-scrolling';
+@import 'components/footer';
+@import 'components/gig-preview';
+@import 'components/app-filter';
+@import 'components/_category-filter';
+
+// Elements 
+@import 'elements/buttons';
+
+// views
+@import 'views/gig-details';
+@import 'views/order-details';
+@import 'views/home-page';
+

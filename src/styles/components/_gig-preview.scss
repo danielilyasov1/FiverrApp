@@ -1,0 +1,143 @@
+.gig-list{
+    margin-bottom: 60px;
+}
+
+.hcategory{
+    // padding-top: 30px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    color: $clr1;
+    padding-bottom: 5px;
+}
+
+.grid {
+    grid-gap: 20px;
+    display: grid;
+    gap: 34px;
+    grid-template-columns: repeat(auto-fill,minmax(290px,1fr));
+
+}
+
+.card{
+    height: rem(376px);
+    width: 100%;
+    max-width: 100%;
+    // padding: 33px;
+    background-color: #0c870a;
+    margin: 0;
+}
+
+.gig-preview {
+    justify-content: space-between;
+    background-color: #fff;
+    position: relative;
+    border: 1px solid #e4e5e7;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    .red{
+        color: rgb(171, 15, 15);
+    }
+    
+    img {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    svg{
+        margin-top: -15px;
+        // margin-left: -10px;
+        // display: none;
+        // color:$clr1;
+    }
+
+    .default{
+        background-color: #efeff0;
+        height: 5px;
+        width: 6px;
+    }
+    
+    .seller-identifiers{
+        height: rem(54px);
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        padding: 8px 0 8px 12px;  
+        
+        a{
+            font-weight: 600;
+            margin: 0;
+            width: 60%;
+            padding: 4px;
+        }
+    }
+    
+    .gig-title{
+        padding: 8px 20px 8px 12px;
+        line-height: 22px;
+        height: rem(43px);
+        margin: 0;
+    }
+    
+    &:hover{
+        .gig-title{
+            color:$clr7;
+        }
+    }
+    
+    .content-info{
+        height: rem(40px);
+        padding: 8px 12px 20px;
+        margin-top: 10px;
+        
+        a{
+            color: #ffbe5b;
+            font-weight: 700;
+            
+            span{
+                color: #b5b6ba;
+                font-weight: 400;
+                margin-left: 4px;
+            }
+        }
+    }
+    
+    footer{
+        height: rem(45px);
+        padding: 8px;
+        align-items: center;
+        clear: both;
+        border-top: 1px solid #efeff0;
+        min-height: 24px;
+        justify-content: space-between;
+        
+        p{
+            font-size: larger;
+            margin-left: 5px;
+            color: #b5b6ba;
+            cursor: pointer;
+        }
+        
+        small{
+            color: #74767e;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            display: inline-block;
+            vertical-align: top;
+            padding: 2px 0 0;
+        }
+        
+        span{
+            text-align: right;
+            font-size: 18px;
+            color: black;
+        }
+    }
+}
+      
+// .vueperslides_arrow{
+//     color: #0c870a;
+//     height: 10px;   
+// }
