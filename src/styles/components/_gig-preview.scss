@@ -22,10 +22,9 @@
 .card{
     height: rem(376px);
     width: 100%;
-    max-width: 100%;
-    // padding: 33px;
+    max-width: rem(400px);
     background-color: #0c870a;
-    margin: 0;
+    margin-top: 10px;
 }
 
 .gig-preview {
@@ -124,15 +123,14 @@
             font-weight: 700;
             letter-spacing: .6px;
             text-transform: uppercase;
-            display: inline-block;
-            vertical-align: top;
-            padding: 2px 0 0;
         }
         
         span{
+            margin-left: 6px;
             text-align: right;
             font-size: 18px;
             color: black;
+            font-weight:500;
         }
     }
 }
