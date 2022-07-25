@@ -2,7 +2,7 @@
 <template>
   <section>
     <div class="filter-container">
-      <input class="filter-input" type="text" placeholder="  What service are you looking for today?">
+      <input @input="changeTitleFilter" class="filter-input" type="text" placeholder="  What service are you looking for today?" >
       <button class="filter-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
@@ -13,11 +13,7 @@
 export default {
   data() {
     return {
-      filterBy: {
-        title: '',
-        // category: this.$route.query.category
-        // byCatagories: [],
-      },
+    
       tags: [
         "logo-design",
         "artisitic",
@@ -28,23 +24,23 @@ export default {
     }
   },
   methods: {
-    async setFilter() {
-      await this.$route.query.category
-      console.log('ff', this.$route.query.category)
+    changeTitleFilter(e){
+       const path = this.$route.path.split('/')
+        console.log('ata dafook',path[path.length - 1].toLowerCase())
+       if(path[path.length - 1].toLowerCase() === 'gig'){
+         this.$router.replace({ query: {...this.$route.query, title: e.target.value }})
+       }else{
 
-      this.$emit('setFilter', {
-        ...this.filterBy,
-        category: this.$route.query.category,
-      })
-    },
+         this.$router.push({path:'/gig', query: { title: e.data } })
+       }
 
+      console.log('e',e)
+
+    }
+  
   },
   computed: {},
   mounted() { },
-  watch: {
-    '$route.query.category'() {
-      this.setFilter()
-    }
-  }
+ 
 }
 </script>

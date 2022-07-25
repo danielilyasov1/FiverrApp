@@ -32,9 +32,8 @@ export default {
   },
   methods: {
     setcategory(category) {
-
-      this.$router.push({ query: { category: category } })
-
+      console.log('category',category)
+      this.$router.push({ path: '/gig',query: { category: category } })
     },
   },
 

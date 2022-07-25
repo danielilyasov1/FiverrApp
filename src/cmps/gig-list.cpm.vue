@@ -23,7 +23,7 @@
     </el-select>
   </div>
   <section class="gig-list grid">
-    <div class="card" v-for="gig in gigs" :key="gig._id">
+    <div class="card" v-for="gig in gigs" :key="`gig-${gig._id}`">
       <gig-preview :gig="gig" />
     </div>
   </section>

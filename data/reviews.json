@@ -1,0 +1,13 @@
+[
+    {
+      "userId": "",
+      "gigId":"",
+      "txt": "Very kind and works fast",
+      "rate": 4,
+      "by": {
+        "_id": "u102",
+        "fullname": "user2",
+        "imgUrl": "/img/img2.jpg"
+      }
+    }
+]

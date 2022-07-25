@@ -67,17 +67,33 @@ export default {
   },
 
   methods: {
-    setFilter(filter) {
-      filter = JSON.parse(JSON.stringify(filter));
-      this.$store.dispatch({ type: "setFilterBy", filterBy: filter });
-    },
+    // setFilter(filter) {
+    //   filter = JSON.parse(JSON.stringify(filter));
+    //   this.$store.dispatch({ type: "setFilterBy", filterBy: filter });
+    // },
     handleScroll2(ev) {
       //  this.isFilterDisplayed= true
       //  console.log('i am scrolling', window.scrollY)
       if (window.scrollY < 200) this.isFilterDisplayed = false
       if (window.scrollY > 200) this.isFilterDisplayed = true
-    }
+    },
+    async setFilter() {
+      await this.$route.query.category
+      await this.$route.query.title
+      const query=  { }
+      if(this.$route.query.title?.trim()){
+        query.title=this.$route.query.title.trim()
+      }
+      if(this.$route.query.category){
+        query.category=this.$route.query.category//  יופיע אם אין קטכוריה שלא
+      }
+     console.log('query',query)
+
+      // this.$emit('setFilter', query)
+      this.$store.dispatch({ type: "setFilterBy", filterBy: query });
+    },
   },
+
   created() {
 
 
@@ -86,6 +102,14 @@ export default {
   destroyed() {
 
     window.removeEventListener("scroll", this.handleScroll2);
+  },
+   watch: {
+    '$route.query.category'() {
+      this.setFilter()
+    },
+    '$route.query.title'() {
+      this.setFilter()
+    },
   },
 
 }
@@ -124,8 +148,7 @@ export default {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    border-top: 1px solid rgb(202, 202, 202);
-     border-bottom: 1px solid rgb(202, 202, 202);
+   
 
 }
 .displaySearch{

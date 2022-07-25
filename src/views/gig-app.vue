@@ -18,7 +18,7 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
-    this.headercategory = this.$route.query.category
+    // this.headercategory = this.$route.query.category
   },
   computed: {
     gigs() {

@@ -7,7 +7,7 @@
       <h1> services for your business</h1>
       <div class="search-input">
          <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
-         <input class="input" type="text" placeholder='Try "building mobile app"'>
+         <input @change="setTitle" class="input" type="text" placeholder='Try "building mobile app"'>
          <button class="button">Search</button>
       </div>
 
@@ -165,7 +165,8 @@ export default {
    },
    data() {
       return {
-         display5: false,
+        
+         // display5: false,
          displayVid: false,
          pageIdx: 0,
          cardsNumInPage: 5,
@@ -193,6 +194,30 @@ export default {
       window.removeEventListener("resize", this.myEventHandler);
    },
    methods: {
+       async setTitle(e) {
+      // await this.$route.query.category
+      // console.log('ff', this.$route.query.category)
+
+      // this.$emit('setFilter', {
+      //   ...this.filterBy,
+      //   category: this.$route.query.category,
+
+      // })
+       this.$router.push({ path: '/gig',query: { title: e.target.value } })
+    
+    },
+   //  async setTitleFilter() {
+   //    await this.$route.query.category
+   //    this.$router.push({ path: '/gig',query: { title: this.filterBy.title, category: this.$route.query.category} })
+   //    // await this.$route.query.title
+   //    console.log('ffd', this.$route.query)
+
+   //    this.$emit('setFilter', {
+   //      // ...this.filterBy,
+   //      title: this.$route.query.title,
+   //      category: this.$route.query.category,
+   //    })
+   //  },
       myEventHandler(e) {
          if (e.target.innerWidth < 650) { this.cardsNumInPage = 1 } else if
             (e.target.innerWidth < 900) { this.cardsNumInPage = 2 } else if
@@ -229,9 +254,9 @@ export default {
       openVidModal() {
          this.displayVid = !this.displayVid
       },
-      async moveToExploreFilter(filtercategory) {
+       moveToExploreFilter(filtercategory) {
          this.$router.push({ path: '/gig', query: { category: filtercategory } })
-         await this.$router.isReady()
+         // await this.$router.isReady()
          // this.$router.push(`/user`)
 
          // this.$router.push(`/gig?category=${filtercategory}`)
@@ -240,16 +265,14 @@ export default {
    },
 
    unmounted() { },
-};
+  
+}
 
+
+
+ 
 </script>
 <style>
-.display5 {
-   display: none;
-}
 
-.display1 {
-   display: block;
-}
 </style>
 
