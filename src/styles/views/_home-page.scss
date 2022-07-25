@@ -47,7 +47,7 @@
 
 // position: relative; top: -150px; left: 9px;
 // width:1730px; height: 680px; position: relative; top: -100px; left: -100px;
-#mydiv{ animation: changeBg 20s infinite; width:auto; height: rem(700px); position: relative; top: -100px;   margin: 0px; background-size: cover; display: flex; justify-content: flex-end;}
+#mydiv{ animation: changeBg 20s infinite; width:auto; height: rem(700px); position: relative; top: -100px;   margin: 0px; background-size: cover; display: flex; justify-content: flex-end; z-index: 1;}
 @keyframes changeBg{
    0%,100%  {background-image: url("https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png");}
    20% {background-image: url("https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png") ;}
@@ -130,6 +130,29 @@
             cursor: pointer;
         }
     }
+    .popular-searches{
+        color: #fff;
+        font-size: 14px;
+        font-family:  Helvetica, sans-serif;
+        margin-top: 20px;
+        font-weight: 600;
+        button{
+            background-color: #1daf6b00;
+            color: #fff;
+            border: 1.5px solid white;
+            border-radius: 15px;
+            padding: 5px 10px 5px 10px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+        button:hover{
+            color: #62646a;;
+            background-color: #fff;
+
+        }
+
+    }
+
 }
 
 .media{
@@ -249,12 +272,14 @@
 }
 
 .intro{
+    // width: 100%;
+    background-color: #e7f6ef;
     .list-img-container{
-         width: 100%;
+        //  width: 100%;
         position: relative;
-        display: grid;
-        grid-template-columns: 1fr  2.5fr 2.5fr 1fr;
-        background-color: #e7f6ef;
+        display: flex;
+       
+        
         font-family: Helvetica, sans-serif;
         margin-top: rem(100px);
         
@@ -266,8 +291,10 @@
     // font-family: Helvetica, sans-serif;
     // margin-top: rem(100px);
     .check-list{
-        grid-column: 2;
-        width: 80%;
+        margin-top: rem(70px);
+      
+        width: 50%;
+         padding-right:rem(80px);
         // background-color: #1daf6b;
         // margin: rem(20px);
         // margin: 0px rem(400px) 0px 8px;
@@ -291,11 +318,15 @@
     }
     
     .img-container{
-        grid-column: 3;
-        width: 100%;
+        // grid-column: 3;
+        position: relative;
+        right: 0;
+        display: flex;
+        justify-self: end;
+        width: 50%;
         height: auto;
         border:0;
-        margin-right:rem(20px);
+       
         cursor: pointer;
         img{
             width: 100%;
@@ -353,23 +384,92 @@
     }
 }
 
+// .founders{
+//     display: flex;
+//     .img{
+//         border-radius: 4px;
+//         margin-right: rem(20px);
+//         // min-width: rem(245px);
+//         // height: rem(355px);
+//         width: 40%;
+//         height: auto;
+//         background-repeat: no-repeat;
+//         background-size: cover;
+//         cursor: pointer;
+//         background-image:url("https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg");
+//     }
+//     .description{
+//         width: 60%;
+//     }
+
+// }
 .founders{
+    margin-top: rem(100px);
     display: flex;
-    .img{
-        border-radius: 4px;
-        margin-right: rem(20px);
-        // min-width: rem(245px);
-        // height: rem(355px);
-        width: 40%;
+    margin-bottom:  rem(100px);
+  
+    img{
+        width: 40.5%;
         height: auto;
-        background-repeat: no-repeat;
-        background-size: cover;
-        cursor: pointer;
-        background-image:url("https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg");
+        border-radius: 4px;
+
     }
     .description{
-        width: 60%;
+        width: 100%;
+        // justify-self: end;
+        padding: 0 0 0 rem(76px);
+        
+       p{
+        display: flex;
+
+        font-family:  Helvetica, sans-serif;
+        color: #62646a;
+        font-size: rem(21px);
+        line-height: 30px;
+        .company-logo{
+            width: rem(120px);
+            align-self: center;
+        }
+
+       }
+        h3{
+            font-family: 'Abhaya Libre', serif;
+            font-weight: 500;
+            font-style: oblique;
+            color: #336133;
+            font-size: rem(34px);
+            line-height: 47px;
+        }
+        
     }
+    button{
+        height: rem(50px);
+        width: rem(50px);
+        border-radius: 50%;
+        // position: relative;
+        align-self: center;
+        border: none;
+        background-color: #ffffff;
+        z-index: 90;
+        position: absolute;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+        border: 0;
+        font-size: rem(16px);
+        line-height: 100%;
+        cursor: pointer;
+    
+
+    }
+    .btn-left{
+        left: rem(70px);
+
+      
+    }
+    .btn-right{
+        right: rem(80px);
+       
+    }
+
 
 }
 

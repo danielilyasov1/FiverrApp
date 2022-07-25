@@ -1,8 +1,8 @@
 <template>
-  <section class="main-layout">
+   
+  <section>
     <app-header
       :class="[altBackground ? 'header-red' : 'header-black', altBackground && isHeaderWhite ? 'bg-white' : '']" />
-
     <router-view />
     <app-footer />
   </section>
@@ -57,6 +57,25 @@ export default {
 };
 </script>
 <style>
+
+.header-black {
+    background-color: rgb(255, 255, 255);
+   
+}
+.header-red {
+    background-color: rgba(246, 8, 8, 0);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    color: rgb(255, 255, 255);
+}
+.bg-white{
+    background-color: rgb(255, 255, 255);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    
+}
 </style>
 
 

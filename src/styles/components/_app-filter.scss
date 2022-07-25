@@ -3,7 +3,6 @@
     .filter-container{
         display: flex;
         height: rem(42px);
-        // width: rem(681px);
         align-items: center;
         border-radius: rem(5px);
         
@@ -16,7 +15,7 @@
             background-color: rgb(255, 255, 255);
             border: 1px solid rgba(172, 172, 172, 0.865);
             height: 100%;
-            width: em(581px);
+            width: rem(400px);
             border-radius: rem(5px) 0 0  rem(5px);
                                                                      
             font-size: 17px;

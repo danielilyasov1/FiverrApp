@@ -1,8 +1,7 @@
 <template>
 
-   <div id='mydiv' class="full"></div>
-
-   <main class="home-page">
+<div id='mydiv' ></div>
+   <main class="home-page main-layout" >
 
       <h1>Find the perfect <span> &nbsp; freelance</span> </h1>
       <h1> services for your business</h1>
@@ -10,15 +9,22 @@
       <div class="search-input">
          <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
          <input class="input" type="text" placeholder='Try "building mobile app"'>
-
          <button class="button">Search</button>
       </div>
 
       <!-- <app-filter to="/app-filter" class="main-filter"  @setFilter="setFilter"></app-filter> -->
+
+       <div class="popular-searches">
+         Popular: 
+         <button  @click="moveToExploreFilter('Wordpress')">WordPress</button>
+         <button @click="moveToExploreFilter('Logo')">Logo Design</button>
+         <button @click="moveToExploreFilter('VideoExplainer')">Video Explainer</button>
+         <button @click="moveToExploreFilter('programming')">programming</button>
+       </div>
    </main>
 
 
-   <div class="media full">
+   <div class="media ">
       <div class="imgs">
          <div class="trusted">Trusted By:</div>
          <img src="../styles/imgs/Facebook.png" alt="">
@@ -30,9 +36,9 @@
    </div>
 
 
-   <h1 class="gallery-title">Popular professional services</h1>
+   <h1 class="gallery-title main-layout">Popular professional services</h1>
 
-   <div class="gallery">
+   <div class="gallery main-layout">
       <button class="btn-left" @click="onSetPages(-1)"><i class="fa-solid fa-angle-left"></i></button>
 
       <div v-for="categoryCard in this.cardsToDisplay[pageIdx]" :key="categoryCard">
@@ -47,9 +53,9 @@
    </div>
 
 
-   <div class="intro full ">
-      <div class="list-img-container">
-         <div class="check-list">
+   <div class="intro ">
+      <div class="list-img-container  main-layout">
+         <div class="check-list ">
             <h2>A whole world of freelance talent at your fingertips </h2>
             <h6>
                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +147,7 @@
    </div>
 
 
-
+<!-- 
    <div class="founders">
       <div class="img"></div>
       <div class="description">
@@ -150,6 +156,18 @@
             working with a human right next to you versus being across thr world."</h3>
 
       </div>
+   </div> -->
+   
+   <div class="founders main-layout">
+       <button class="btn-left"><i class="fa-solid fa-angle-left"></i></button>
+      <!-- <div class="img"></div> -->
+      <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg" alt="">
+      <div class="description">
+         <p>Brighid Gannon (DNP,PMHNP-BC),Co-Founder | <img class="company-logo" src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lavender-logo-x2.89c5e2e.png" alt=""></p>
+         <h3>"We used Fiverr for SEO, our logo, website, copy, animated videos- literally everything. It was like
+            working with a human right next to you versus being across thr world."</h3>
+      </div>
+          <button class="btn-right" ><i class="fa-solid fa-angle-right"></i></button>
    </div>
 
 
