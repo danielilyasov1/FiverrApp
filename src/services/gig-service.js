@@ -137,21 +137,21 @@ function _createGigs() {
           avgResponceTime: '2 hours',
           lastDelivery: 'about 3 hours',
           about: `
-            Hello! My name is VD. 
+          Hello! My name is VD. 
 
-            I am a connoisseur of art and music.
+          I am a connoisseur of art and music. 
 
-            I love being around nature and my pets. 
+          I love being around nature and my pets. 
 
-            I have a team of professional graphic designers with an 
-            experience of 8+ years. 
+          I have a team of professional graphic designers with an experience of 
+          8+ years. 
 
-            We specialize in logo designing. 
-            
-            We're available exclusively on fiverr to rock your world 
-            with our designing skills.
+          We specialize in logo designing. 
+          
+          We're available exclusively on fiverr to rock your world with our designing 
+          skills.
 
-            Come and experience it for yourself!`,
+          Come and experience it for yourself!`,
         },
         daysToMake: 3,
         imgs: [
@@ -164,9 +164,9 @@ function _createGigs() {
         description: `
         hi welcome to my gig..
 
-        If you are looking for an amazing custom logo design with vintage, 
-        classic, retro, engraving style, hand drawn style for your brand 
-        project or business then I am ready to help you with ORIGINAL work.
+        If you are looking for an amazing custom logo design with vintage, classic, retro, 
+        engraving style, hand drawn style for your brand project or business then I am ready 
+        to help you with ORIGINAL work.
         
         - My work is always ORIGINAL!
         - Don't use stock art or templates!
@@ -210,13 +210,13 @@ function _createGigs() {
 
             I love being around nature and my pets. 
 
-            I have a team of professional graphic designers with an 
-            experience of 8+ years. 
+            I have a team of professional graphic designers with an experience of 
+            8+ years. 
 
             We specialize in logo designing. 
             
-            We're available exclusively on fiverr to rock your world
-            with our designing skills.
+            We're available exclusively on fiverr to rock your world with our 
+            designing skills.
 
             Come and experience it for yourself!`,
         },
@@ -299,13 +299,13 @@ function _createGigs() {
 
             I love being around nature and my pets. 
 
-            I have a team of professional graphic designers with an 
-            experience of 8+ years. 
+            I have a team of professional graphic designers with an experience of 
+            8+ years. 
 
             We specialize in logo designing. 
             
-            We're available exclusively on fiverr to rock your world 
-            with our designing skills.
+            We're available exclusively on fiverr to rock your world with our 
+            designing skills.
 
             Come and experience it for yourself!`,
         },
