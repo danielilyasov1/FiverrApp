@@ -3,7 +3,7 @@
     <div class="order-box"  >
       <h1>Seller Details</h1>
       <div class="seller-detaile">
-        <img src="https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/123756949/original/485741b4d2dfd5727cde43edeae7946e1779d69d.jpg" alt="">
+        <img :src="gig.imgs[0]" alt="">
         <div class="rate">
           <div class="raters">
               <h3>{{gig.title}}</h3>
