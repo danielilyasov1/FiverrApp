@@ -93,7 +93,7 @@ import { userService } from '../services/user-service'
       return this.$store.getters.orders
   },
       totalPrice(){
-        return this.gig.price+this.gig.serviceFee
+        return (+this.gig.price + +this.gig.serviceFee).toFixed(2)
       },
         user() {
       return this.$store.getters.user
