@@ -221,7 +221,7 @@ function _createGigs() {
         _id: 'i102',
         category: 'Logo',
         serviceFee: 7.99,
-        title: 'I will design an outstanding logo',
+        title: 'I will do modern business logo design with copyrights',
         price: 15,
         owner: {
           _id: 'u101',
@@ -308,7 +308,7 @@ function _createGigs() {
         _id: 'i103',
         category: 'Logo',
         serviceFee: 7.99,
-        title: 'I will design unique modern versatile flat minimalist business logo',
+        title: 'I will design unique modern versatile minimalist business logo',
         price: 20,
         owner: {
           _id: 'u101',
@@ -324,8 +324,8 @@ function _createGigs() {
           about: `
           As a full time Graphic Designer, I'm offering my creative logo design services on 
           Fiverr. With over many years experience I can produce your logo in any style. I will 
-          always ensure you're 100% happy at every stage of the project to come up with an end 
-          product which will perfectly identify and represent your company.`,
+          always ensure you're 100% happy at every stage of the project to come up with an 
+          end product which will perfectly identify and represent your company.`,
         },
         daysToMake: 1,
         imgs: [
@@ -357,7 +357,7 @@ function _createGigs() {
         `,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more: '2 logo design: Includes a JPG + PNG',
+        more: '1 Basic Logo Design Concept (NO MASCOTS) + Jpeg Image + Png Image + Unlimited Revisions',
         orderFeats: [
           '2 concept included',
           'Logo transparency',
