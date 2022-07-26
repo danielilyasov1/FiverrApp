@@ -39,6 +39,8 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
+    this.$store.dispatch({ type: 'loadReviews' })
+    
     window.addEventListener("scroll", this.handleScroll)
   },
   destroyed() {
