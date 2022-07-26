@@ -4,13 +4,11 @@ export default {
   state: {
     gigs: [],
     filterBy: {},
-   
   },
   getters: {
     gigs({ gigs }) {
       return gigs
     },
-   
   },
   mutations: {
     setGigs(state, { gigs }) {
@@ -27,14 +25,15 @@ export default {
         commit({ type: 'setGigs', gigs })
       })
     },
-    
-    setFilterBy({ commit }, { filterBy }) {
-      console.log('ueu',filterBy)
-      gigService.query(filterBy)
-      .then((gigs) => {
-        commit({ type: 'setGigs', gigs })
-      })
+
+    setFilterBy({ commit, dispatch }, { filterBy }) {
+      console.log('ueu', filterBy) //{10,50}
+      commit({ type: 'setFilter', filterBy })
+      dispatch({ type: 'loadGigs' })
+      // gigService.query(filterBy)
+      // .then((gigs) => {
+      //   commit({ type: 'setGigs', gigs })
+      // })
     },
   },
-
 }
