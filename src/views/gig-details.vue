@@ -81,6 +81,9 @@
       </footer>
     </div>
   </section>
+
+
+  <pre>hiiiiiiiiii{{reviews}}</pre>
 </template>
 
 <script>
@@ -96,11 +99,17 @@ export default {
     }
   },
   async created() {
+    this.$store.dispatch({ type: 'loadReviews' })
+
+    
     const { gigId } = this.$route.params
     this.gig = await gigService.getById(gigId)
-    console.log('gig s only.\n✔ 100% ')
+    
   },
   computed: {
+    reviews() {
+      return this.$store.getters.reviews
+    },
   },
   methods: {
     createOrder() {
