@@ -123,6 +123,7 @@ function _createGigs() {
       {
         _id: 'i101',
         category: 'Logo',
+        serviceFee: '0.80',
         title: 'I will design 3 modern minimalist logo design',
         price: 10,
         owner: {
@@ -198,6 +199,7 @@ function _createGigs() {
       {
         _id: 'i102',
         category: 'Logo',
+        serviceFee: '7.99',
         title: 'I will design an outstanding logo',
         price: 15,
         owner: {
@@ -284,6 +286,7 @@ function _createGigs() {
       {
         _id: 'i103',
         category: 'Logo',
+        serviceFee: '7.99',
         title: 'I will design unique modern versatile flat minimalist business logo',
         price: 20,
         owner: {
@@ -344,6 +347,7 @@ function _createGigs() {
       {
         _id: 'i104',
         category: 'Wordpress',
+        serviceFee: '3.99',
         title: 'I will fix complex wordpress issues, fix wordpress errors, fix bug',
         price: 10,
         owner: {
@@ -425,6 +429,7 @@ function _createGigs() {
       {
         _id: 'i105',
         category: 'Wordpress',
+        serviceFee: '5.99',
         title: 'I will do wordpress malware removal within 1hour',
         price: 50,
         owner: {
@@ -505,6 +510,7 @@ function _createGigs() {
       {
         _id: 'i107',
         category: 'Programming',
+        serviceFee: '1.99',
         title: 'I will create a useful windows program',
         price: 164,
         owner: {
@@ -586,6 +592,7 @@ function _createGigs() {
       {
         _id: 'i108',
         category: 'Illustration',
+        serviceFee: '0.99',
         title: 'I will draw, modern, flat illustrations, for your business',
         price: 34,
         owner: {

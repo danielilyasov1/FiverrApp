@@ -13,8 +13,8 @@ export default {
     setOrders(state, { orders }) {
         state.orders = orders
     },
-    addOrder(state, { order }){
-      state.orders.unshift(order)
+    addOrder(state, { newOrder }){
+      state.orders.unshift(newOrder)
     }
   },
   actions: {
@@ -27,11 +27,12 @@ export default {
         commit({ type: 'setOrders', orders })
       })
     },
-    addOrder({ commit }, { order }){
+    addOrder({ commit }, { newOrder }){
+      console.log('eeeeee',newOrder)
       orderService
-      .saveOrder(order)
+      .saveOrder(newOrder)
       .then((savedOrder) => {
-        commit({ type: 'addOrder' , order: savedOrder })
+        commit({ type: 'addOrder' , newOrder: savedOrder })
         return savedOrder
       })
     }

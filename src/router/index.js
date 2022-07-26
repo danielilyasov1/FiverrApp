@@ -4,7 +4,8 @@ import about from "../views/about.vue"
 import gigApp from "../views/gig-app.vue"
 import gigDetails from "../views/gig-details.vue"
 import userDetails from "../views/user-details.vue"
-import orderDetails from "../views/order-details.vue"
+import checkoutDetails from "../views/checkout-details.vue"
+import dashboard from "../views/dashboard.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,19 +31,23 @@ const router = createRouter({
       component: about,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: about,
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard,
     },
+   
+
+
+
     // {
     //   path: '/user',
     //   name: 'user-details',
     //   component: userDetails
     // },
     {
-      path: '/order',
-      name: 'order-details',
-      component: orderDetails
+      path: '/checkout/:gigId',
+      name: 'checkout-details',
+      component: checkoutDetails
     },
 
   ]

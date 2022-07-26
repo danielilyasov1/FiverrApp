@@ -113,24 +113,25 @@ export default {
   },
   methods: {
     createOrder() {
-      const newOrder = {
+      // const newOrder = {
 
-        "_id": "o1225",
-        "createdAt": 9898989,
-        "buyer": "mini-user",
-        "seller": "mini-user",
-        "gig": {
-          "name": "DDDDDDDDD",
-          "price": 20
-        },
-        "status": "pending"
-      }
+      //   "_id": "o1225",
+      //   "createdAt": 9898989,
+      //   "buyer": "mini-user",
+      //   "seller": "mini-user",
+      //   "gig": {
+      //     "name": "DDDDDDDDD",
+      //     "price": 20
+      //   },
+      //   "status": "pending"
+      // }
 
-      this.$store.dispatch({ type: 'addOrder', order: newOrder })
+      // this.$store.dispatch({ type: 'addOrder', order: newOrder })
 
-      console.log('order')
+      // console.log('order')
       // this.$router.push(`/user`)
-      this.$router.push(`/order`)
+      this.$router.push(`/checkout/${this.gig._id}`)
+     
     },
 
   },

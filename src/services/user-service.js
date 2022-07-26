@@ -5,21 +5,16 @@ import { utilService } from './util-service.js'
 export const userService = {
     query,
     // getEmptyOrder
-    saveOrder
+    // saveOrder
    
 }
 const KEY='users_db'
 
 _createLoggedInUser()
 
-async function saveOrder(order) {
-  console.log('order', order)
- 
-    
-    const res = await storageService.post(KEY, order)
-    return res
-  
-}
+
+
+
 
 
 // function getEmptyOrder() {

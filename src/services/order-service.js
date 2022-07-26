@@ -10,13 +10,12 @@ export const orderService = {
 }
 const KEY='orders_db'
 
+_createOrders()
 
 async function saveOrder(order) {
   console.log('order', order)
- 
-    
-    const res = await storageService.post(KEY, order)
-    return res
+  const res = await storageService.post(KEY, order)
+  return res
   
 }
 
@@ -39,8 +38,7 @@ async function saveOrder(order) {
   async function query() {
     try {
        
-      const orders = await storageService.queryOrder(KEY)
-      console.log('orders',orders )
+      const orders = await storageService.query(KEY)
       return Promise.resolve(orders)
     } catch (err) {
       console.error(err)
@@ -49,28 +47,22 @@ async function saveOrder(order) {
 
   
 function _createOrders() {
-  let orders = utilService.loadFromStorage(KEY)
-  if (!orders || !orders.length) {
-    orders = [
+  let orders = utilService.loadFromStorage(KEY) || []
+  console.log('firstOrders',orders)
       
-        {
-            "_id": "o1225",
-            "createdAt": 9898989,
-            "buyer": "mini-user",
-            "seller": "mini-user",
-            "gig": {
-              "_id": "i101",
-              "name": "Design Logo",
-              "price": 20
-            },
-            "status": "pending"
-          }
-    
-    ]
-      
-      
-
-    utilService.saveToStorage(KEY, orders)
-  }
+  //       {
+  //           "_id": "o1225",
+  //           "createdAt": new Date(),
+  //           "buyer": "mini-user",
+  //           "seller": "mini-user",
+  //           "gig": {
+  //             "_id": "i101",
+  //             "name": "Design Logo",
+  //             "price": 20
+  //           },
+  //           "status": "pending"
+  //         }
+  //   utilService.saveToStorage(KEY, orders)
+  // }
   return orders
 }
