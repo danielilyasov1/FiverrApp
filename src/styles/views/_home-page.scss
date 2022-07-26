@@ -184,7 +184,7 @@
         border: none;
         background-color: #ffffff;
         z-index: 90;
-        position: absolute;
+        position: relative;
         box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
         border: 0;
         font-size: rem(16px);
@@ -193,15 +193,15 @@
     
 
     }
-    // .btn-left{
-    //     left: rem(70px);
+    .btn-left{
+        left: rem(25px);
 
       
-    // }
-    // .btn-right{
-    //     right: rem(80px);
+    }
+    .btn-right{
+        right: rem(25px);
        
-    // }
+    }
 
 }
 
