@@ -47,12 +47,14 @@
 
 <script>
 import { gigService } from '../services/gig-service'
+import { orderService } from '../services/order-service'
 import { userService } from '../services/user-service'
 // import { orderService } from '../services/order-service'
    export default {
     data() {
       return {
        gig:null,
+       user:null,
       }
     },
   
@@ -60,31 +62,29 @@ import { userService } from '../services/user-service'
       this.$store.dispatch({ type: 'loadOrders' })
       const { gigId } = this.$route.params
       this.gig = await gigService.getById(gigId)
-    
-
+      this.user = await userService.query()
     
     },
     methods: {
-      addOrder(){
+      async addOrder(){
         console.log('new order')
-          const newOrder= {
-             
-           "_id":'',
-            "createdAt": new Date(),
-            "buyer": this.user,
-            "seller": this.gig.owner.fullname,
-            "gig": {
-              "_id": "i101",
-              "name": this.gig.title,
-              "price": 20
-            },
-            "status": "pending"
-          
-          }
-           this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
-          this.$router.push(`/dashboard`)
+          const newOrder= await orderService.getEmptyOrder()
+         
 
-          // this.$router.push(`/dashboard/${this.gig._id}`)
+          newOrder.buyer= this.user
+          newOrder.seller.fullname=this.gig.owner.fullname
+          newOrder.seller.imgUrl=this.gig.owner.imgUrl
+          newOrder.gig._id=this.gig._id
+          newOrder.gig.title=this.gig.title
+          newOrder.gig.price=this.gig.price
+          newOrder.gig.daysToMake=this.gig.daysToMake
+          console.log('newOrder',newOrder)
+
+        
+           this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
+          this.$router.push(`/dashboard/${this.user._id}`)
+
+          
       }
 
     },

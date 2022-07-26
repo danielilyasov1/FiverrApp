@@ -1,0 +1,22 @@
+.user-info{
+    .user-details{
+        width: 40%;
+    }
+   
+    .orders-container{
+        width: 60%;
+
+       
+        .order{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            img{
+                height: rem(100px);
+                width: rem(100px);
+            }
+          
+
+        }
+    }
+}

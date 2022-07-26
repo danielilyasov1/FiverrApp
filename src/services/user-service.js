@@ -12,26 +12,6 @@ const KEY='users_db'
 
 _createLoggedInUser()
 
-
-
-
-
-
-// function getEmptyOrder() {
-//     return Promise.resolve({
-//         _id: o1225,
-//         createdAt: 9898989,
-//         buyer: "mini-user",
-//         seller: mini-user,
-//         gig: {
-//           _id: i101,
-//           name: 'Design Logo',
-//           price: 20
-//         },
-//         status: 'pending'
-//     })
-// }
-
   async function query() {
     try {
        
@@ -43,24 +23,33 @@ _createLoggedInUser()
     }
   }
 
+  async function getById(gigId) {
+    try {
+      // const res = await axios.get(BASE_URL + gigId)
+      const gig = await storageService.get(KEY, gigId)
+      return gig
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   
 function _createLoggedInUser() {
   let loggedInUser = utilService.loadFromStorage(KEY)
   if (!loggedInUser || !loggedInUser.length) {
-    loggedInUser = [
-        
-    
+    loggedInUser = 
       {
-        "_id": "u101",
-        "fullname": "User 1",
-        "imgUrl": "/img/img1.jpg",
-        "username": "user1",
-        "password": "secret",
-        "level": "basic/premium",}
-    ]
+        _id: 'u101',
+        fullname: 'User 1',
+        imgUrl: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2019%2F11%2F17%2Fbooks%2Freview%2F17Salam%2FSalam1-superJumbo.jpg&imgrefurl=https%3A%2F%2Fwww.nytimes.com%2F2019%2F10%2F01%2Fbooks%2Freview%2Fthings-we-didnt-talk-about-when-i-was-a-girl-jeannie-vanasco.html&tbnid=e3a-KctQI9Qs2M&vet=12ahUKEwin9qbXrJf5AhUR_6QKHRPGC-cQMygNegUIARDRAQ..i&docid=XLRK46SlAOazFM&w=1752&h=1558&q=woman&ved=2ahUKEwin9qbXrJf5AhUR_6QKHRPGC-cQMygNegUIARDRAQ",
+        username: 'user1',
+        password: 'secret',
+        level: 'basic/premium'}
+    
 
     utilService.saveToStorage(KEY, loggedInUser)
   }
   return loggedInUser
 }
+  
 
