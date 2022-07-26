@@ -47,7 +47,11 @@
             // display: none;
             color:$clr1;
         }
+    }
 
+    .vueperslides__track-inner{
+        // width: rem(712px);
+        width: auto;
     }
 
     .vueperslide__content-wrapper{
@@ -95,8 +99,10 @@
         }
 
         h2{
+            padding-top: 15px;
             font-size: 20px;
             line-height: 28px;
+            margin-bottom: 2px;
         }
         
         // .limit{
@@ -168,6 +174,7 @@
         font-family: Helvetica, sans-serif;
         color: #74767e;
         margin-bottom: 60px;
+        height: fit-content;
 
         .user-state{
             flex-flow: row wrap;
@@ -192,47 +199,48 @@
         }
 
         pre{
-            display: flex;
-            justify-content: center;
-            margin-top: -15px;
-            margin-bottom: 4rem;
-            margin-left:-70px;
+            font-family: Helvetica, sans-serif;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left:-55px;
             padding: 0;
-            font-size: 1rem;
-            font-weight: 400;
-            color: $clr2;
-            letter-spacing: 2px;
-            display: block;
-            font-family:Helvetica, sans-serif;
-            text-overflow:inherit;
+            font-size: 16px;
+            color: $clr5;
+            display: inline-block;
             line-height: 24px;
+            letter-spacing: 1px;
         }
     }
 
 
 }
-
+//////////////////////////////////////////////side///////////////////////////////////////////
 .side-details{
     border: 1px solid #e4e5e7;
     padding: 2em 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     width: rem(413px);
-    height: 25rem;
-    margin-bottom: 40px;
-    // margin-left: 112px;
+    height: fit-content ;
+    // margin-bottom: 40px;
 
     .side-title {
         font-size: 1.1rem;
         font-weight: bold;
         width: 17.85rem;
         height: 3rem;
-
+        
     }
-
+    
     .side-subtitle {
-        font-size: 1rem;
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
         font-weight: 400;
         height: 4rem;
+        color: $clr5;
+        line-height: 19.6px;
     }
 
     .side-price {
@@ -289,13 +297,10 @@
         font-weight: 600;
         font-family: Helvetica, sans-serif;
         background-color: $clr3;
-        // margin-bottom: 0;
     }
 
     footer{
         margin-top: 2rem;
-        margin-bottom: 2rem;
-        
-       display: block;
+        display: block;
     }
 }
