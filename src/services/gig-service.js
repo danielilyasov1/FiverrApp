@@ -143,7 +143,6 @@ function _createGigs() {
       {
         _id: 'i101',
         category: 'Logo',
-        serviceFee: 0.80,
         title: 'I will design 3 modern minimalist logo design',
         price: 10,
         owner: {
@@ -218,7 +217,6 @@ function _createGigs() {
       {
         _id: 'i102',
         category: 'Logo',
-        serviceFee: 7.99,
         title: 'I will do modern business logo design with copyrights',
         price: 15,
         owner: {
@@ -305,7 +303,6 @@ function _createGigs() {
       {
         _id: 'i103',
         category: 'Logo',
-        serviceFee: 7.99,
         title: 'I will design unique modern versatile minimalist business logo',
         price: 20,
         owner: {
@@ -366,7 +363,6 @@ function _createGigs() {
       {
         _id: 'i104',
         category: 'Wordpress',
-        serviceFee: 3.99,
         title: 'I will fix complex wordpress issues, fix wordpress errors, fix bug',
         price: 10,
         owner: {
@@ -445,7 +441,6 @@ function _createGigs() {
       {
         _id: 'i105',
         category: 'Wordpress',
-        serviceFee: 5.99,
         title: 'I will do wordpress malware removal within 1hour',
         price: 50,
         owner: {
@@ -519,7 +514,6 @@ function _createGigs() {
       {
         _id: 'i106',
         category: 'Wordpress',
-        serviceFee: 5.99,
         title: 'I will create, fix, customize, your wordpress website',
         price: 50,
         owner: {
@@ -606,7 +600,6 @@ function _createGigs() {
       {
         _id: 'i107',
         category: 'Programming',
-        serviceFee: 1.99,
         title: 'I will do c, python, java, web programming assignments, and tutor',
         price: 25,
         owner: {
@@ -671,7 +664,6 @@ function _createGigs() {
       {
         _id: 'i108',
         category: 'Programming',
-        serviceFee: 2.99,
         title: 'It includes desktop/web applications in Python with a thorough report.',
         price: 500,
         owner: {
@@ -739,7 +731,6 @@ function _createGigs() {
       {
         _id: 'i109',
         category: 'Programming',
-        serviceFee: 2.99,
         title: 'I will do r programming, data analysis and visualization',
         price: 80,
         owner: {
@@ -818,7 +809,6 @@ function _createGigs() {
       {
         _id: 'i110',
         category: 'Illustration',
-        serviceFee: 0.99,
         title: 'I will draw, modern, flat illustrations, for your business',
         price: 34,
         owner: {
@@ -898,7 +888,6 @@ function _createGigs() {
       {
         _id: 'i111',
         category: 'Illustration',
-        serviceFee: 2.99,
         title: 'I will create illustration in distressedunrest style using photoshop',
         price: 100,
         owner: {
@@ -959,7 +948,6 @@ function _createGigs() {
       {
         _id: 'i112',
         category: 'Illustration',
-        serviceFee: 3.99,
         title: 'I will create digital illustrations based on your request',
         price: 30,
         owner: {
@@ -1022,7 +1010,6 @@ function _createGigs() {
       {
         _id: 'i113',
         category: 'VoiceOver',
-        serviceFee: 3.99,
         title: 'I will record a youthful millennial american male voice over',
         price: 100,
         owner: {
@@ -1086,7 +1073,6 @@ function _createGigs() {
       {
         _id: 'i114',
         category: 'VoiceOver',
-        serviceFee: 3.99,
         title: 'I will record a professional american english female voice over',
         price: 50,
         owner: {
@@ -1155,7 +1141,6 @@ function _createGigs() {
       {
         _id: 'i115',
         category: 'VoiceOver',
-        serviceFee: 2.99,
         title: 'I will record professional animation or character voice over',
         price: 20,
         owner: {
@@ -1214,7 +1199,6 @@ function _createGigs() {
       {
         _id: 'i116',
         category: 'VideoExplainer',
-        serviceFee: 3.99,
         title: 'I will produce a professional explainer video with voiceover',
         price: 215,
         owner: {
@@ -1288,7 +1272,6 @@ function _createGigs() {
       {
         _id: 'i117',
         category: 'VideoExplainer',
-        serviceFee: 3.99,
         title: 'I will create an engaging brand explainer or commercial video ads',
         price: 60,
         owner: {
@@ -1381,7 +1364,6 @@ function _createGigs() {
       {
         _id: 'i118',
         category: 'VideoExplainer',
-        serviceFee: 3.99,
         title: 'I will create a professional 2d animated explainer video 24hours',
         price: 150,
         owner: {

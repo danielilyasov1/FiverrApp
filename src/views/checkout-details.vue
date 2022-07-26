@@ -11,7 +11,7 @@
               <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (730)</div>
           </div>
         </div>  
-              <h4>Price ${{gig.price}}</h4> 
+              <h4>Price $ {{gig.price}}</h4> 
       </div>  
     <hr>
       <div class="order-details-container">
@@ -28,8 +28,8 @@
       <div class="calc">
       <h1>Price summary</h1>
       <ul class="clean-list">
-        <li>Subtotal<span>${{gig.price}}</span></li>
-        <li>Service fee<span>${{gig.serviceFee}}</span></li>
+        <li>Subtotal<span>$ {{gig.price}}</span></li>
+        <li>Service fee<span>$ {{serviceFee}}</span></li>
       </ul>
       </div>
       <hr>
@@ -55,6 +55,7 @@ import { userService } from '../services/user-service'
       return {
        gig:null,
        user:null,
+       sFee:null,
       }
     },
   
@@ -94,12 +95,17 @@ import { userService } from '../services/user-service'
       return this.$store.getters.orders
   },
       totalPrice(){
-        return (+this.gig.price + +this.gig.serviceFee).toFixed(2)
+        return (+this.gig.price + +this.sFee).toFixed(2)
       },
         user() {
       return this.$store.getters.user
   
     },
+
+    serviceFee(){
+      this.sFee = this.gig.price * 0.03
+      return this.sFee
+    }
     },
     unmounted() {},
   }

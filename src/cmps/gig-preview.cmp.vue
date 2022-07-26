@@ -16,7 +16,7 @@
     <footer class="previw-footer flex">
       <p @click="test" :class="liked">&#10084;</p>
       <div class="flex price">
-        <small>STARTING AT<span>US${{ gig.price }}.99</span></small>
+        <small>STARTING AT<span>US${{ gig.price }}</span></small>
       </div>
     </footer>
   </section>
