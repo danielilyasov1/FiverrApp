@@ -1,4 +1,5 @@
 <template>
+<div class="user-info-container">
 <section class="user-info main-layout flex" v-if="orders">
 
     <div class="user-details" >
@@ -10,20 +11,24 @@
     <div class="orders-container ">
       <div  v-for="order in orders" :key="order._id">
           <div class="order">
-              <img :src="order.seller.imgUrl" alt="">
-                <div>{{order.seller.fullname}}</div>
+            <img class="gig-img" :src="order.gig.img" alt="">
+
+            <img class="seller-img" :src="order.seller.imgUrl" alt="">
+
+              <div>{{order.seller.fullname}}</div>
+
               <div>
-                 <p>Price</p>
-                <p> ${{order.gig.price}}</p>
+                 <p class="title">Price</p>
+                <p class="info"> ${{order.gig.price}}</p>
               </div>
         
               <div>
-                 <p>Delivery Time</p>
-                <p> ${{order.gig.daysToMake}}</p>
+                 <p class="title">Delivery Time</p>
+                <p class="info"> {{order.gig.daysToMake}}</p>
               </div>
               <div>
-                 <p>Issued At </p>
-                <p> ${{order.gig.createdAt}}</p>
+                 <p class="title">Issued At </p>
+                <p class="info"> ${{order.gig.createdAt}}</p>
               </div>
   
           </div>
@@ -37,6 +42,9 @@
  
 
 </section>
+
+</div>
+
     
 </template>
 

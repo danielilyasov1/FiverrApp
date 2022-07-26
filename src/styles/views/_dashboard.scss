@@ -1,22 +1,52 @@
-.user-info{
-    .user-details{
-        width: 40%;
-    }
-   
-    .orders-container{
-        width: 60%;
+.user-info-container{
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
 
+
+    .user-info{
+        margin-top: 100px;
+        .user-details{
+            width: 40%;
+        }
        
-        .order{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            img{
-                height: rem(100px);
-                width: rem(100px);
+        .orders-container{
+            margin-left: 100px;
+            width: 60%;
+            
+    
+           
+            .order{
+               
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .gig-img{
+                    height: rem(80px);
+                    width: auto;
+                }
+                .seller-img{
+                    height: rem(80px);
+                    width: rem(80px);
+                    border-radius: 50%;
+                    // margin-right: 50px;
+                }
+                div{
+                    // margin-right: 50px;
+                    
+                }
+                .title{
+                    color: #ABAEB6;
+    
+                }
+                .info{
+    
+                }
+              
+    
             }
-          
-
         }
     }
+
 }
+

@@ -76,6 +76,7 @@ import { userService } from '../services/user-service'
           newOrder.seller.fullname=this.gig.owner.fullname
           newOrder.seller.imgUrl=this.gig.owner.imgUrl
           newOrder.gig._id=this.gig._id
+          newOrder.gig.img=this.gig.imgs[0]
           newOrder.gig.title=this.gig.title
           newOrder.gig.price=this.gig.price
           newOrder.gig.daysToMake=this.gig.daysToMake
