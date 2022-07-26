@@ -21,10 +21,30 @@ const BASE_URL =
 
 async function query(filterBy) {
   try {
+    console.log('filterBy query', filterBy)
     // const entities= 'gigs'
 
     const gigs = await storageService.query(KEY)
+    if (filterBy.category && filterBy.priceBy) {
+      const { category, priceBy, title } = filterBy
+      const filterd = gigs.filter((gig) => {
+        if (title) {
+          return (
+            gig.category === category &&
+            gig.title.includes(title) &&
+            gig.price > priceBy.min &&
+            gig.price < priceBy.max
+          )
+        }
+        return (
+          gig.category === category &&
+          gig.price > priceBy.min &&
+          gig.price < priceBy.max
+        )
+      })
 
+      return Promise.resolve(filterd)
+    }
     const { title, category } = filterBy
     const regex = new RegExp(title, 'i')
     console.log('ata mefager')
@@ -123,16 +143,17 @@ function _createGigs() {
       {
         _id: 'i101',
         category: 'Logo',
-        serviceFee: '0.80',
+        serviceFee: 0.80,
         title: 'I will design 3 modern minimalist logo design',
         price: 10,
         owner: {
           _id: 'u101',
           fullname: 'logoflow',
-          imgUrl:'https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/72867198f897ad13715dc583607abd25-1646719437960/396247a2-16d7-4e0e-9496-fbb43f978f97.jpg',
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/72867198f897ad13715dc583607abd25-1646719437960/396247a2-16d7-4e0e-9496-fbb43f978f97.jpg',
           level: 'Level 2 Seller',
           rate: 4.9,
-          review:'32k',
+          review: '32k',
           loc: 'India',
           memberSince: 'Dec 2015',
           avgResponceTime: '2 hours',
@@ -150,13 +171,13 @@ function _createGigs() {
         },
         daysToMake: 3,
         imgs: [
-          "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/22527722/original/acb44ed3100eb7936b852c414f411b588ef2c17e/do-professional-and-unique-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_thumb_ver3,f_jpg/20220614/modern%20minimalist%20logo%20design%202_mto2tc.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/9e94e938bebe9403f4d16a4219ee46de-1658230277/80031_Dragon%20Master%20Clean_DV_05/do-professional-and-unique-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/421e5dd2e40f183670e933465e8df026-1658237798/80039_Knight%20and%20Pawn_Flat_HS_08/do-professional-and-unique-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/94dceb766d9675f17d52483556a18ad0-1656066728/79075_Sweet_sour_FLAT_KS_02/do-professional-and-unique-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/59eeea83ac86fa8affc7e9d36df281cb-1655190834/78626_Perseus%20Naturkosmetik_FLAT_DT_04/do-professional-and-unique-logo-design.jpg"
+          'https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/22527722/original/acb44ed3100eb7936b852c414f411b588ef2c17e/do-professional-and-unique-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_thumb_ver3,f_jpg/20220614/modern%20minimalist%20logo%20design%202_mto2tc.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/9e94e938bebe9403f4d16a4219ee46de-1658230277/80031_Dragon%20Master%20Clean_DV_05/do-professional-and-unique-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/421e5dd2e40f183670e933465e8df026-1658237798/80039_Knight%20and%20Pawn_Flat_HS_08/do-professional-and-unique-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/94dceb766d9675f17d52483556a18ad0-1656066728/79075_Sweet_sour_FLAT_KS_02/do-professional-and-unique-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/59eeea83ac86fa8affc7e9d36df281cb-1655190834/78626_Perseus%20Naturkosmetik_FLAT_DT_04/do-professional-and-unique-logo-design.jpg',
         ],
         description: `
         This Gig assures you for the logo designs with minimalism and smoothness
@@ -187,19 +208,19 @@ function _createGigs() {
         connected`,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more:'SILKY FLOW 3 LOGOS in JPG & PNG (transparent) + NO Mascots & Complex design',
+        more: 'SILKY FLOW 3 LOGOS in JPG & PNG (transparent) + NO Mascots & Complex design',
         orderFeats: [
           '3 concepts included',
           'Logo transparency',
           'Printable file',
           'Vector file',
-          'Source file'
+          'Source file',
         ],
       },
       {
         _id: 'i102',
         category: 'Logo',
-        serviceFee: '7.99',
+        serviceFee: 7.99,
         title: 'I will design an outstanding logo',
         price: 15,
         owner: {
@@ -209,7 +230,7 @@ function _createGigs() {
             'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg',
           level: 'Top Rated Seller',
           rate: 4,
-          review:'53k',
+          review: '53k',
           loc: 'Indonesia',
           memberSince: 'Oct 2012',
           avgResponceTime: '5 hours',
@@ -224,10 +245,10 @@ function _createGigs() {
         },
         daysToMake: 2,
         imgs: [
-          "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1094285/original/30f75e896954dc0ea9e28a87209a28053bcccc18/design-2-outstanding-logo.png",
-          "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/1094285/original/0149d53275d914f681e8685b9e6c263dcc4309ab/design-2-outstanding-logo.png",
-          "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20211214/logo-04_nxxckf.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/819a431f0c9f551ac9173310d0b8788c-1657824243/preview%20203/design-2-outstanding-logo.jpg"
+          'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/1094285/original/30f75e896954dc0ea9e28a87209a28053bcccc18/design-2-outstanding-logo.png',
+          'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/1094285/original/0149d53275d914f681e8685b9e6c263dcc4309ab/design-2-outstanding-logo.png',
+          'https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20211214/logo-04_nxxckf.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/819a431f0c9f551ac9173310d0b8788c-1657824243/preview%20203/design-2-outstanding-logo.jpg',
         ],
         description: `
 
@@ -274,7 +295,7 @@ function _createGigs() {
         `,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more:"Lite 2 logo options in JPG + PNG transparent + FREE vector source file in Ai",
+        more: 'Lite 2 logo options in JPG + PNG transparent + FREE vector source file in Ai',
         orderFeats: [
           '2 concept included',
           'Logo transparency',
@@ -286,14 +307,14 @@ function _createGigs() {
       {
         _id: 'i103',
         category: 'Logo',
-        serviceFee: '7.99',
+        serviceFee: 7.99,
         title: 'I will design unique modern versatile flat minimalist business logo',
         price: 20,
         owner: {
           _id: 'u101',
           fullname: 'muska_logo12',
           imgUrl:
-          "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/cd7df7ccbadfa2c438aec6863735113e-1620164071845/afde52c3-876d-463e-bf6e-4ee9f20578da.jpg"     ,     
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/cd7df7ccbadfa2c438aec6863735113e-1620164071845/afde52c3-876d-463e-bf6e-4ee9f20578da.jpg',
           level: 'Level 2 Seller',
           rate: 4.9,
           loc: 'Pakistan',
@@ -308,10 +329,10 @@ function _createGigs() {
         },
         daysToMake: 1,
         imgs: [
-          "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/205043129/original/3e1b7b521d2ac2bdd0e839888e1095fe3c3f4d66/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/4f9605173bed9a21001954d0113d914a-1658647699/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/36df9fbe656de3e335698cee5606c360-1658401602/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg",
-          "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/c6523fd4ae08dc7df9d4f340885816b2-1658405876/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg"
+          'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/205043129/original/3e1b7b521d2ac2bdd0e839888e1095fe3c3f4d66/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/4f9605173bed9a21001954d0113d914a-1658647699/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/36df9fbe656de3e335698cee5606c360-1658401602/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg',
+          'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/c6523fd4ae08dc7df9d4f340885816b2-1658405876/logo1/do-creative-unique-modern-versatile-minimalist-and-business-logo-design.jpg',
         ],
         description: `
         Do you want a helping hand for your new business or brand to stay creative? Or are you 
@@ -336,7 +357,7 @@ function _createGigs() {
         `,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more:'2 logo design: Includes a JPG + PNG',
+        more: '2 logo design: Includes a JPG + PNG',
         orderFeats: [
           '2 concept included',
           'Logo transparency',
@@ -347,13 +368,14 @@ function _createGigs() {
       {
         _id: 'i104',
         category: 'Wordpress',
-        serviceFee: '3.99',
+        serviceFee: 3.99,
         title: 'I will fix complex wordpress issues, fix wordpress errors, fix bug',
         price: 10,
         owner: {
           _id: 'u101',
           fullname: 'webexpert_0',
-          imgUrl:"https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/07d2f39e1708eaafeea368f0c7938a6b-1644941669596/29d2e723-3f60-47ef-b75a-a9537634e8b1.png",
+          imgUrl:
+            'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/07d2f39e1708eaafeea368f0c7938a6b-1644941669596/29d2e723-3f60-47ef-b75a-a9537634e8b1.png',
           level: 'Level 2 Seller',
           rate: 5,
           loc: 'Pakistan',
@@ -419,17 +441,13 @@ function _createGigs() {
         Looking forward to hearing from you. Thank you so much :)`,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more:'One small CSS task. (Don\'t Order me directly without discussing task. Otherwise Order will Cancel).',
-        orderFeats: [
-          '2 concepts included',
-          'Printable file',
-          '3D mockup',
-        ],
+        more: "One small CSS task. (Don't Order me directly without discussing task. Otherwise Order will Cancel).",
+        orderFeats: ['2 concepts included', 'Printable file', '3D mockup'],
       },
       {
         _id: 'i105',
         category: 'Wordpress',
-        serviceFee: '5.99',
+        serviceFee: 5.99,
         title: 'I will do wordpress malware removal within 1hour',
         price: 50,
         owner: {
@@ -498,19 +516,19 @@ function _createGigs() {
         `,
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: ['mini-user'],
-        more:"Basic WordPress installation + Theme installation + Setup theme demo + plugins installation.",
+        more: 'Basic WordPress installation + Theme installation + Setup theme demo + plugins installation.',
         orderFeats: [
           'Functional website',
           '1 page',
           'Design customization',
           '2 plugins/extension',
-          'Responsive design'
+          'Responsive design',
         ],
       },
       {
         _id: 'i107',
         category: 'Programming',
-        serviceFee: '1.99',
+        serviceFee: 1.99,
         title: 'I will create a useful windows program',
         price: 164,
         owner: {
@@ -592,7 +610,7 @@ function _createGigs() {
       {
         _id: 'i108',
         category: 'Illustration',
-        serviceFee: '0.99',
+        serviceFee: 0.99,
         title: 'I will draw, modern, flat illustrations, for your business',
         price: 34,
         owner: {
