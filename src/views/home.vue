@@ -39,7 +39,7 @@
 
    <div class="gallery main-layout">
       <button class="btn-left" @click="onSetPages(-1)"><i class="fa-solid fa-angle-left"></i></button>
-      <div v-for="categoryCard in this.cardsToDisplay[pageIdx]" :key="categoryCard">
+      <div  v-for="categoryCard in this.cardsToDisplay[pageIdx]" :key="categoryCard">
          <div class="option" :class="categoryCard.imgUrlClass"
             @click="moveToExploreFilter(categoryCard.categoryParams)">
             <p>{{ categoryCard.title }}</p>

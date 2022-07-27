@@ -145,7 +145,7 @@ export default {
 <style>
 .thumbnails {
   margin: auto;
-  max-width: 500px;
+  /* max-width: 500px; */
 }
 
 .thumbnails .vueperslide {

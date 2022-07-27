@@ -27,13 +27,13 @@ export default {
     return {};
   },
   created() {
-    this.$store.get
+    // this.$store.get
   },
   methods: {
     miniFilter(filterBy) {
       const { category, title } = this.$route.query
       const newFilter = { title: title || '', priceBy: { ...filterBy }, category }
-      console.log('newFilter', newFilter)
+      console.log('newFilterrrrrrrr', newFilter)
       this.$store.dispatch({ type: 'setFilterBy', filterBy: newFilter })
     }
   },

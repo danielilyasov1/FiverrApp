@@ -41,13 +41,40 @@
     }
 
     .vueperslides__arrows{
+      
         svg{
-            margin-top: -15px;
-            margin-left: -10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            font-size: 10px;
+           
+            
+            margin-top: -10px;
+            // margin-left: -10px;
             // display: none;
+            // color:pink;
             color:$clr1;
         }
     }
+    .gig-preview svg{
+        background-color: #d63a3a;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+    }
+
+    .vueperslides__arrow {
+        position: absolute;
+        svg{
+            // color: #1dbf73;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+        }
+    }
+    
 
     .vueperslides__track-inner{
         // width: rem(712px);
