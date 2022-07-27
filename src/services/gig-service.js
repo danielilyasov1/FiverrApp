@@ -147,10 +147,13 @@ function getLabels() {
   return labels
 }
 
+
+
 function _createGigs() {
   let gigs = utilService.loadFromStorage(KEY)
   if (!gigs || !gigs.length) {
-    gigs = [
+    gigs = 
+    [
       {
         _id: 'i101',
         category: 'Logo',
