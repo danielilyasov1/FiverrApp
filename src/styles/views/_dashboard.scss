@@ -1,5 +1,60 @@
+.dashboard-nav{
+    width: 100%;
+    position: absolute;
+    top: 78px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+
+  color: #74767e;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+   transition-duration: 0.4s;
+  transition-timing-function: ease-in;
+  margin: 2px;
+  border-top: 1px solid rgb(233, 233, 233);
+  border-bottom: 1px solid rgb(233, 233, 233);
+   
+        
+      .nav{
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .user-selles-btn{
+            color:rgb(27 212 169);
+            background-color: #abaeb600;
+            border: none;
+            text-decoration: underline;
+            font-weight: 500;
+  font-size: 16px;
+        }
+        
+     .options{
+        display: flex;
+        .opt:hover{
+            box-shadow: inset 0px -2px 0px 0px rgb(27 212 169);   
+        }
+        .opt{
+            padding: 10px;
+            display: flex;
+            position: relative;
+            cursor: pointer;
+            margin-right: 70px;
+        }
+
+     }
+        
+      
+
+      }
+   
+}
+
+
 .user-info-container{
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(231, 230, 230);
+    min-height: 100vh;
     height: 100%;
     margin-top: 40px;
     font-family: Helvetica, sans-serif;
@@ -56,11 +111,64 @@
           
             width: 76%;
           
+           
+            .sellers-orders-container{
+               
+                .no-orders{
+                  
+                    background-color: rgb(255, 255, 255);
+                    color: #74767e;
+                    font-weight: 400;
+                    font-size: 16px;
+                    font-family: Helvetica, sans-serif;
+                    border: 2px solid rgb(235, 232, 232);
+                    height: rem(38px);
+  
+                    line-height: 16px;
+                }
+
+
+                .no-orders-image-container{
+                    display: flex;
+                    justify-content: center;
+
+
+                    .no-orders-image{
+                        display: block;
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 50%;
+                        height: rem(115px);
+                        width: rem(115px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            height: rem(80px);
+                            width: rem(80px);
+    
+                        }
+                        p{
+                            color: #292929;
+                            font-weight: 600;
+                            font-size: 22px;
+                            font-family: Helvetica, sans-serif;
+    
+                        }
+                    }
+                }
+
+
+
+
+            }
+
+
+
             .order:hover{
                
-            box-shadow: inset 3px 0px 0px 0px rgb(27 212 169);
-        }
-        .order{
+                box-shadow: inset 3px 0px 0px 0px rgb(27 212 169);
+            }
+             .order{
                 width: 100%;
                 
                 background-color: white;

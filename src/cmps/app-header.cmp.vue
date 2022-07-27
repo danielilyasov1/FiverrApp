@@ -34,7 +34,7 @@
    
     
     <category-filter   :class="[isFilterDisplayed && altBackground ? 'displayFilter' : '', !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
-    !altBackground ? 'filter-category' : '']" />
+    !altBackground ? 'filter-category' : '', isHeaderDashboard? 'displayFilterNone':'']" />
    
   </header>
 
@@ -63,7 +63,13 @@ export default {
       const path = this.$route.path.split('/')
       // console.log('path',path)
       return path[path.length - 1].toLowerCase() === ''
-    }
+    },
+    isHeaderDashboard() {
+      const path = this.$route.path.split('/')
+      console.log('pathhhhhhhh',path.length - 2)
+      return path[path.length - 2].toLowerCase() === 'dashboard'
+    },
+
   },
 
   methods: {

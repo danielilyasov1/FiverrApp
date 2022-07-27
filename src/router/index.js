@@ -31,7 +31,7 @@ const router = createRouter({
       component: about,
     },
     {
-      path: '/dashboard/:userId',
+      path: "/dashboard/:userId",
       name: 'dashboard',
       component: dashboard,
     },

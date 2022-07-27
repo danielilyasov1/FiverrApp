@@ -62,10 +62,12 @@ import { userService } from '../services/user-service'
     },
   
    async created() {
+    //  this.$store.dispatch({ type: 'loadlogedInUser' })
       this.$store.dispatch({ type: 'loadOrders' })
       const { gigId } = this.$route.params
       this.gig = await gigService.getById(gigId)
-      this.user = await userService.query()
+      this.user =( await userService.query())[0]
+      console.log('this.userrrrrrrrrrrrr',this.user)
     
     },
     methods: {
@@ -74,7 +76,9 @@ import { userService } from '../services/user-service'
           const newOrder= await orderService.getEmptyOrder()
          
 
-          newOrder.buyer= this.user
+          newOrder.buyer.fullname= this.user.fullname
+          newOrder.buyer.imgUrl= this.user.imgUrl
+          newOrder.buyer.memberSince= this.user.memberSince
           newOrder.seller.fullname=this.gig.owner.fullname
           newOrder.seller.imgUrl=this.gig.owner.imgUrl
           newOrder.gig._id=this.gig._id
@@ -88,7 +92,7 @@ import { userService } from '../services/user-service'
            this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
           this.$router.push(`/dashboard/${this.user._id}`)
 
-          
+            // this.$router.push(`/gig/${this.gig._id}`)
       }
 
     },
@@ -99,10 +103,10 @@ import { userService } from '../services/user-service'
       totalPrice(){
         return (+this.gig.price + +this.sFee).toFixed(2)
       },
-        user() {
-      return this.$store.getters.user
+    //   user() {
+    //   return this.$store.getters.user
   
-    },
+    // },
 
     serviceFee(){
       this.sFee = this.gig.price * 0.03

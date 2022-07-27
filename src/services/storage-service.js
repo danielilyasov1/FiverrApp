@@ -27,7 +27,7 @@ function query(key) {
 }
 
 function get(entityType, entityId) {
-  console.log(entityId)
+  console.log(entityId,'kkkkkkkkkk')
   return query(entityType).then((entities) =>
     entities.find((entity) => entity._id === entityId)
   )

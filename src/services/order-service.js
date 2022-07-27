@@ -26,7 +26,11 @@ function getEmptyOrder() {
           
       _id: utilService.makeId(),
       createdAt: new Date(),
-      buyer: '',
+      buyer: {
+        imgUrl:'',
+        fullname:'',
+        memberSince:''
+      },
       seller: {
 
       },

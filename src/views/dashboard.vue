@@ -1,10 +1,25 @@
 <template>
+
+<div class="dashboard-nav" >
+  <div class="nav main-layout">
+
+    <div class="options">
+      <div class="opt"> Orders</div>
+      <div class="opt"> Notification</div>
+      <div class="opt"> Messages</div>
+    </div>
+
+       <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
+
+   </div>
+  </div>
+
 <div class="user-info-container">
 
 <section class="user-info main-layout flex" v-if="orders">
 
     <div class="user-details" >
-        <img src="orders[0].buyer.imgUrl" alt="">
+        <img :src="orders[0].buyer.imgUrl" alt="">
         <h2>{{orders[0].buyer.fullname}}</h2>
         <hr>
         <div class="member-Since">
@@ -13,17 +28,15 @@
          <h6>Member since</h6>
           </div>
        
-         <h6>5555</h6>
+         <h6>{{orders[0].buyer.memberSince}}</h6>
 
         </div>
 
     </div>
-<div>
 
-  
-</div>
+
     <div class="orders-container ">
-      <div  v-for="order in orders" :key="order._id">
+      <div v-if=" isbuyer"  v-for="order in orders" :key="order._id">
       <div>
         
       </div>
@@ -67,8 +80,23 @@
             
       </div>
 
+
+     <div v-if="!isbuyer" class="sellers-orders-container">
+     <div class="no-orders"> Adibirenshtock1@Gmail.Com's Orders - 0</div>
+
+
+<div class="no-orders-image-container">
+
+  <div class="no-orders-image">
+   <img src="../styles/imgs/inbox.png" alt="">
+  </div>
+   <p>No Orders Yet </p>
+</div>
+
+
     </div>
 
+    </div>
 
 
 
@@ -88,7 +116,8 @@
 
     data() {
       return {
-        // orders:null,
+        user:null,
+        isbuyer: true,
        
       }
     },
@@ -98,11 +127,21 @@
     // const { userId } = this.$route.params
     // this.user = await userService.getById(userId)
         await this.$store.dispatch({ type: 'loadOrders'})
+
+         const { userId } = this.$route.params
+         console.log('userId',this.$route.params)
+    this.user = await userService.getById(userId)
+    console.log('this.user',this.user)
     
     
     
     },
     methods: {
+      sellerBuyerToggle(){
+        this.isbuyer = !this.isbuyer
+        console.log('this.isbuyer',this.isbuyer)
+
+      },
 //        showTime(time) {
 //   var date = new Date(time)
 //   date = date.toString()

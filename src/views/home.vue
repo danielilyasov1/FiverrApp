@@ -254,12 +254,15 @@ export default {
       this.heroInterval=  setInterval(()=>{
          if(  this.heroeDetailsIdx===4 ) this.heroeDetailsIdx=-1
          this.heroeDetailsIdx++
-         console.log('this.heroeDetailsIdx',this.heroeDetailsIdx)  
+         // console.log('this.heroeDetailsIdx',this.heroeDetailsIdx)  
       }, 5000);
 
 
 
       window.addEventListener("resize", this.myEventHandler);
+
+   },
+   unmounted(){
 
    },
    destroyed() {
