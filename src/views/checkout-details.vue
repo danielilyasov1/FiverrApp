@@ -106,7 +106,7 @@ import { userService } from '../services/user-service'
 
     serviceFee(){
       this.sFee = this.gig.price * 0.03
-      return this.sFee
+      return this.sFee.toFixed(2)
     }
     },
     unmounted() {},
