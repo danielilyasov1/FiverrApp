@@ -1,35 +1,41 @@
-
+.hh{
+    font-size: 24px;
+}
 //ORDER-BOX
 .order-container {
-    margin-top: 20px;
+    margin-top: 60px;
+    width: rem(1304px);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 60px;
-    font-family: sans-serif;
+    font-family: Helvetica, sans-serif;
     
 
     .order-box {
         padding: 1em 1.5rem;
         width: fit-content;        
-        
+       .head{
+            margin-top: 0;
+       }
         img {
             width: 150px;
             height: 100px;
+            margin-top: -5px;
         }
         .seller-detaile{
-            height: 150px;
+            height: 125px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             align-items:flex-start;
             gap: 20px;
-            padding-bottom: 30px;
             padding-top: 0px;
             margin-top: 0%;
+           
             h3{
                 height: fit-content;
                 margin-top: 0px;
+                width: 350px;
             }
             h4{
                 height: fit-content;
@@ -46,16 +52,13 @@
 
              
             ul{
-                padding:20px;
+                padding:10px;
                 li {
-                    margin: 20px;
+                    // margin: 20px;
                     display: flex;
                     gap: 25px;
                     align-items: center;
-                    font-family:sans-serif;
-
-    
-
+                    font-family: Helvetica, sans-serif;
                 }
             } 
         }
@@ -66,24 +69,31 @@
 // CHECKOUT-BOX
 
 .chckout-box{
+    width: rem(413px);
+    height: fit-content;
     display:flex;
     flex-direction: column;
     position: sticky;
-    border: $borders1;
+    border: 1px solid #e4e5e7;
     border-radius: 5px;
-    gap:50px;
+    gap:20px;
     padding: 2em 1.5rem;
-    hr {
-        width: 100%;
-        color: $borders2;
+    color: $clr5;
+
+    h1{
+        margin: 0;
+        padding-bottom: 20px;
+    }
+    .thicker{
+        font-weight: bold;
     }
     ul {
         
         li{
-            padding:5px;
+            
+            padding: 10px 0;
             display: flex;
             justify-content:space-between;
-            gap: 250px;
             span {
                 display: flex;
                 justify-content: flex-end;
@@ -92,8 +102,13 @@
         }
 
     }
-
+    
    
 
     
+}
+
+hr {
+    width: 100%;
+    border-color: #e4e5e7;
 }

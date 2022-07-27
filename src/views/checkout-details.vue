@@ -1,13 +1,12 @@
 <template>
   <section class="order-container main-layout equal-padding"  v-if="gig">
     <div class="order-box"  >
-      <h1>Seller Details</h1>
+      <h1 class="head hh">Seller Details</h1>
       <div class="seller-detaile">
         <img :src="gig.imgs[0]" alt="">
         <div class="rate">
           <div class="raters">
               <h3>{{gig.title}}</h3>
-            
               <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (730)</div>
           </div>
         </div>  
@@ -15,13 +14,16 @@
       </div>  
     <hr>
       <div class="order-details-container">
-        <div class="head">
-      <h1>Orde Details</h1>
-        </div>
-        <ul class="clean-list" v-for="feat in gig.orderFeats" :key="feat">
-        <li><i class="checkMark">&#10003;</i>{{feat}}</li>
         
-        </ul>
+      <h1 class="hh">Order Details</h1>
+        
+        <ul class="order-features clean-list" v-for="feats in gig.orderFeats" :key="feats">
+        <li><i class="checkMark">
+          <svg width="16" height="16" viewBox="0 0 11 9" xmins="http://www.w3.org/2000/svg" fill="#1ea968">
+            <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+          </svg>
+        </i>{{ feats }}</li>
+      </ul>
       </div>
     </div>   
     <div class="chckout-box">
@@ -29,17 +31,17 @@
       <h1>Price summary</h1>
       <ul class="clean-list">
         <li>Subtotal<span>$ {{gig.price}}</span></li>
-        <li>Service fee<span>$ {{serviceFee}}</span></li>
+        <li>Service Fee<span>$ {{serviceFee}}</span></li>
       </ul>
       </div>
       <hr>
       <div class="total">
       <ul class="clean-list">
         <li class="thicker">Total<span>${{totalPrice}}</span></li>
-        <li>Delivery max<span>{{gig.daysToMake}} days</span></li>
+        <li>Delivery Time<span>{{gig.daysToMake}} days</span></li>
       </ul>
       </div>
-        <button @click="addOrder" class="checkout-btn">Checkout</button>
+        <button class="side-btn" @click="addOrder" >Checkout </button>
     </div>
   </section>
   

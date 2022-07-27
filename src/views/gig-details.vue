@@ -1,6 +1,11 @@
 <template >
   <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
+      <el-breadcrumb :separator-icon="ArrowRight">
+        <!-- <arrowRight/> -->
+        <el-breadcrumb-item class="text" :to="{ path: '/' }">Binder</el-breadcrumb-item>
+        <el-breadcrumb-item class="text" :to="{path:'/gig', query: { category: gig.category}}">{{gig.category}}</el-breadcrumb-item>
+      </el-breadcrumb>
       <h1>{{ gig.title }}</h1>
       <div class="owner-details">
         <img :src="gig.owner.imgUrl">
@@ -77,19 +82,21 @@
         </i>{{ feats }}</li>
       </ul>
       <footer>
-        <el-button class="side-btn" @click="createOrder" type="success">Continue ( US${{ gig.price }} ) </el-button>
+        <button class="side-btn" @click="createOrder" >Continue ( US${{ gig.price }} ) </button>
       </footer>
     </div>
   </section>
 
 
-  <pre>hiiiiiiiiii{{reviews}}</pre>
+  <!-- <pre>hiiiiiiiiii{{reviews}}</pre> -->
 </template>
 
 <script>
 import { gigService } from '../services/gig-service'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import arrowRight from '../cmps/arrow-right.cmp.vue'
+// import { ArrowRight } from '@element-plus/icons-vue'
 
 export default {
   name: 'gig-detail',
@@ -100,7 +107,6 @@ export default {
   },
   async created() {
     this.$store.dispatch({ type: 'loadReviews' })
-
     
     const { gigId } = this.$route.params
     this.gig = await gigService.getById(gigId)
@@ -138,6 +144,7 @@ export default {
   components: {
     VueperSlides,
     VueperSlide,
+    arrowRight
   },
 
 }
