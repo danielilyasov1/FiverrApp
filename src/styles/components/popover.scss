@@ -13,6 +13,7 @@
 .el-form-item{
     margin: 0;
 }
+
 .inputt{
     font-weight: bold;
     font-family:Helvetica, sans-serif;
@@ -36,3 +37,23 @@
     }
 }
 
+.el-radio-group{
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 6px 0;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 60px;
+    margin-left: 15px;
+}
+
+.el-radio__label{
+    font-weight: bolder;
+}
+
+.el-radio{
+    align-items:center;
+    color: #404145;
+    display: inline-flex;
+}

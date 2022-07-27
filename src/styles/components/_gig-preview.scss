@@ -38,23 +38,35 @@
         color: rgb(171, 15, 15);
     }
     
+    svg{
+        background-color: rgb(255, 255, 255);
+        color: #404145;
+        font-size: rem(8px);
+        width: 30px;
+        height: 30px;
+        font-weight: 900;
+        opacity: 1;
+    }
+    
+    .vueperslides__arrow--next{
+        right: 0;
+        padding: 0;
+        svg{
+            border-radius: 50% 0% 00% 50%;
+        }
+        
+    }
+    .vueperslides__arrow--prev{
+        left: 0;
+        padding: 0;
+        svg{
+            border-radius: 00% 50% 50% 0%;
+        }
+    }      
+                
     img {
         width: 100%;
         overflow: hidden;
-    }
-    
-    svg{
-     
-            margin-top: -15px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 50%;
-            color: #5d5d5d;
-            font-size: rem(8px);
-            width: 30px;
-            height: 30px;
-            font-weight: 900;
-            opacity: 1;
-        
     }
 
     .default{
@@ -141,8 +153,9 @@
         }
     }
 }
-      
-// .vueperslides_arrow{
+
+
+// .arrow{
 //     color: #0c870a;
 //     height: 10px;   
 // }
