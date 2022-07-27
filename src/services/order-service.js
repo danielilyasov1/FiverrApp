@@ -36,7 +36,7 @@ function getEmptyOrder() {
         price: '',
         daysToMake: '',
       },
-      status: 'pending',
+      status: 'Pending',
     })
 }
 

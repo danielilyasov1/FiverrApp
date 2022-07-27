@@ -4,8 +4,8 @@
 <section class="user-info main-layout flex" v-if="orders">
 
     <div class="user-details" >
-        <img src="orders[0].buyer.imgUrl" alt="">
-        <h2>{{orders[0].buyer.fullname}}</h2>
+        <!-- <img :src="orders.buyer.im/gUrl" alt=""> -->
+        <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
         <hr>
         <div class="member-Since">
           <div class="member">
@@ -30,7 +30,7 @@
           <div class="order">
             <div class="order-info">
 
-  <img class="gig-img" :src="order.gig.img" alt="">
+            <img class="gig-img" :src="order.gig.img" alt="">
 
             <img class="seller-img" :src="order.seller.imgUrl" alt="">
 
@@ -38,16 +38,16 @@
 
               <div>
                  <p class="title">Price</p>
-                <p class="info"> ${{order.gig.price}}</p>
+                <p class="info"> $ {{order.gig.price}}</p>
               </div>
         
               <div>
                  <p class="title">Delivery Time</p>
-                <p class="info"> {{order.gig.daysToMake}}</p>
+                <p class="info"> {{order.gig.daysToMake}} Days</p>
               </div>
-              <div>
+              <div class="issued">
                  <p class="title">Issued At </p>
-                <p class="info"> {{order.createdAt}}</p>
+                <p class="info">{{order.createdAt}}</p>
               </div>
             </div>
 
@@ -88,7 +88,7 @@
 
     data() {
       return {
-        // orders:null,
+        orders:null,
        
       }
     },
@@ -103,17 +103,7 @@
     
     },
     methods: {
-//        showTime(time) {
-//   var date = new Date(time)
-//   date = date.toString()
-//   //'Wed Jun 01 2022 15:10:52 GMT+0300 (Israel Daylight Time)'
-//   date = date.split(" ")
-//   //(9) ['Wed', 'Jun', '01', '2022', '15:10:52', 'GMT+0300', '(Israel', 'Daylight', 'Time)']
-//   date = date.splice(0, 5)
-//   //(5) ['Wed', 'Jun', '01', '2022', '15:10:52']
 
-//   return date
-// },
 //        showTime() {
 //   var date = new Date(time)
 //   date = date.toString()
@@ -130,11 +120,16 @@
 
     },
     computed: {
-
+      totalPrice(){
+        return (+this.gig.price + +this.sFee).toFixed(2)
+      },
       orders() {
-      return this.$store.getters.orders
-  },
-     
+        return this.$store.getters.orders
+      },
+      showTime(time){
+        console.log('this.order.createdAt',time)
+      }
+    
     },
     unmounted() {},
   }
