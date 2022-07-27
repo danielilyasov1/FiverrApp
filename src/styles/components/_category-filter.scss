@@ -13,9 +13,13 @@
         align-items: center;
         text-align: center;
         
-       
-    
+        .category:hover{
+            box-shadow: inset 0px -2px 0px 0px rgb(27 212 169);   
+        }
+        
+        
         .category{
+           
             padding: 10px;
             display: flex;
             position: relative;
