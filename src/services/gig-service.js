@@ -1,5 +1,7 @@
 import { storageService } from './storage-service.js'
 import { utilService } from './util-service.js'
+import { httpService } from './http-service'
+
 
 const KEY = 'gigs_db'
 const ENDPOINT = 'gig'
@@ -20,80 +22,71 @@ const BASE_URL =
     ? '/api/gig'
     : '//localhost:3030/api/gig'
 
-async function query(filterBy) {
-  try {
-   
-
-    const gigs = await storageService.query(KEY)
-    if (filterBy.category && filterBy.priceBy) {
-      const { category, priceBy, title } = filterBy
-      console.log('priceBy',priceBy)
-      const filterd = gigs.filter((gig) => {
-        if (title) {
-          return (
-            gig.category === category &&
-            gig.title.includes(title) &&
-            gig.price > priceBy.min &&
-            gig.price < priceBy.max
-          )
-        }
-        return (
-          gig.category === category &&
-          gig.price > priceBy.min &&
-          gig.price < priceBy.max
-        )
-      })
-
-      return Promise.resolve(filterd)
-    }
-    const { title, category ,priceBy} = filterBy
-    const regex = new RegExp(title, 'i')
-    console.log('ata mefager')
-    let filteredGigs
-
-    if (!category && !priceBy) {
-      filteredGigs = gigs.filter((gig) => regex.test(gig.title))
-                    
-      return Promise.resolve(filteredGigs)
-    }
-
-    if (!category) {
-      filteredGigs = gigs.filter((gig) => regex.test(gig.title))
-                    .filter((gig) => gig.price > priceBy.min && gig.price < priceBy.max)
-
-      return Promise.resolve(filteredGigs)
-    }
-
-    filteredGigs = gigs
-      .filter((gig) => regex.test(gig.title))
-      .filter((gig) => gig.category === category)
-      .filter((gig) => gig.price > priceBy.min && gig.price < priceBy.max)
-
-
-    return Promise.resolve(filteredGigs)
-  } catch (err) {
-    console.error(err)
-  }
+async function query(filterBy={}) {
+  return await httpService.get(ENDPOINT, filterBy)
 
   // try {
+  //   const gigs = await storageService.query(KEY)
+  //   if (filterBy.category && filterBy.priceBy) {
+  //     const { category, priceBy, title } = filterBy
+  //     console.log('priceBy',priceBy)
+  //     const filterd = gigs.filter((gig) => {
+  //       if (title) {
+  //         return (
+  //           gig.category === category &&
+  //           gig.title.includes(title) &&
+  //           gig.price > priceBy.min &&
+  //           gig.price < priceBy.max
+  //         )
+  //       }
+  //       return (
+  //         gig.category === category &&
+  //         gig.price > priceBy.min &&
+  //         gig.price < priceBy.max
+  //       )
+  //     })
 
-  //   // const res = await axios.get(BASE_URL, { params: filterBy })
-  //   const gigs = await storageService.query(filterBy)
-  //   // return res.data
-  //   return gigs
+  //     return Promise.resolve(filterd)
+  //   }
+  //   const { title, category ,priceBy} = filterBy
+  //   const regex = new RegExp(title, 'i')
+  //   console.log('ata mefager')
+  //   let filteredGigs
+
+  //   if (!category && !priceBy) {
+  //     filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+                    
+  //     return Promise.resolve(filteredGigs)
+  //   }
+
+  //   if (!category) {
+  //     filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+  //                   .filter((gig) => gig.price > priceBy.min && gig.price < priceBy.max)
+
+  //     return Promise.resolve(filteredGigs)
+  //   }
+
+  //   filteredGigs = gigs
+  //     .filter((gig) => regex.test(gig.title))
+  //     .filter((gig) => gig.category === category)
+  //     .filter((gig) => gig.price > priceBy.min && gig.price < priceBy.max)
+
+
+  //   return Promise.resolve(filteredGigs)
   // } catch (err) {
   //   console.error(err)
   // }
 
-  // return axios.get(BASE_URL, { params: filterBy }).then((res) => res.data)
-  // return storageService.query(TOY_KEY)
+
 }
 
 async function getById(gigId) {
   try {
     // const res = await axios.get(BASE_URL + gigId)
-    const gig = await storageService.get(KEY, gigId)
-    return gig
+    // const gig = await storageService.get(KEY, gigId)
+    // return gig
+    return await httpService.get(`${ENDPOINT}/${gigId}`)
+
   } catch (err) {
     console.error(err)
   }
@@ -104,9 +97,11 @@ async function getById(gigId) {
 
 async function remove(gigId) {
   try {
+    return await httpService.delete(`${ENDPOINT}/${gigId}`)
+
     // const res = await axios.delete(BASE_URL + gigId)
-    const res = await storageService.remove(KEY, gigId)
-    return res
+    // const res = await storageService.remove(KEY, gigId)
+    // return res
   } catch (err) {
     console.error(err)
   }
@@ -119,12 +114,15 @@ async function save(gig) {
   try {
     if (gig._id) {
       // const res = await axios.put(BASE_URL + gig._id, gig)
-      const res = await storageService.put(KEY, gig)
-      return res
+      // const res = await storageService.put(KEY, gig)
+      // return res
+      return await httpService.put(`${ENDPOINT}/${gig._id}`, gig)
+
     } else {
       // const res = await axios.post(BASE_URL, gig)
-      const res = await storageService.post(KEY, gig)
-      return res
+      // const res = await storageService.post(KEY, gig)
+      // return res
+      return await httpService.post(ENDPOINT, gig)
     }
   } catch (err) {
     console.error(err)
@@ -141,7 +139,31 @@ async function save(gig) {
 }
 
 function getEmptyGig() {
-  return {}
+  return Promise.resolve({
+    category: '',
+    title: '',
+    price: 0,
+    owner: {
+      _id: '',
+      fullname: '',
+      imgUrl:'',
+      level: 'Level 2 Seller',
+      rate: 1,
+      review: '',
+      loc: 'India',
+      memberSince: 'Dec 2015',
+      avgResponceTime: '2 hours',
+      lastDelivery: 'about 7 hours',
+      about: ``,
+    },
+    daysToMake: 3,
+    imgs: [],
+    description: ``,
+    tags: [],
+    likedByUsers: ['mini-user'],
+    more: '',
+    orderFeats: [],
+  },)
 }
 
 function getLabels() {
