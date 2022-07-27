@@ -141,7 +141,15 @@
         }
     }
 }
-      
+
+.vueperslides__arrow--next{
+    right: 0;
+    padding: 0;
+}
+.vueperslides__arrow--prev{
+    left: 0;
+    padding: 0;
+}
 // .vueperslides_arrow{
 //     color: #0c870a;
 //     height: 10px;   
