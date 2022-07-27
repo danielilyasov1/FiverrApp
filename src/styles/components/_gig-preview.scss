@@ -44,10 +44,17 @@
     }
     
     svg{
-        margin-top: -15px;
-        // margin-left: -10px;
-        // display: none;
-        // color:$clr1;
+     
+            margin-top: -15px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            color: #5d5d5d;
+            font-size: rem(8px);
+            width: 30px;
+            height: 30px;
+            font-weight: 900;
+            opacity: 1;
+        
     }
 
     .default{

@@ -21,12 +21,12 @@ const BASE_URL =
 
 async function query(filterBy) {
   try {
-    console.log('filterBy query', filterBy)
-    // const entities= 'gigs'
+   
 
     const gigs = await storageService.query(KEY)
     if (filterBy.category && filterBy.priceBy) {
       const { category, priceBy, title } = filterBy
+      console.log('priceBy',priceBy)
       const filterd = gigs.filter((gig) => {
         if (title) {
           return (

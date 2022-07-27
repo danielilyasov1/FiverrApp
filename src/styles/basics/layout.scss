@@ -1,8 +1,11 @@
 
 
 .main-layout {
-   margin-inline-start:$marginLayout;
-   margin-inline-end:$marginLayout;
+    max-width: 1400px;
+   margin-inline-start:auto;
+   margin-inline-end:auto;
+   padding-left: 32px;
+   padding-right: 32px;
 }
 .full{
     margin-inline-start:0;
