@@ -1,7 +1,30 @@
 <template>
 
-<div id='mydiv' ></div>
-   <main class="home-page main-layout" >
+<!-- <div id='mydiv' >
+
+
+   
+    
+</div> -->
+
+  <div class="heroDeats " v-for="(heroDeats, index) in heroesDetails" :key="heroDeats">
+      <div class="heroes" :class="[index !== heroeDetailsIdx ? 'displayHeroDeats': 'dontDisplayHeroDeats']">
+         <img class="home-hero-img" :src="heroDeats.imgUrl" alt="">
+
+         <div class="hero-detail-container main-layout">
+            <p>{{heroDeats.stars}}</p>
+            <p>{{heroDeats.details}}</p>
+
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+<div class="main-layout">
+ <main class="home-page " >
 
       <h1>Find the perfect <span> &nbsp; freelance</span> </h1>
       <h1> services for your business</h1>
@@ -10,6 +33,8 @@
          <input @change="setTitle" class="input" type="text" placeholder='Try "building mobile app"'>
          <button class="button">Search</button>
       </div>
+
+
 
       <!-- <app-filter to="/app-filter" class="main-filter"  @setFilter="setFilter"></app-filter> -->
 
@@ -21,6 +46,11 @@
          <button @click="moveToExploreFilter('programming')">programming</button>
        </div>
    </main>
+
+
+   
+</div>
+  
 
 
    <div class="media ">
@@ -165,6 +195,40 @@ export default {
    },
    data() {
       return {
+         heroInterval: null,
+         heroeDetailsIdx: 0,
+         heroesDetails: [
+            {
+               
+               stars: '⭐⭐⭐⭐⭐',
+               details: 'Moon, Marketing Export',
+               imgUrl: '/src/styles/imgs/fiverr1.png'
+            },
+            {
+                
+               stars: '',
+               details: 'Zack, Bar Owner',
+               imgUrl: '/src/styles/imgs/fiverr2.png'
+            },
+            {
+               
+               stars: '',
+               details: 'Rikita, Shoemaker and Designer',
+               imgUrl: '/src/styles/imgs/fiverr3.png'
+            },
+            {
+               stars: '⭐⭐⭐⭐⭐',
+               details: 'Gabrielle, Video Editor',
+               imgUrl: '/src/styles/imgs/fiverr4.png'
+            },
+            {
+              
+               stars: '',
+               details: 'Andrea, Fashion Designer',
+               imgUrl: '/src/styles/imgs/fiverr5.png'
+            },
+
+         ],
         
          // display5: false,
          displayVid: false,
@@ -187,10 +251,20 @@ export default {
 
    },
    created() {
+      this.heroInterval=  setInterval(()=>{
+         if(  this.heroeDetailsIdx===4 ) this.heroeDetailsIdx=-1
+         this.heroeDetailsIdx++
+         console.log('this.heroeDetailsIdx',this.heroeDetailsIdx)  
+      }, 5000);
+
+
+
       window.addEventListener("resize", this.myEventHandler);
 
    },
    destroyed() {
+      clearInterval(this.heroInterval)
+
       window.removeEventListener("resize", this.myEventHandler);
    },
    methods: {
@@ -273,6 +347,7 @@ export default {
  
 </script>
 <style>
+
 
 </style>
 
