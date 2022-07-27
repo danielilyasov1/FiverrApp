@@ -6,7 +6,7 @@ import { httpService } from './http-service'
 const KEY = 'gigs_db'
 const ENDPOINT = 'gig'
 
-_createGigs()
+// _createGigs()
 
 export const gigService = {
   query,
