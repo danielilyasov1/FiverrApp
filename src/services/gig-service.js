@@ -50,9 +50,9 @@ async function query(filterBy) {
     console.log('ata mefager')
     let filteredGigs
 
-    if (!priceBy) {
+    if (!category && !priceBy) {
       filteredGigs = gigs.filter((gig) => regex.test(gig.title))
-                    .filter((gig) => gig.category === category)
+                    
       return Promise.resolve(filteredGigs)
     }
 
