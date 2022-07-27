@@ -2,6 +2,7 @@ import { storageService } from './storage-service.js'
 import { utilService } from './util-service.js'
 
 const KEY = 'gigs_db'
+const ENDPOINT = 'gig'
 
 _createGigs()
 
