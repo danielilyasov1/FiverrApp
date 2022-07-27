@@ -48,7 +48,9 @@ button{
     background-color: transparent;
   }
 }
-
+.cb2{
+  margin-right: 55px;
+}
 .apllybtn{
   font-size: 16px;
   font-weight: 600;
@@ -61,20 +63,44 @@ button{
   &:hover{
     color: white;
     border: 2px solid white;
-    background-color: #1cad69;
+    background-color: $clr3;
   } 
 }
 
+.ab2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.el-button:focus{
+  background-color: transparent;
+  color: #222325;
+  border: 1px solid #dadbdd;
+}
+
+.el-button:active{
+  color: $clr3;
+  background-color: #e8faf4;
+  border: 1px solid $clr3;
+}
+
 .budgetbtn{
+  background-color: transparent;
   font-weight: 600;
   color: #222325;
   min-width: 50px;
   padding: 6px 12px;
   border-radius: 4px;
   border: 1px solid #dadbdd;
-
+  
   &:hover{
+    border: 1px solid #dadbdd;
     background-color: transparent;
-    // color: ;
+    color: #222325;
+    
+  }
+
+  &::after{
+    background-color: #1cad69;
   }
 }
