@@ -2,11 +2,11 @@
   <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
       <!-- <a class="text" :to="{ path: '/' }">Binder</a> -->
-      <el-breadcrumb separator-icon=">">
+      <!-- <el-breadcrumb :separator-icon="arrows">
         <el-breadcrumb-item class="text" :to="{ path: '/' }">Binder</el-breadcrumb-item>
         <el-breadcrumb-item class="text" :to="{ path: '/gig', query: { category: gig.category } }">{{ gig.category }}
         </el-breadcrumb-item>
-      </el-breadcrumb>
+      </el-breadcrumb> -->
       <h1>{{ gig.title }}</h1>
       <div class="owner-details">
         <img :src="gig.owner.imgUrl">

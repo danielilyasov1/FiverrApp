@@ -1,19 +1,19 @@
 <template>
-    <el-button ref="buttonRef" v-click-outside="onClickOutside">Budget</el-button>
+    <el-button class="budgetbtn" ref="buttonRef" v-click-outside="onClickOutside">Budget</el-button>
     <el-popover ref="popoverRef" :virtual-ref="buttonRef" width='325px' trigger="click" virtual-triggering>
         <el-form :inline="true" class="demo-form-inline">
             <div class="flex budgetInputs">
-            <el-form-item class="min">
-                MIN.<input width="110px" placeholder="Any" v-model.number="filterBy.min" />
+            <el-form-item class=" inputt min">
+                MIN.<input placeholder="Any" v-model.number="filterBy.min" /><i>$</i>
             </el-form-item>
-            <el-form-item class="max">
-                MAX. <input width="110px" placeholder="Any" v-model.number="filterBy.max" />
+            <el-form-item class=" inputt max">
+                MAX. <input placeholder="Any" v-model.number="filterBy.max" /><i>$</i>
             </el-form-item>
             </div>
             <hr>
-            <el-form-item>
-                <el-button @click="onClickButton" type="success">Apply</el-button>
-                <el-button>Clear All</el-button>
+            <el-form-item class="">
+                <el-button class="clearbtn">Clear All</el-button>
+                <el-button class="apllybtn" @click="onClickButton">Apply</el-button>
             </el-form-item>
         </el-form>
     </el-popover>
@@ -30,9 +30,9 @@
                 </el-radio-group>
             </el-form-item>
             <hr>
-            <el-form-item>
-                <el-button @click="onClickButton" type="success">Apply</el-button>
-                <el-button>Clear All</el-button>
+            <el-form-item class="space-between">
+                <el-button class="clearbtn">Clear All</el-button>
+                <el-button class="apllybtn" @click="onClickButton">Apply</el-button>
             </el-form-item>
         </el-form>
     </el-popover>
