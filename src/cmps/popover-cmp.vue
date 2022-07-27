@@ -47,7 +47,7 @@ const buttonRef2 = ref()
 const popoverRef = ref()
 const popoverRef2 = ref()
 const filterBy = ref({
-    max: 100,
+    max: 900,
     min: 0
 })
 const radio = ref(3)

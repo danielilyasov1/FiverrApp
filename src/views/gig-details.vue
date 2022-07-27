@@ -29,9 +29,9 @@
           </vueper-slide>
         </vueper-slides>
         <div class="about-gig">
-          <div class="reviews">
+          <!-- <div class="reviews">
             <button>See all reviews</button>
-          </div>
+          </div> -->
           <h2>About This Gig</h2>
           <div class="limit">
             <pre> {{ gig.description }}</pre>
@@ -152,7 +152,7 @@ export default {
 <style>
 .thumbnails {
   margin: auto;
-  max-width: 500px;
+  max-width: auto;
 }
 
 .thumbnails .vueperslide {
