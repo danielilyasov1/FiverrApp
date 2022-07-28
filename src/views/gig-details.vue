@@ -1,12 +1,9 @@
 <template >
   <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
-      <!-- <a class="text" :to="{ path: '/' }">Binder</a> -->
-      <!-- <el-breadcrumb :separator-icon="arrows">
-        <el-breadcrumb-item class="text" :to="{ path: '/' }">Binder</el-breadcrumb-item>
-        <el-breadcrumb-item class="text" :to="{ path: '/gig', query: { category: gig.category } }">{{ gig.category }}
-        </el-breadcrumb-item>
-      </el-breadcrumb> -->
+      <div class="linksprator">
+        <router-link to="/">Binder</router-link> > <router-link :to="{ path: '/gig', query: { category: gig.category } }">{{gig.category}}</router-link>
+      </div>
       <h1>{{ gig.title }}</h1>
       <div class="owner-details">
         <img :src="gig.owner.imgUrl">
@@ -29,10 +26,35 @@
             @click.native="$refs.vueperslides2.goToSlide(i)">
           </vueper-slide>
         </vueper-slides>
+
+        <div class="side-details info-side" v-if="small">
+          <div class="side-price">US${{ gig.price }}</div>
+          <div class="side-title">Order Details</div>
+          <div class="side-subtitle">{{ gig.more }}</div>
+          <div class="side-delivery flex">
+            <img src="/clock.png.png" />
+            <div>{{ gig.daysToMake }} Days Delivery</div>
+          </div>
+          <div class="header-list">What's Included</div>
+          <ul class="order-features clean-list" v-for="feats in gig.orderFeats" :key="feats">
+            <li><i class="checkMark">
+                <svg width="16" height="16" viewBox="0 0 11 9" xmins="http://www.w3.org/2000/svg" fill="#1ea968">
+                  <path
+                    d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z">
+                  </path>
+                </svg>
+              </i>{{ feats }}</li>
+          </ul>
+          <footer>
+            <button class="side-btn" @click="createOrder">Continue ( US${{ gig.price }} ) </button>
+          </footer>
+        </div>
+
         <div class="about-gig">
           <!-- <div class="reviews">
             <button>See all reviews</button>
           </div> -->
+
           <h2>About This Gig</h2>
           <div class="limit">
             <pre> {{ gig.description }}</pre>
@@ -66,7 +88,7 @@
           </vs-collapse-item>
           </vs-collapse> -->
     </div>
-    <div class="side-details sticky">
+    <div class="side-details sticky" v-if="!small">
       <div class="side-price">US${{ gig.price }}</div>
       <div class="side-title">Order Details</div>
       <div class="side-subtitle">{{ gig.more }}</div>
@@ -105,6 +127,7 @@ export default {
   data() {
     return {
       gig: null,
+      small: false,
     }
   },
   async created() {
@@ -113,12 +136,17 @@ export default {
     const { gigId } = this.$route.params
     this.gig = await gigService.getById(gigId)
 
+    window.addEventListener("resize", this.changePlace);
+
   },
   computed: {
     reviews() {
       return this.$store.getters.reviews
     },
   },
+  destroyed() {
+      window.removeEventListener("resize", this.changePlace);
+   },
   methods: {
     createOrder() {
       // const newOrder = {
@@ -141,6 +169,11 @@ export default {
       this.$router.push(`/checkout/${this.gig._id}`)
 
     },
+     changePlace(e) {
+         if (e.target.innerWidth < 1200) { this.small = true } 
+         else { this.small = false }
+          
+      },
 
   },
   components: {
