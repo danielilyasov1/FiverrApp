@@ -5,7 +5,7 @@
 .services-available{
     font-size: 14px;
     font-family:Helvetica, sans-serif;
-    color: #74767e;
+    color: $clr9;
     font-weight: 600;
     padding-left: 10px;
 }
@@ -107,13 +107,30 @@
         display: flex;
         gap: 10px;
         padding: 8px 0 8px 12px;  
+        font-size: 14px;
         
-        a{
+        .seller-name{
             font-weight: 600;
             margin: 0;
             width: 60%;
-            padding: 4px;
+            padding-left: 4px;
         }
+        .seller-level{
+            color: $clr9;
+            font-weight: 500;
+            line-height: 21px;
+            margin: 0;
+            padding-left: 5px;
+            
+        }
+            .level-top{
+                color: $clr9;
+                font-weight: 500;
+                line-height: 21px;
+                margin: 0;
+                padding-left: 5px;
+                color: #ffbe5b;
+            }
     }
     
     .gig-title{
@@ -150,6 +167,7 @@
     footer{
         height: rem(45px);
         padding: 8px;
+        padding-right: 13px;
         align-items: center;
         clear: both;
         border-top: 1px solid #efeff0;
@@ -164,7 +182,7 @@
         }
         
         small{
-            color: #74767e;
+            color: $clr9;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: .6px;
