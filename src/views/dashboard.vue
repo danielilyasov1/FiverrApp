@@ -36,7 +36,7 @@
           </div>
       </div>
 
-      <div v-if="!isbuyer">
+      <div class="progress-container" v-if="!isbuyer">
       <el-progress percentage="98" color="#1dbf73" />
       <el-progress percentage="85" color="#1dbf73"  />
       <el-progress percentage="100" color="#1dbf73"  />

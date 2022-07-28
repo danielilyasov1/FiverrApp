@@ -67,7 +67,7 @@
             font-size: 20px;
             border-radius: 2px;
             margin-top: -60px;
-            width: 23%;
+            width: 300px;
             height: fit-content;
             padding: 32px;
             text-align: center;
@@ -112,6 +112,22 @@
         
         }
        
+        .progress-container{
+            font-size: 20px;
+            border-radius: 2px;
+            margin-top: 30px;
+            width: 300px;
+            height: fit-content;
+            padding: 32px;
+            text-align: center;
+            border: 2px solid rgb(235, 232, 232);
+            background-color: rgb(255, 255, 255);
+
+            .el-progress-bar__outer{
+                width: 50px;
+            }
+        }
+
         .orders-container{
             margin-top: -60px;
             width: 76%;
