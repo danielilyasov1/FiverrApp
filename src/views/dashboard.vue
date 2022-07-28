@@ -85,15 +85,19 @@
 
 
      <div v-if="!isbuyer" class="sellers-orders-container">
-     <div class="no-orders"> Adibirenshtock1@Gmail.Com's Orders - 0</div>
+     <div class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
 
 
 <div class="no-orders-image-container">
 
-  <div class="no-orders-image">
-   <img src="../styles/imgs/inbox.png" alt="">
+
+  <div >
+    <div class="no-orders-image">
+     <img src="../styles/imgs/inbox.png" alt="">
+    </div>
+     <div class="no-orders-txt">No Orders Yet </div>
   </div>
-   <p>No Orders Yet </p>
+
 </div>
 
 

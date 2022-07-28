@@ -65,7 +65,7 @@
         padding-top: 100px;
         justify-content: space-between;
         line-height: 5px;
-        height: fit-content;
+        min-height: 100vh;
         .user-details{
             font-size: 20px;
             border-radius: 2px;
@@ -132,13 +132,15 @@
                     border: 2px solid rgb(235, 232, 232);
                     height: rem(38px);
   
-                    line-height: 16px;
+                    line-height: rem(38px);
+                    padding-left: 20px;
                 }
 
 
                 .no-orders-image-container{
                     display: flex;
                     justify-content: center;
+                    margin-top: 100px;
 
 
                     .no-orders-image{
@@ -155,13 +157,18 @@
                             width: rem(80px);
     
                         }
-                        p{
-                            color: #292929;
-                            font-weight: 600;
-                            font-size: 22px;
-                            font-family: Helvetica, sans-serif;
-    
-                        }
+                        
+                    }
+                    .no-orders-txt{
+                        width: 100%;
+                        // margin: auto;
+                        margin-top: 30px;
+                        color: #292929;
+                        font-weight: 600;
+                        font-size: 1rem;
+                        font-family: Helvetica, sans-serif;
+                        text-align: center;
+
                     }
                 }
 

@@ -8,6 +8,7 @@ export const utilService = {
   saveToStorage,
   loadFromSessionStorage,
   saveToSessionStorage,
+  getFormattedDate,
 }
 
 function makeId(length = 5) {
@@ -23,6 +24,9 @@ function getRandomIntInc(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
+}
+function getFormattedDate(){
+  return new Date().toUTCString().slice(5,22)
 }
 
 function getLoremIpsum(length = 5) {

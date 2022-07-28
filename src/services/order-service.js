@@ -21,11 +21,11 @@ async function saveOrder(order) {
 
 
 
-function getEmptyOrder() {
+async function getEmptyOrder() {
     return Promise.resolve({
           
       _id: utilService.makeId(),
-      createdAt: new Date(),
+      createdAt:  await utilService.getFormattedDate() ,
       buyer: {
         imgUrl:'',
         fullname:'',
