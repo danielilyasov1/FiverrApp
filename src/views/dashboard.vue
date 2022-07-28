@@ -23,6 +23,7 @@
           <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
           <img src="../../public/userimg.png" alt=""/>
           <h2>King Shani</h2>
+          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
           <hr>
           <div class="member-Since">
             <div class="member">
@@ -37,17 +38,21 @@
       </div>
 
       <div class="progress-container" v-if="!isbuyer">
-      <el-progress percentage="98" color="#1dbf73" />
-      <el-progress percentage="85" color="#1dbf73"  />
-      <el-progress percentage="100" color="#1dbf73"  />
+      <div class="progress ">
+      <span>Response Rate </span><el-progress percentage="98" color="#1dbf73" />
+      <span>Delivered on Time</span><el-progress percentage="85" color="#1dbf73"  />
+      <span>Order Completion</span><el-progress percentage="100" color="#1dbf73"  />
+      </div>
+      <hr>
+      <div class="prodress-data">
 
-
+      </div>
       </div>
 
     </div>
 
-    <div class="orders-container ">
-      <div v-if="orders"   v-for="order in orders" :key="order._id">
+    <div class="orders-container " >
+      <div  v-if="orders,isbuyer"  v-for="order in orders" :key="order._id">
       <div>
         
       </div>
