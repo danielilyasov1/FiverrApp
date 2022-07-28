@@ -47,7 +47,7 @@
     </div>
 
     <div class="orders-container ">
-      <div v-if=" isbuyer"  v-for="order in orders" :key="order._id">
+      <div v-if="orders"   v-for="order in orders" :key="order._id">
       <div>
         
       </div>
@@ -131,7 +131,6 @@
       return {
         user:null,
         isbuyer: true,
-        orders:null,
        
       }
     },
