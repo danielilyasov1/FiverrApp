@@ -6,6 +6,7 @@ export default {
   },
   getters: {
     orders({ orders }) {
+      console.log('getter order');
         return orders
       },
   },

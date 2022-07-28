@@ -47,7 +47,7 @@
     </div>
 
     <div class="orders-container ">
-      <div v-if=" isbuyer"  v-for="order in orders" :key="order._id">
+      <div v-if="orders"   v-for="order in orders" :key="order._id">
       <div>
         
       </div>
@@ -131,7 +131,6 @@
       return {
         user:null,
         isbuyer: true,
-        orders:null,
        
       }
     },
@@ -140,7 +139,7 @@
         
     // const { userId } = this.$route.params
     // this.user = await userService.getById(userId)
-        await this.$store.dispatch({ type: 'loadOrders'})
+         await this.$store.dispatch({ type: 'loadOrders'})
 
          const { userId } = this.$route.params
          console.log('userId',this.$route.params)
