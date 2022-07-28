@@ -17,26 +17,34 @@
 <div class="user-info-container">
 
 <section class="user-info main-layout flex" v-if="orders">
+    <div class="left side">
+      <div class="user-details" >
+          <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
+          <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
+          <img src="../../public/userimg.png" alt=""/>
+          <h2>King Shani</h2>
+          <hr>
+          <div class="member-Since">
+            <div class="member">
+            <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonIcon"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+          <h4 class="since">Member since</h4>
+            </div>
+        
+          <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
+          <h4 class="date">Jul 2022</h4>
 
-    <div class="user-details" >
-        <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
-        <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
-        <img src="../../public/userimg.png" alt=""/>
-        <h2>King Shani</h2>
-        <hr>
-        <div class="member-Since">
-          <div class="member">
-          <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonIcon"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-         <h4 class="since">Member since</h4>
           </div>
-       
-         <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
-         <h4 class="date">Jul 2022</h4>
+      </div>
 
-        </div>
+      <div v-if="!isbuyer">
+      <el-progress percentage="98" color="#1dbf73" />
+      <el-progress percentage="85" color="#1dbf73"  />
+      <el-progress percentage="100" color="#1dbf73"  />
+
+
+      </div>
 
     </div>
-
 
     <div class="orders-container ">
       <div v-if=" isbuyer"  v-for="order in orders" :key="order._id">
@@ -85,20 +93,18 @@
 
 
      <div v-if="!isbuyer" class="sellers-orders-container">
-     <div class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
+      <div class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
 
+      <div class="no-orders-image-container">
 
-<div class="no-orders-image-container">
+        <div >
+          <div class="no-orders-image">
+          <img src="../styles/imgs/inbox.png" alt="">
+          </div>
+          <div class="no-orders-txt">No Orders Yet </div>
+        </div>
 
-
-  <div >
-    <div class="no-orders-image">
-     <img src="../styles/imgs/inbox.png" alt="">
-    </div>
-     <div class="no-orders-txt">No Orders Yet </div>
-  </div>
-
-</div>
+      </div>
 
 
     </div>
