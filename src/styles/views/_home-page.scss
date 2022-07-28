@@ -35,11 +35,18 @@
             width: auto;
              float: right;
              color:white;
-            font-weight: 800;
-            font-size: rem(12px);
+            font-weight: 700;
+            font-size: rem(16px);
             line-height: rem(5px);
             font-family:  Helvetica, sans-serif;
             transition: all 0.9s ease ;
+            .star{
+                font-size: 16px;
+                 color: #ffbe5b;
+                 font-weight: 700;
+                 letter-spacing: 5px;
+                 
+            }
         }
 
 

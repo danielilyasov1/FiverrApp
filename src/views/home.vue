@@ -12,7 +12,7 @@
          <img class="home-hero-img" :src="heroDeats.imgUrl" alt="">
 
          <div class="hero-detail-container main-layout">
-            <p>{{heroDeats.stars}}</p>
+            <p v-if="heroDeats.stars" class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
             <p>{{heroDeats.details}}</p>
 
          </div>
@@ -200,7 +200,7 @@ export default {
          heroesDetails: [
             {
                
-               stars: '⭐⭐⭐⭐⭐',
+               stars: '⭐',
                details: 'Moon, Marketing Export',
                imgUrl: '/src/styles/imgs/fiverr1.png'
             },
@@ -217,7 +217,7 @@ export default {
                imgUrl: '/src/styles/imgs/fiverr3.png'
             },
             {
-               stars: '⭐⭐⭐⭐⭐',
+               stars: '⭐',
                details: 'Gabrielle, Video Editor',
                imgUrl: '/src/styles/imgs/fiverr4.png'
             },
