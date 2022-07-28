@@ -1,6 +1,9 @@
 import { storageService } from "./storage-service.js"
 import { utilService } from './util-service.js'
+import { httpService } from './http-service'
 
+const KEY='orders_db'
+const ENDPOINT = 'order'
 
 export const orderService = {
     query,
@@ -8,14 +11,29 @@ export const orderService = {
     saveOrder,
    
 }
-const KEY='orders_db'
 
-_createOrders()
+
+async function query() {
+  return await httpService.get(ENDPOINT)
+
+  // try {
+     
+  //   const orders = await storageService.query(KEY)
+  //   return Promise.resolve(orders)
+  // } catch (err) {
+  //   console.error(err)
+  // }
+}
+
+
+
+// _createOrders()
 
 async function saveOrder(order) {
   console.log('order', order)
-  const res = await storageService.post(KEY, order)
-  return res
+  return await httpService.post(ENDPOINT, order)
+  // const res = await storageService.post(KEY, order)
+  // return res
   
 }
 
@@ -24,7 +42,6 @@ async function saveOrder(order) {
 async function getEmptyOrder() {
     return Promise.resolve({
           
-      _id: utilService.makeId(),
       createdAt:  await utilService.getFormattedDate() ,
       buyer: {
         imgUrl:'',
@@ -43,16 +60,6 @@ async function getEmptyOrder() {
       status: 'Pending',
     })
 }
-
-  async function query() {
-    try {
-       
-      const orders = await storageService.query(KEY)
-      return Promise.resolve(orders)
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
   
 function _createOrders() {

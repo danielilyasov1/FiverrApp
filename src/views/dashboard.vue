@@ -134,7 +134,7 @@
         
     // const { userId } = this.$route.params
     // this.user = await userService.getById(userId)
-        await this.$store.dispatch({ type: 'loadOrders'})
+         await this.$store.dispatch({ type: 'loadOrders'})
 
          const { userId } = this.$route.params
          console.log('userId',this.$route.params)
