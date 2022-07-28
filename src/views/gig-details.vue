@@ -10,7 +10,7 @@
         <div class="owner-fullname">{{ gig.owner.fullname }}</div>
         <div>&nbsp;{{ gig.owner.level }}</div>
         <div class="space">&nbsp;|&nbsp;</div>
-        <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> ({{ gig.review }})</div>
+        <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
       </div>
       <div class="block text-center" m="t-4">
         <vueper-slides ref="vueperslides1" :touchable="false" fade :autoplay="false" :bullets="false"
@@ -65,7 +65,7 @@
           <img :src="gig.owner.imgUrl">
           <div class="owner-details">
             <div class="owner-fullname">{{ gig.owner.fullname }}</div>
-            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> ({{ gig.review }})</div>
+            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> (1K+)</div>
             <el-button @click='' class="btn-contact" type="info" plain>Contact Me</el-button>
           </div>
         </div>
