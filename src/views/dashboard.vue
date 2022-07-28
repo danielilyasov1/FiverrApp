@@ -39,12 +39,14 @@
 
       <div class="progress-container" v-if="!isbuyer">
       <div class="progress ">
+        <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
       <span>Response Rate </span><el-progress percentage="98" color="#1dbf73" />
       <span>Delivered on Time</span><el-progress percentage="85" color="#1dbf73"  />
       <span>Order Completion</span><el-progress percentage="100" color="#1dbf73"  />
       </div>
       <hr>
       <div class="prodress-data">
+
 
       </div>
       </div>
