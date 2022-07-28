@@ -4,10 +4,10 @@
 
   <div class="filter-by-category main-layout ">
     <div class="category " @click="setcategory('')">All</div>
-    <div class="category" @click="setcategory('Logo')">Logo Design</div>
+    <div class="category" @click="setcategory('Logo Design')">Logo Design</div>
     <div class="category" @click="setcategory('Wordpress')">Wordpress</div>
-    <div class="category" @click="setcategory('VoiceOver')">Voice Over</div>
-    <div class="category" @click="setcategory('VideoExplainer')">Video Explainer</div>
+    <div class="category" @click="setcategory('Voice Over')">Voice Over</div>
+    <div class="category" @click="setcategory('Video Explainer')">Video Explainer</div>
     <div class="category" @click="setcategory('Programming')">Programming</div>
     <div class="category" @click="setcategory('Illustration')">Illustration</div>
   </div>
