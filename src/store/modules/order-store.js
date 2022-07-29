@@ -15,7 +15,22 @@ export default {
         state.orders = orders
     },
     addOrder(state, { newOrder }){
-      state.orders.unshift(newOrder)
+      const idx = state.orders.findIndex((order) => order._id === newOrder._id)
+      if (idx !== -1) state.orders.splice(idx, 1, newOrder)
+      else state.orders.push(newOrder)
+
+     
+
+      // let isNewItem = true;
+      // let map = state.orders.map(item=> {
+      //   if(newOrder._id===item._id) {
+      //     isNewItem = false;
+      //     return newOrder
+      //   }
+      //   return item;
+      // });
+      // state.orders=map;
+      // if (isNewItem) state.orders.push(newOrder);
     }
   },
   actions: {
@@ -29,10 +44,12 @@ export default {
       })
     },
     addOrder({ commit }, { newOrder }){
-      console.log('eeeeee',newOrder)
+      console.log('eeeeeeeeee',newOrder)
       orderService
       .saveOrder(newOrder)
       .then((savedOrder) => {
+        console.log('savedOrder',savedOrder)
+
         commit({ type: 'addOrder' , newOrder: savedOrder })
         return savedOrder
       })

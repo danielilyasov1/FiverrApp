@@ -35,7 +35,7 @@
     </div>
     <div v-if="isUserDropdownDisplay" class="user-dropdown">
       <h1 @click="isUserDropdownDisplay=false">Profile</h1>
-      <h1  @click="isUserDropdownDisplay=false">Dashboard</h1>
+      <h1  @click="moveToDashboard">Dashboard</h1>
       <hr  @click="isUserDropdownDisplay=false" class="dropdown-hr">
       <h1 @click="logout">Logout</h1>
     </div> 
@@ -95,6 +95,11 @@ export default {
   },
 
   methods: {
+    async moveToDashboard(){
+      this.isUserDropdownDisplay=false
+     await this.$router.push(`/dashboard/${this.user._id}`)
+
+    },
      async logout() {
       this.isUserDropdownDisplay=false
       await this.$store.dispatch({ type: 'logout' })

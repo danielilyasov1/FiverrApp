@@ -76,9 +76,11 @@ import { userService } from '../services/user-service'
           const newOrder= await orderService.getEmptyOrder()
          
 
+          // newOrder.buyer._id= this.user._id
           newOrder.buyer.fullname= this.user.fullname
           // newOrder.buyer.imgUrl= this.user.imgUrl
           // newOrder.buyer.memberSince= this.user.memberSince
+          // newOrder.seller._id=this.gig.owner._id
           newOrder.seller.fullname=this.gig.owner.fullname
           newOrder.seller.imgUrl=this.gig.owner.imgUrl
           newOrder.gig._id=this.gig._id
