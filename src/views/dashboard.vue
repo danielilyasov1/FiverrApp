@@ -42,14 +42,14 @@
       <div class="progress-container" v-if="!isbuyer">
       <div class="progress ">
         <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
-      <span>Response Rate </span><el-progress percentage="98" color="#1dbf73" />
-      <span>Delivered on Time</span><el-progress percentage="85" color="#1dbf73"  />
-      <span>Order Completion</span><el-progress percentage="100" color="#1dbf73"  />
+      <span class="rate">Response rate </span><el-progress percentage="98" color="#1dbf73" />
+      <span>Delivered on time</span><el-progress percentage="85" color="#1dbf73"  />
+      <span>Order completion</span><el-progress percentage="100" color="#1dbf73"  />
       </div>
       <hr>
       <div class="prodress-data">
-
-
+        <div class="earned">Earned in July<span>$235</span></div>
+        <div class="response">Response time<span>2Hrs</span></div>
       </div>
       </div>
 
@@ -152,15 +152,10 @@
 
     </div>
 
-
-
- 
-
 </section>
 
 </div>
 
-    
 </template>
 
 <script>
@@ -192,8 +187,6 @@
     //      console.log('userId',this.$route.params)
     // this.user = await userService.getById(userId)
     // console.log('this.user',this.user)
-    
-    
     
     },
     methods: {
@@ -231,6 +224,13 @@
       showTime(time){
         console.log('this.order.createdAt',time)
       },
+      // statuss(order){
+      //   if (order.status === 'pending') {
+      //     console.log('oreng')
+      //     return 'oreng'
+      //   }
+      //   if (order.status === 'completed') return 'green'
+      // }
         user() {
         console.log('fffffff',this.$store.getters.user)
       return this.$store.getters.user
