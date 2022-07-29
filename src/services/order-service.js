@@ -9,6 +9,7 @@ export const orderService = {
     query,
     getEmptyOrder,
     saveOrder,
+    getById,
    
 }
 
@@ -29,12 +30,34 @@ async function query() {
 
 // _createOrders()
 
+// async function saveOrder(order) {
+//   console.log('order', order)
+//   return await httpService.post(ENDPOINT, order)
+//   // const res = await storageService.post(KEY, order)
+//   // return res
+  
+// }
+
 async function saveOrder(order) {
-  console.log('order', order)
-  return await httpService.post(ENDPOINT, order)
+  return order._id
+  ? await httpService.put(`${ENDPOINT}/${order._id}`, order)
+  : await httpService.post(ENDPOINT, order)
+ 
   // const res = await storageService.post(KEY, order)
   // return res
   
+}
+
+
+async function getById(orderId) {
+  try {
+    
+    return await httpService.get(`${ENDPOINT}/${orderId}`)
+
+  } catch (err) {
+    console.error(err)
+  }
+
 }
 
 
@@ -44,12 +67,15 @@ async function getEmptyOrder() {
           
       createdAt:  await utilService.getFormattedDate() ,
       buyer: {
+        _id: '',
         imgUrl:'',
         fullname:'',
         memberSince:''
       },
       seller: {
-
+        _id:'',
+        fullname:'',
+        imgUrl:'',
       },
       gig: {
         _id: '',
@@ -58,6 +84,7 @@ async function getEmptyOrder() {
         daysToMake: '',
       },
       status: 'Pending',
+      deliveredAt: '',
     })
 }
 

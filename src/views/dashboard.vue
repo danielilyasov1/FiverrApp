@@ -21,8 +21,10 @@
       <div class="user-details" >
           <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
           <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
-          <img src="../../public/userimg.png" alt=""/>
-          <h2>King Shani</h2>
+          <div class="user-image">{{user.username}}</div>
+          <!-- <img src="../../public/userimg.png" alt=""/>
+          <h2>{{user.username}}</h2> -->
+          <!-- <pre v-if="user">{{user}}</pre> -->
           <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
           <hr>
           <div class="member-Since">
@@ -32,7 +34,7 @@
             </div>
         
           <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
-          <h4 class="date">Jul 2022</h4>
+          <h4 class="date">jul 7777</h4>
 
           </div>
       </div>
@@ -99,8 +101,9 @@
       </div>
 
 
-     <div v-if="!isbuyer" class="sellers-orders-container">
-      <div class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
+     <div v-if="!isbuyer "  class="sellers-orders-container">
+
+      <div  class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
 
       <div class="no-orders-image-container">
 
@@ -113,6 +116,38 @@
 
       </div>
 
+
+      <div v-if="sellersOrders" class="manage-orders">
+        <h1>Manage Orders</h1>
+       <table class="sellers-orders-table">
+        <tr class="table-head">
+          <th>BUYER</th>
+          <th>GIG</th>
+          <th>DUE ON</th>
+          <th>DELIVERED AT</th>
+          <th>TOTAL</th>
+          <th>STATUS</th>
+        </tr>
+        <tr v-for="sellersOrder in sellersOrders" :key="sellersOrder" class="row">
+          <!-- <td> <img class="buyer-img" v-if="sellersOrder.buyer.imgUrl" :src="sellersOrder.buyer.imgUrl" alt=""> {{sellersOrder.buyer.fullname}}</td> -->
+          <td>{{sellersOrder.buyer.fullname}}</td>
+          <td>{{sellersOrder.gig.title}}</td>
+          <td>{{sellersOrder.createdAt}}</td>
+          <td>{{sellersOrder.deliveredAt}}</td>
+          <td>${{sellersOrder.gig.price}}</td>
+          <td @click="changeOrderStatus(sellersOrder._id)">{{sellersOrder.status}}</td>
+        </tr>
+       
+
+
+       </table>
+       <!-- <pre class="pre">
+        {{sellersOrders}}
+       </pre> -->
+
+      </div>
+
+
     </div>
 
     </div>
@@ -124,14 +159,19 @@
 </template>
 
 <script>
-    import { userService } from '../services/user-service'
+    // import { userService } from '../services/user-service'
+    import { orderService } from '../services/order-service'
+    import { utilService } from '../services/util-service'
 
    export default {
 
     data() {
       return {
-        user:null,
+        // user:null,
+        // displaySellersOrders: true,
         isbuyer: true,
+       
+          // user:null,
        
       }
     },
@@ -140,29 +180,46 @@
         
     // const { userId } = this.$route.params
     // this.user = await userService.getById(userId)
+    // console.log('this.user,',this.user)
          await this.$store.dispatch({ type: 'loadOrders'})
 
-         const { userId } = this.$route.params
-         console.log('userId',this.$route.params)
-    this.user = await userService.getById(userId)
-    console.log('this.user',this.user)
+    //      const { userId } = this.$route.params
+    //      console.log('userId',this.$route.params)
+    // this.user = await userService.getById(userId)
+    // console.log('this.user',this.user)
     
     },
     methods: {
+      async changeOrderStatus(orderId){
+        // console.log('orderId',orderId)
+        let curOrder = await orderService.getById(orderId)
+        curOrder.status = 'completed'
+        curOrder.deliveredAt =  await utilService.getFormattedDate()
+        // orderService.saveOrder(curOrder)
+        console.log('curOrderr',curOrder)
+         this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      },
+
       sellerBuyerToggle(){
         this.isbuyer = !this.isbuyer
         console.log('this.isbuyer',this.isbuyer)
 
       },
-      
-
     },
     computed: {
       totalPrice(){
         return (+this.gig.price + +this.sFee).toFixed(2)
       },
       orders() {
-        return this.$store.getters.orders
+        return this.$store.getters.orders.filter(order=> {
+          console.log(order)
+          console.log(this.user)
+          return order.buyer.fullname===this.user.fullname})
+      },
+       sellersOrders(){
+
+        return this.$store.getters.orders.filter(order=> order.seller.fullname===this.user.fullname)
+
       },
       showTime(time){
         console.log('this.order.createdAt',time)
@@ -174,9 +231,14 @@
       //   }
       //   if (order.status === 'completed') return 'green'
       // }
+        user() {
+        console.log('fffffff',this.$store.getters.user)
+      return this.$store.getters.user
+  
     
     },
-    unmounted() {},
   }
+   
+   }
 
 </script>

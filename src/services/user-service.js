@@ -1,59 +1,42 @@
-import { storageService } from "./storage-service.js"
-import { utilService } from './util-service.js'
+import { httpService } from './http-service.js'
 
+const ENDPOINT = 'auth'
 
 export const userService = {
-    query,
-    // getEmptyOrder
-    // saveOrder
-    getById,
+  login,
+  signup,
+  logout,
+  // getById,
+  // getGuestUser,
    
 }
 const KEY='users_db'
 
-_createLoggedInUser()
-
-  async function query() {
-    try {
-       
-      const users = await storageService.query(KEY)
-      console.log('users33333333',users )
-      return Promise.resolve(users)
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  async function getById(userId) {
-    try {
-      // const res = await axios.get(BASE_URL + gigId)
-      const user = await storageService.get(KEY, userId)
-      console.log('aauser',user)
-      return user
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
   
-function _createLoggedInUser() {
-  let loggedInUser = utilService.loadFromStorage(KEY)
-  console.log('uu',loggedInUser)
-  if (!loggedInUser || !loggedInUser.length) {
-    loggedInUser = 
-      [{
-        _id: 'u101',
-        fullname: 'User 1',
-        imgUrl: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2019%2F11%2F17%2Fbooks%2Freview%2F17Salam%2FSalam1-superJumbo.jpg&imgrefurl=https%3A%2F%2Fwww.nytimes.com%2F2019%2F10%2F01%2Fbooks%2Freview%2Fthings-we-didnt-talk-about-when-i-was-a-girl-jeannie-vanasco.html&tbnid=e3a-KctQI9Qs2M&vet=12ahUKEwin9qbXrJf5AhUR_6QKHRPGC-cQMygNegUIARDRAQ..i&docid=XLRK46SlAOazFM&w=1752&h=1558&q=woman&ved=2ahUKEwin9qbXrJf5AhUR_6QKHRPGC-cQMygNegUIARDRAQ",
-        username: 'user1',
-        password: 'secret',
-        memberSince: 'June 2022',
-        level: 'basic/premium'}]
-    
-
-    utilService.saveToStorage(KEY, loggedInUser)
-  }
-  return loggedInUser
+async function login(cred) {
+  return await httpService.post(ENDPOINT + '/login', cred)
 }
-  
 
+async function signup(cred) {
+  return await httpService.post(ENDPOINT + '/signup', cred)
+}
+
+async function logout() {
+  return await httpService.post(ENDPOINT + '/logout')
+}
+
+
+// async function getById(userId) {
+//   try {
+//     // const res = await axios.get(BASE_URL + gigId)
+//     // const gig = await storageService.get(KEY, gigId)
+//     // return gig
+//     return await httpService.get(`${ENDPOINT}/${userId}`)
+
+//   } catch (err) {
+//     console.error(err)
+//   }
+
+//   // return axios.get(BASE_URL + gigId).then((res) => res.data);
+//   // return storageService.get(KEY, gigId)
+// }

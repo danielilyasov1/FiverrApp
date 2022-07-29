@@ -1,39 +1,53 @@
 import { userService } from '../../services/user-service.js'
-
+import { utilService } from '../../services/util-service'
 export default {
   state: {
-      user: [],
+    loggedinUser: utilService.loadFromSessionStorage('user') || null,
+      
   },
   getters: {
-    user({ user }) {
-        return user
-      },
+    user(state) {
+      return state.loggedinUser
+    },
+    
   },
   mutations: {
-    getLogedInUser(state, { user }) {
-        state.user = user
-      },
+    setUser(state, { user }) {
+      state.loggedinUser = user
+    },
   
     
    
   },
   actions: {
-    loadlogedInUser({ commit, user }) {
-        userService.query().then((user) => {
-          commit({ type: 'getLogedInUser', user })
-        })
-      },
-    // getLogedInUser(){
-    //     const user= {
-    //         "_id": "u101",
-    //         "fullname": "User 1",
-    //         "imgUrl": "https://ca.slack-edge.com/T035GULFZRD-U03B4FRBQCF-03a3d8bc2ae8-72",
-    //         "username": "user1",
-    //         "password": "secret",
-    //         "level": "basic/premium",
-    //     }
-    //     commit({ type: 'getLogedInUser', user })
-    // }
+    async login({ commit }, { cred }) {
+      try {
+        const user = await userService.login(cred)
+        commit({ type: 'setUser', user })
+        utilService.saveToSessionStorage('user', user)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async signup({ commit }, { cred }) {
+      try {
+        const user = await userService.signup(cred)
+        commit({ type: 'setUser', user })
+        utilService.saveToSessionStorage('user', user)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async logout({ commit }) {
+      try {
+        await userService.logout()
+        commit({ type: 'setUser', user: null })
+        sessionStorage.removeItem('user')
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    
   }
 }
 

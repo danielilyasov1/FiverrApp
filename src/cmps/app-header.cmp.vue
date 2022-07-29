@@ -23,42 +23,64 @@
           <li class="move">
             <router-link to="/">Become a Seller</router-link>
           </li>
-          <li  class="move">
+          <li v-if="!user"  class="move">
             <router-link to="/">Sign In</router-link>
           </li>
-          <button class="join-btn">Join</button>
+         
+          <button v-if="!user" class="join-btn" @click="openLoginModal">Join</button>
+
+          <div @click="displayUserDropdown"  v-if="user" class="user-image-header">{{user.username}}</div>
         </ul>
       </nav>
     </div>
-   
+    <div v-if="isUserDropdownDisplay" class="user-dropdown">
+      <h1 @click="isUserDropdownDisplay=false">Profile</h1>
+      <h1  @click="moveToDashboard">Dashboard</h1>
+      <hr  @click="isUserDropdownDisplay=false" class="dropdown-hr">
+      <h1 @click="logout">Logout</h1>
+    </div> 
+
    
     
     <category-filter   :class="[isFilterDisplayed && altBackground ? 'displayFilter' : '', !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
     !altBackground ? 'filter-category' : '', isHeaderDashboard? 'displayFilterNone':'']" />
    
+  <login class="join-container" v-if="displayLogin" ></login>
+  <div v-if="displayLogin" class="greyBg" @click="openLoginModal"></div>
   </header>
+
 
 </template>
 
 <script>
 import appFilter from "../cmps/app-filter.cmp.vue";
 import categoryFilter from "../cmps/category-filter.cmp.vue";
+import login from "../cmps/login.cmp.vue";
+
 
 export default {
   tempalte: ``,
   components: {
     appFilter,
     categoryFilter,
+    login,
+
 
   },
   data: () => {
     return {
+      displayLogin: false,
       isFilterDisplayed: false,
 
       stickyNav: false,
+      isUserDropdownDisplay:false,
+      // user:null
     };
   },
   computed: {
+     user() {
+      return this.$store.getters.user
+    },
     altBackground() {
       const path = this.$route.path.split('/')
       // console.log('path',path)
@@ -73,6 +95,24 @@ export default {
   },
 
   methods: {
+    async moveToDashboard(){
+      this.isUserDropdownDisplay=false
+     await this.$router.push(`/dashboard/${this.user._id}`)
+
+    },
+     async logout() {
+      this.isUserDropdownDisplay=false
+      await this.$store.dispatch({ type: 'logout' })
+    },
+    displayUserDropdown(){
+      this.isUserDropdownDisplay=! this.isUserDropdownDisplay
+
+    },
+    openLoginModal(){
+       this.displayLogin = !this.displayLogin
+       console.log('  this.displayLogin',  this.displayLogin)
+
+    },
     // setFilter(filter) {
     //   filter = JSON.parse(JSON.stringify(filter));
     //   this.$store.dispatch({ type: "setFilterBy", filterBy: filter });
