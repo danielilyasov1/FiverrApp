@@ -2,7 +2,7 @@
    
   <section>
     <app-header
-      :class="[altBackground ? 'header-red' : 'header-black', altBackground && isHeaderWhite ? 'bg-white' : '']" />
+      :class="[altBackground ? 'header-transparent' : 'header-white', altBackground && isHeaderWhite ? 'bg-white' : '']" />
     <router-view />
     <app-footer />
   </section>
@@ -51,11 +51,11 @@ export default {
 </script>
 <style>
 
-.header-black {
+.header-white {
     background-color: rgb(255, 255, 255);
    
 }
-.header-red {
+.header-transparent {
     background-color: rgba(246, 8, 8, 0);
     position: sticky;
     top: 0;

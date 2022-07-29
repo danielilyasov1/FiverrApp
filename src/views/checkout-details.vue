@@ -56,7 +56,7 @@ import { userService } from '../services/user-service'
     data() {
       return {
        gig:null,
-       user:null,
+     
        sFee:null,
       }
     },
@@ -66,7 +66,7 @@ import { userService } from '../services/user-service'
       // this.$store.dispatch({ type: 'loadOrders' })
       const { gigId } = this.$route.params
       this.gig = await gigService.getById(gigId)
-      this.user =( await userService.query())[0]
+      // this.user =( await userService.query())[0]
       console.log('this.userrrrrrrrrrrrr',this.user)
     
     },
@@ -77,8 +77,8 @@ import { userService } from '../services/user-service'
          
 
           newOrder.buyer.fullname= this.user.fullname
-          newOrder.buyer.imgUrl= this.user.imgUrl
-          newOrder.buyer.memberSince= this.user.memberSince
+          // newOrder.buyer.imgUrl= this.user.imgUrl
+          // newOrder.buyer.memberSince= this.user.memberSince
           newOrder.seller.fullname=this.gig.owner.fullname
           newOrder.seller.imgUrl=this.gig.owner.imgUrl
           newOrder.gig._id=this.gig._id
@@ -91,6 +91,7 @@ import { userService } from '../services/user-service'
         
            this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
           this.$router.push(`/dashboard/${this.user._id}`)
+          //  this.$router.push(`/dashboard`)
 
             // this.$router.push(`/gig/${this.gig._id}`)
       }
@@ -103,10 +104,11 @@ import { userService } from '../services/user-service'
       totalPrice(){
         return (+this.gig.price + +this.sFee).toFixed(2)
       },
-    //   user() {
-    //   return this.$store.getters.user
+      user() {
+        console.log('fffffff',this.$store.getters.user)
+      return this.$store.getters.user
   
-    // },
+    },
 
     serviceFee(){
       this.sFee = this.gig.price * 0.03

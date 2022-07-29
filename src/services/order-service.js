@@ -49,7 +49,8 @@ async function getEmptyOrder() {
         memberSince:''
       },
       seller: {
-
+        fullname:'',
+        imgUrl:'',
       },
       gig: {
         _id: '',

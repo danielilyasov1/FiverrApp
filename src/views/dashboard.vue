@@ -21,8 +21,10 @@
       <div class="user-details" >
           <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
           <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
-          <img src="../../public/userimg.png" alt=""/>
-          <h2>King Shani</h2>
+          <div class="user-image">{{user.username}}</div>
+          <!-- <img src="../../public/userimg.png" alt=""/>
+          <h2>{{user.username}}</h2> -->
+          <!-- <pre v-if="user">{{user}}</pre> -->
           <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
           <hr>
           <div class="member-Since">
@@ -32,7 +34,7 @@
             </div>
         
           <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
-          <h4 class="date">Jul 2022</h4>
+          <h4 class="date">jul 7777</h4>
 
           </div>
       </div>
@@ -114,6 +116,35 @@
       </div>
 
 
+      <div class="manage-orders">
+       <table class="sellers-orders-table">
+        <tr class="table-head">
+          <th>BUYER</th>
+          <th>GIG</th>
+          <th>DUE ON</th>
+          <th>DELIVERED AT</th>
+          <th>TOTAL</th>
+          <th>STATUS</th>
+        </tr>
+        <tr v-for="sellersOrder in sellersOrders" :key="sellersOrder" class="row">
+          <td>{{sellersOrder.buyer.fullname}}</td>
+          <td>{{sellersOrder.gig.title}}</td>
+          <td>{{sellersOrder.createdAt}}</td>
+          <td>aa</td>
+          <td>{{sellersOrder.gig.price}}</td>
+          <td>{{sellersOrder.status}}</td>
+        </tr>
+       
+
+
+       </table>
+       <!-- <pre class="pre">
+        {{sellersOrders}}
+       </pre> -->
+
+      </div>
+
+
     </div>
 
     </div>
@@ -130,14 +161,16 @@
 </template>
 
 <script>
-    import { userService } from '../services/user-service'
+    // import { userService } from '../services/user-service'
 
    export default {
 
     data() {
       return {
-        user:null,
+        // user:null,
         isbuyer: true,
+       
+          // user:null,
        
       }
     },
@@ -146,12 +179,13 @@
         
     // const { userId } = this.$route.params
     // this.user = await userService.getById(userId)
+    // console.log('this.user,',this.user)
          await this.$store.dispatch({ type: 'loadOrders'})
 
-         const { userId } = this.$route.params
-         console.log('userId',this.$route.params)
-    this.user = await userService.getById(userId)
-    console.log('this.user',this.user)
+    //      const { userId } = this.$route.params
+    //      console.log('userId',this.$route.params)
+    // this.user = await userService.getById(userId)
+    // console.log('this.user',this.user)
     
     
     
@@ -162,29 +196,6 @@
         console.log('this.isbuyer',this.isbuyer)
 
       },
-//        showTime(time) {
-//   var date = new Date(time)
-//   date = date.toString()
-//   //'Wed Jun 01 2022 15:10:52 GMT+0300 (Israel Daylight Time)'
-//   date = date.split(" ")
-//   //(9) ['Wed', 'Jun', '01', '2022', '15:10:52', 'GMT+0300', '(Israel', 'Daylight', 'Time)']
-//   date = date.splice(0, 5)
-//   //(5) ['Wed', 'Jun', '01', '2022', '15:10:52']
-
-//        showTime() {
-//   var date = new Date(time)
-//   date = date.toString()
-//   //'Wed Jun 01 2022 15:10:52 GMT+0300 (Israel Daylight Time)'
-//   date = date.split(" ")
-//   //(9) ['Wed', 'Jun', '01', '2022', '15:10:52', 'GMT+0300', '(Israel', 'Daylight', 'Time)']
-//   date = date.splice(0, 5)
-//   //(5) ['Wed', 'Jun', '01', '2022', '15:10:52']
-
-//   return date
-// }
-
-    
-
     },
     computed: {
       totalPrice(){
@@ -193,12 +204,22 @@
       orders() {
         return this.$store.getters.orders
       },
+       sellersOrders(){
+
+        return this.$store.getters.orders.filter(order=> order.seller.fullname===this.user.fullname)
+
+      },
       showTime(time){
         console.log('this.order.createdAt',time)
-      }
+      },
+        user() {
+        console.log('fffffff',this.$store.getters.user)
+      return this.$store.getters.user
+  
     
     },
-    unmounted() {},
   }
+   
+   }
 
 </script>

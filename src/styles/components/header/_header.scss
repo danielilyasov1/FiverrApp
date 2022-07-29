@@ -1,3 +1,42 @@
+.user-dropdown{
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    z-index: 800;
+    width: 10%;
+    border: 1px solid #eeeff5;
+    border-radius: 2%;
+    padding: 5px;
+    h1{
+        font-family: Helvetica, sans-serif;
+        font-size: 1em;
+        color: #a2a4a9;
+        font-weight: 100;
+        
+    }
+    h1:hover{
+        cursor: pointer;
+        color: #50b957;
+    }
+
+    .dropdown-hr{
+        width: 100%;
+        color:  #eeeff5;
+    }
+}
+
+.user-image-header{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #50b957;
+    color: white;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 10px;
+}
+
 .top-header{
     height: rem(81px);
     display: block;

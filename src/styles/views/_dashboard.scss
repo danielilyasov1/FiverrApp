@@ -76,11 +76,19 @@
             hr{
                 border: 1px solid rgb(235, 232, 232);
             }
-            img{
+            // img{
+            //     width: 100px;
+            //     height: 100px;
+            //     margin-bottom: 15px;
+            //     // border-radius: 50px;
+            // }
+            .user-image{
                 width: 100px;
-                height: 100px;
-                margin-bottom: 15px;
-                // border-radius: 50px;
+                    height: 100px;
+                    // margin-bottom: 15px;
+                    border-radius: 50%;
+                    background-color: rgb(21, 184, 89);
+                    text-align: center;
             }
             .member-Since{
                 // line-height: 5px;
@@ -156,6 +164,28 @@
           
            
             .sellers-orders-container{
+                .manage-orders{
+                    margin-top: 50px;
+                    .sellers-orders-table{
+                        width: 100%;
+                        border: #b6b7bd 1px solid;
+                        text-align: left;
+                        padding: 5px;
+                        .table-head{
+                            color: #ABAEB6;
+                            font-weight: 200;
+
+                        }
+                        .row{
+                            height: 40px;
+                            border-top: #b6b7bd 1px solid;
+                        }
+                    }
+                    .pre{
+                        height: 1000px;
+                        line-height: 20px;
+                    }
+                }
                
                 .no-orders{
                   
