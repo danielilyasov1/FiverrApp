@@ -40,14 +40,14 @@
       <div class="progress-container" v-if="!isbuyer">
       <div class="progress ">
         <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
-      <span>Response Rate </span><el-progress percentage="98" color="#1dbf73" />
-      <span>Delivered on Time</span><el-progress percentage="85" color="#1dbf73"  />
-      <span>Order Completion</span><el-progress percentage="100" color="#1dbf73"  />
+      <span class="rate">Response rate </span><el-progress percentage="98" color="#1dbf73" />
+      <span>Delivered on time</span><el-progress percentage="85" color="#1dbf73"  />
+      <span>Order completion</span><el-progress percentage="100" color="#1dbf73"  />
       </div>
       <hr>
       <div class="prodress-data">
-
-
+        <div class="earned">Earned in July<span>$235</span></div>
+        <div class="response">Response time<span>2Hrs</span></div>
       </div>
       </div>
 
@@ -113,20 +113,14 @@
 
       </div>
 
-
     </div>
 
     </div>
-
-
-
- 
 
 </section>
 
 </div>
 
-    
 </template>
 
 <script>
@@ -153,8 +147,6 @@
     this.user = await userService.getById(userId)
     console.log('this.user',this.user)
     
-    
-    
     },
     methods: {
       sellerBuyerToggle(){
@@ -162,28 +154,7 @@
         console.log('this.isbuyer',this.isbuyer)
 
       },
-//        showTime(time) {
-//   var date = new Date(time)
-//   date = date.toString()
-//   //'Wed Jun 01 2022 15:10:52 GMT+0300 (Israel Daylight Time)'
-//   date = date.split(" ")
-//   //(9) ['Wed', 'Jun', '01', '2022', '15:10:52', 'GMT+0300', '(Israel', 'Daylight', 'Time)']
-//   date = date.splice(0, 5)
-//   //(5) ['Wed', 'Jun', '01', '2022', '15:10:52']
-
-//        showTime() {
-//   var date = new Date(time)
-//   date = date.toString()
-//   //'Wed Jun 01 2022 15:10:52 GMT+0300 (Israel Daylight Time)'
-//   date = date.split(" ")
-//   //(9) ['Wed', 'Jun', '01', '2022', '15:10:52', 'GMT+0300', '(Israel', 'Daylight', 'Time)']
-//   date = date.splice(0, 5)
-//   //(5) ['Wed', 'Jun', '01', '2022', '15:10:52']
-
-//   return date
-// }
-
-    
+      
 
     },
     computed: {
@@ -195,7 +166,14 @@
       },
       showTime(time){
         console.log('this.order.createdAt',time)
-      }
+      },
+      // statuss(order){
+      //   if (order.status === 'pending') {
+      //     console.log('oreng')
+      //     return 'oreng'
+      //   }
+      //   if (order.status === 'completed') return 'green'
+      // }
     
     },
     unmounted() {},

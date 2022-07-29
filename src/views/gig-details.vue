@@ -65,7 +65,7 @@
           <img :src="gig.owner.imgUrl">
           <div class="owner-details">
             <div class="owner-fullname">{{ gig.owner.fullname }}</div>
-            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5</span> (1K+)</div>
+            <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
             <el-button @click='' class="btn-contact" plain>Contact Me</el-button>
           </div>
         </div>

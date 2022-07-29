@@ -38,7 +38,7 @@
         align-items: center;
         font-size: 14px;
         line-height: 21px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         
         
         img{
@@ -197,6 +197,11 @@
             color: $clr5;
             font-weight: bolder;
             border: 1px solid $clr5;
+            &:hover{
+                background-color: $clr5;
+                color: #ffffff;
+                
+            }
         }
 
         .owner-details{
