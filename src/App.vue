@@ -53,6 +53,7 @@ export default {
 
 .header-white {
     background-color: rgb(255, 255, 255);
+    color: rgb(109, 105, 105);
    
 }
 .header-transparent {
@@ -67,6 +68,7 @@ export default {
     position: sticky;
     top: 0;
     z-index: 99;
+     color: rgb(109, 105, 108);
     
 }
 </style>
