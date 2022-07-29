@@ -6,7 +6,10 @@
       </vueper-slides>
       <div class="seller-identifiers flex " @click="goToDetail">
         <el-avatar :size="24" :src="gig.owner.imgUrl" />
+        <div class="flex-col">
         <a class="seller-name">{{ gig.owner.fullname }}</a>
+        <a :class="level">{{gig.owner.level}}</a>
+        </div>
       </div>
     </div>
     <p class="gig-title" @click="goToDetail">{{ gig.title }}</p>
@@ -41,11 +44,17 @@ export default {
     goToDetail() {
       this.$router.push(`/gig/${this.gig._id}`)
     },
+   
   },
   computed: {
     liked() {
       return { red: this.like }
     },
+     level(){
+      if(this.gig.owner.level === 'Top Rated Seller')
+      return 'level-top'
+      return 'seller-level '
+    }
   },
   created() {
   },

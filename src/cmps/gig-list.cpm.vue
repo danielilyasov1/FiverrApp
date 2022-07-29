@@ -1,8 +1,8 @@
 <template>
-  <div class="mini-filter sticky">
+  <div class="mini-filter">
 
     <PopoverCmp @submit="miniFilter" />
-
+    <h4 class="services-available">{{gigs.length}} services available</h4>
   </div>
   <section class="gig-list grid">
     <div class="card" v-for="gig in gigs" :key="`gig-${gig._id}`">
