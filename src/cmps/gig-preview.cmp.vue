@@ -14,7 +14,7 @@
     </div>
     <p class="gig-title" @click="goToDetail">{{ gig.title }}</p>
     <div class="content-info" @click="goToDetail">
-      <a>&#9733; 4.9<span>(1K+)</span></a>
+      <a>&#9733; {{gig.owner.rate}}<span>({{gig.owner.review}})</span></a>
     </div>
     <footer class="previw-footer flex">
       <p @click="test" :class="liked">&#10084;</p>

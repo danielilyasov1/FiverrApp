@@ -1,5 +1,5 @@
 <template>
-  <section class="order-container main-layout equal-padding"  v-if="gig">
+  <section class="order-container main-layout equal-padding" :class="showside" v-if="gig">
     <div class="order-box"  >
       <h1 class="head hh">Seller Details</h1>
       <div class="seller-detaile">
@@ -56,7 +56,8 @@ import { userService } from '../services/user-service'
     data() {
       return {
        gig:null,
-     
+       small: false,
+
        sFee:null,
       }
     },
@@ -68,8 +69,14 @@ import { userService } from '../services/user-service'
       this.gig = await gigService.getById(gigId)
       // this.user =( await userService.query())[0]
       console.log('this.userrrrrrrrrrrrr',this.user)
+
+      window.addEventListener("resize", this.changePlace)
+
     
     },
+    destroyed() {
+      window.removeEventListener("resize", this.changePlace);
+   },
     methods: {
       async addOrder(){
         const newOrder= await orderService.getEmptyOrder()
@@ -88,15 +95,17 @@ import { userService } from '../services/user-service'
           newOrder.gig.title=this.gig.title
           newOrder.gig.price=this.totalPrice
           newOrder.gig.daysToMake=this.gig.daysToMake
-          // console.log('newOrder',newOrder)
 
-        
-           this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
+          this.$store.dispatch({ type: "addOrder", newOrder: newOrder })
           this.$router.push(`/dashboard/${this.user._id}`)
-          //  this.$router.push(`/dashboard`)
 
-            // this.$router.push(`/gig/${this.gig._id}`)
-      }
+      },
+      changePlace(e) {
+         if (e.target.innerWidth < 1200) { this.small = true } 
+         else { this.small = false }
+          
+      },
+      
 
     },
     computed: {
@@ -115,7 +124,10 @@ import { userService } from '../services/user-service'
     serviceFee(){
       this.sFee = this.gig.price * 0.03
       return this.sFee.toFixed(2)
-    }
+    },
+    showside(){
+        return this.small ? 'flex-col' : 'flex-row'
+      }
     },
     unmounted() {},
   }
