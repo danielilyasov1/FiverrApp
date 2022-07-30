@@ -34,13 +34,13 @@
             transition: all 0.9s ease ;
         }
         .hero-detail-container{
-            // position: absolute;
+            position: absolute;
             right: rem(245px);
-            bottom: rem(50px);
+            bottom: rem(-650px);
             z-index: 10000000000000;
             width: auto;
              float: right;
-             color:black;
+             color:#FFF;
             font-weight: 700;
             font-size: rem(16px);
             line-height: rem(5px);
