@@ -49,21 +49,21 @@
       .header-row-container {
         width: 10%;
 
+        // .main-logo-container {
         .main-logo-container {
-          .main-logo-container {
-            margin-right: 0;
-            text-align: center;
-            align-self: center;
+          margin-right: 0;
+          text-align: center;
+          align-self: center;
+          .main-logo {
+            width: 100%;
+            transform: translate(-20%, 0);
           }
         }
-      }
-      .top-header-nav-bar-container {
-        .user-image-header {
-        }
+        // }
       }
     }
     .header-row-container {
-      width: 10%;
+      width: 100%;
     }
   }
   .header-container {

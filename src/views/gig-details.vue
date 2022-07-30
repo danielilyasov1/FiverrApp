@@ -1,4 +1,5 @@
 <template>
+  <el-input @input="changeTitleFilter" class="filter-app main-layout" type="text" placeholder="  Find services  " />
   <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
       <div class="linksprator">

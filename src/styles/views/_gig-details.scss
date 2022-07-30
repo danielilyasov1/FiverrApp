@@ -6,6 +6,12 @@
   padding: 62px 24px 0;
 }
 
+@media (max-width: 800px) {
+  .details-page {
+    padding: 0 24px 0;
+  }
+}
+
 .linksprator {
   margin-top: 14px;
   margin-bottom: 15px;

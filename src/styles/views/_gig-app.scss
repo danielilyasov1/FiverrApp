@@ -1,0 +1,17 @@
+.filter-app {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.el-input__wrapper {
+  border: 0.2px solid rgb(212, 208, 208);
+  border-radius: 4px;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .filter-app {
+    display: block;
+  }
+}

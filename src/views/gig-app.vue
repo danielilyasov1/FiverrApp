@@ -1,7 +1,8 @@
 <template>
   <section class="main-layout">
+    <el-input @input="changeTitleFilter" class="filter-app" type="text" placeholder="  Find services  " />
     <h1 class="hcategory">{{ headercategory }}</h1>
-    <h3 class="sentence">{{sentence}}</h3>
+    <h3 class="sentence">{{ sentence }}</h3>
     <div class="gig-list">
       <gig-list :gigs="gigs" />
     </div>
@@ -14,8 +15,7 @@ import gigList from '../cmps/gig-list.cpm.vue'
 export default {
   name: 'gig-app',
   data() {
-    return {
-    }
+    return {}
   },
   created() {
     this.$store.dispatch({ type: 'loadGigs' })
@@ -26,10 +26,10 @@ export default {
       return this.$store.getters.gigs
     },
     headercategory() {
-      return this.$route.query.category || "All category"
+      return this.$route.query.category || 'All category'
     },
-    sentence(){
-      switch(this.$route.query.category){
+    sentence() {
+      switch (this.$route.query.category) {
         case 'Logo Design':
           return 'Stand out from the crowd with a logo that fits your brand personality.'
         case 'Wordpress':
@@ -42,18 +42,14 @@ export default {
           return 'Make your dream desktop app from scratch with help from freelance app developers.'
         case 'Illustration':
           return 'Paint a picture for your audience with digital & hand-drawn illustrations.'
-        
       }
-    }
+    },
   },
-  methods: {
- 
-  },
+  methods: {},
   components: {
     gigList,
   },
 }
 </script>
 
-<style>
-</style>
+<style></style>
