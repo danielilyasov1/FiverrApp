@@ -1,5 +1,5 @@
 <template>
-  <section class="order-container main-layout equal-padding" v-if="gig">
+  <section class="order-container main-layout equal-padding" :class="showside" v-if="gig">
     <div class="order-box">
       <h1 class="head hh">Seller Details</h1>
       <div class="seller-detaile">
@@ -66,6 +66,7 @@ export default {
   data() {
     return {
       gig: null,
+      small: false,
 
       sFee: null,
     }
@@ -78,6 +79,11 @@ export default {
     this.gig = await gigService.getById(gigId)
     // this.user =( await userService.query())[0]
     console.log('this.userrrrrrrrrrrrr', this.user)
+
+    window.addEventListener('resize', this.changePlace)
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.changePlace)
   },
   methods: {
     async addOrder() {
@@ -85,33 +91,80 @@ export default {
 
       console.log('this.user', this.user)
 
-      newOrder.buyerId = this.user._id
+      // newOrder.buyer._id= this.user._id
+      newOrder.buyer.fullname = this.user.fullname
+      // newOrder.buyer.imgUrl= this.user.imgUrl
       // newOrder.buyer.memberSince= this.user.memberSince
-      newOrder.sellerId = this.gig.owner._id
-      newOrder.gigId = this.gig._id
+      // newOrder.seller._id=this.gig.owner._id
+      newOrder.seller.fullname = this.gig.owner.fullname
+      newOrder.seller.imgUrl = this.gig.owner.imgUrl
+      newOrder.gig._id = this.gig._id
+      newOrder.gig.img = this.gig.imgs[0]
+      newOrder.gig.title = this.gig.title
+      newOrder.gig.price = this.totalPrice
+      newOrder.gig.daysToMake = this.gig.daysToMake
 
-      await this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
+      this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
       this.$router.push(`/dashboard/${this.user._id}`)
-      //  this.$router.push(`/dashboard`)
-
-      // this.$router.push(`/gig/${this.gig._id}`)
+    },
+    changePlace(e) {
+      if (e.target.innerWidth < 1200) {
+        this.small = true
+      } else {
+        this.small = false
+      }
     },
   },
   computed: {
     orders() {
       return this.$store.getters.orders
     },
-    totalPrice() {
-      return (+this.gig.price + +this.sFee).toFixed(2)
-    },
-    user() {
-      console.log('fffffff', this.$store.getters.user)
-      return this.$store.getters.user
-    },
 
-    serviceFee() {
-      this.sFee = this.gig.price * 0.03
-      return this.sFee.toFixed(2)
+    async created() {
+      //  this.$store.dispatch({ type: 'loadlogedInUser' })
+      // this.$store.dispatch({ type: 'loadOrders' })
+      const { gigId } = this.$route.params
+      this.gig = await gigService.getById(gigId)
+      // this.user =( await userService.query())[0]
+      console.log('this.userrrrrrrrrrrrr', this.user)
+    },
+    methods: {
+      async addOrder() {
+        const newOrder = await orderService.getEmptyOrder()
+
+        console.log('this.user', this.user)
+
+        newOrder.buyerId = this.user._id
+        // newOrder.buyer.memberSince= this.user.memberSince
+        newOrder.sellerId = this.gig.owner._id
+        newOrder.gigId = this.gig._id
+
+        await this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
+        this.$router.push(`/dashboard/${this.user._id}`)
+        //  this.$router.push(`/dashboard`)
+
+        // this.$router.push(`/gig/${this.gig._id}`)
+      },
+    },
+    computed: {
+      orders() {
+        return this.$store.getters.orders
+      },
+      totalPrice() {
+        return (+this.gig.price + +this.sFee).toFixed(2)
+      },
+      user() {
+        console.log('fffffff', this.$store.getters.user)
+        return this.$store.getters.user
+      },
+
+      serviceFee() {
+        this.sFee = this.gig.price * 0.03
+        return this.sFee.toFixed(2)
+      },
+      showside() {
+        return this.small ? 'flex-col' : 'flex-row'
+      },
     },
   },
   unmounted() {},

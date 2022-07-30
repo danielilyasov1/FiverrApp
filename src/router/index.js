@@ -3,7 +3,7 @@ import home from "../views/home.vue"
 import about from "../views/about.vue"
 import gigApp from "../views/gig-app.vue"
 import gigDetails from "../views/gig-details.vue"
-import userDetails from "../views/user-details.vue"
+// import userDetails from "../views/user-details.vue"
 import checkoutDetails from "../views/checkout-details.vue"
 import dashboard from "../views/dashboard.vue"
 
