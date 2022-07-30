@@ -1,211 +1,218 @@
 <template>
-
-<div class="dashboard-nav" >
-  <div class="nav main-layout">
-    <div class="options">
-      <div class="opt"> Orders</div>
-      <div class="opt"> Notification</div>
-      <div class="opt"> Messages</div>
-    </div>
+  <div class="dashboard-nav">
+    <div class="nav main-layout">
+      <div class="options">
+        <div class="opt">Orders</div>
+        <div class="opt">Notification</div>
+        <div class="opt">Messages</div>
+      </div>
       <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
-   </div>
+    </div>
   </div>
 
-<div class="user-info-container">
-<section class="user-info main-layout flex" v-if="orders">
-    <div class="left side">
-      <div class="user-details" >
+  <div class="user-info-container">
+    <section class="user-info main-layout flex" v-if="orders">
+      <div class="left side">
+        <div class="user-details">
           <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
           <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
-          <div class="user-image">{{user.username}}</div>
+          <!-- <div class="user-image">{{ user.username }}</div> -->
+          <img class="user-image" :src="user.imgUrl" alt="" />
           <!-- <img src="../../public/userimg.png" alt=""/>
           <h2>{{user.username}}</h2> -->
           <!-- <pre v-if="user">{{user}}</pre> -->
           <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
-          <hr>
+          <hr />
           <div class="member-Since">
             <div class="member">
-            <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonIcon"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-          <h4 class="since">Member since</h4>
+              <svg
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
+                focusable="false"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                data-testid="PersonIcon"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+              <h4 class="since">Member since</h4>
             </div>
-          <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
-          <h4 class="date">May 2021</h4>
+            <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
+            <h4 class="date">May 2021</h4>
           </div>
-      </div>
+        </div>
 
-      <div class="progress-container" v-if="!isbuyer">
-      <div class="progress ">
-        <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
-      <span class="rate">Response rate </span><el-progress percentage="98" color="#1dbf73" />
-      <span>Delivered on time</span><el-progress percentage="85" color="#1dbf73"  />
-      <span>Order completion</span><el-progress percentage="100" color="#1dbf73"  />
-      </div>
-      <hr>
-      <div class="prodress-data">
-        <div class="earned">Earned in July<span>{{earned}}</span></div>
-        <div class="response">Response time<span>2Hrs</span></div>
-      </div>
-      </div>
-    </div>
-
-    <div class="orders-container " >
-      <div  v-if="orders,isbuyer"  v-for="order in orders" :key="order._id">
-      <div>
-      </div>
-          <div class="order">
-            <div class="order-info">
-            <img class="gig-img" :src="order.gig.img" alt="">
-            <img class="seller-img" :src="order.seller.imgUrl" alt="">
-              <div class="name">{{order.seller.fullname}}</div>
-              <div>
-                 <p class="title">Price</p>
-                <p class="info"> $ {{order.gig.price}}</p>
-              </div>
-              <div>
-                 <p class="title">Delivery Time</p>
-                <p class="info"> {{order.gig.daysToMake}} Days</p>
-              </div>
-              <div class="issued">
-                 <p class="title">Issued At </p>
-                <p class="info">{{order.createdAt}}</p>
-              </div>
+        <div class="progress-container" v-if="!isbuyer">
+          <div class="progress">
+            <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
+            <span class="rate">Response rate </span><el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span
+            ><el-progress percentage="85" color="#1dbf73" /> <span>Order completion</span><el-progress percentage="100" color="#1dbf73" />
+          </div>
+          <hr />
+          <div class="prodress-data">
+            <div class="earned">
+              Earned in July<span>{{ earned }}</span>
             </div>
-            <div class="status-container">
-              <hr>
-              <div class="status">
-                <h1 class="status-title">Order status:</h1>
-                <h1>{{order.status}}</h1>
-              </div>
-            </div>
+            <div class="response">Response time<span>2Hrs</span></div>
           </div>
-      </div>
-
-     <div v-if="!isbuyer "  class="sellers-orders-container">
-      <div v-if="!sellersOrders" class="no-orders-image-container">
-        <div >
-          <div class="no-orders-image">
-          <img src="../styles/imgs/inbox.png" alt="">
-          </div>
-          <div class="no-orders-txt">No Orders Yet </div>
         </div>
       </div>
 
-      <div v-if="sellersOrders" class="manage-orders">
-       <h1>Manage Orders</h1>
-       <table class="sellers-orders-table">
-        <tr class="table-head">
-          <th class="buyer">BUYER</th>
-          <th></th>
-          <th>GIG</th>
-          <th>DUE ON</th>
-          <th>DELIVERED AT</th>
-          <th>TOTAL</th>
-          <th>STATUS</th>
-        </tr>
-        <tr v-for="sellersOrder in sellersOrders" :key="sellersOrder" class="row">
-          <td class="buyer"> <img class="buyer-img" :src="sellersOrder.buyer.imgUrl" alt="img"> </td>
-          <td>{{sellersOrder.buyer.fullname}}</td>
-          <td>{{sellersOrder.gig.title}}</td>
-          <td>{{sellersOrder.createdAt}}</td>
-          <td>{{sellersOrder.deliveredAt}}</td>
-          <td>${{sellersOrder.gig.price}}</td>
-          <td class="statusbtn" @click="changeOrderStatus(sellersOrder._id)"><div class="order-status" :class="color(sellersOrder.status)">{{sellersOrder.status}}</div></td>
-        </tr>
-       </table>
+      <div class="orders-container">
+        <div v-if="(orders, isbuyer)" v-for="order in orders" :key="order._id">
+          <div></div>
+          <div class="order">
+            <div class="order-info">
+              <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
+              <img class="seller-img" :src="order.seller.imgUrl" alt="" />
+              <div class="name">{{ order.seller.fullname }}</div>
+              <div>
+                <p class="title">Price</p>
+                <p class="info">$ {{ order.gig.price }}</p>
+              </div>
+              <div>
+                <p class="title">Delivery Time</p>
+                <p class="info">{{ order.gig.daysToMake }} Days</p>
+              </div>
+              <div class="issued">
+                <p class="title">Issued At</p>
+                <p class="info">{{ order.createdAt }}</p>
+              </div>
+            </div>
+            <div class="status-container">
+              <hr />
+              <div class="status">
+                <h1 class="status-title">Order status:</h1>
+                <h1>{{ order.status }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div v-if="!isbuyer" class="sellers-orders-container">
+          <div v-if="!sellersOrders" class="no-orders-image-container">
+            <div>
+              <div class="no-orders-image">
+                <img src="../styles/imgs/inbox.png" alt="" />
+              </div>
+              <div class="no-orders-txt">No Orders Yet</div>
+            </div>
+          </div>
+
+          <div v-if="sellersOrders" class="manage-orders">
+            <h1>Manage Orders</h1>
+            <table class="sellers-orders-table">
+              <tr class="table-head">
+                <th class="buyer">BUYER</th>
+                <th></th>
+                <th>GIG</th>
+                <th>DUE ON</th>
+                <th>DELIVERED AT</th>
+                <th>TOTAL</th>
+                <th>STATUS</th>
+              </tr>
+              <tr v-for="sellersOrder in sellersOrders" :key="sellersOrder" class="row">
+                <td class="buyer"><img class="buyer-img" :src="sellersOrder.buyer.imgUrl" alt="img" /></td>
+                <td>{{ sellersOrder.buyer.fullname }}</td>
+                <td>{{ sellersOrder.gig.title }}</td>
+                <td>{{ sellersOrder.createdAt }}</td>
+                <td>{{ sellersOrder.deliveredAt }}</td>
+                <td>${{ sellersOrder.gig.price }}</td>
+                <td class="statusbtn" @click="changeOrderStatus(sellersOrder._id)">
+                  <div class="order-status" :class="color(sellersOrder.status)">{{ sellersOrder.status }}</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-    </div>
-
-</section>
-
-</div>
-
+    </section>
+  </div>
 </template>
 
 <script>
-    // import { userService } from '../services/user-service'
-    import { orderService } from '../services/order-service'
-    import { utilService } from '../services/util-service'
+// import { userService } from '../services/user-service'
+import { orderService } from '../services/order-service'
+import { utilService } from '../services/util-service'
 
-   export default {
-
-    data() {
-      return {
-        isbuyer: true,
-      }
-    },
-  
-    async created() {
-      await this.$store.dispatch({ type: 'loadOrders'})
-    },
-    methods: {
-      async changeOrderStatus(orderId){
-        let curOrder = await orderService.getById(orderId)
-        curOrder.status = 'completed'
-        curOrder.deliveredAt =  await utilService.getFormattedDate()
-        console.log('curOrderr',curOrder)
-        this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
-      },
-
-      sellerBuyerToggle(){
-        this.isbuyer = !this.isbuyer
-        console.log('this.isbuyer',this.isbuyer)
-
-      },
-      color(status){
-        console.log('ststus',status)
-      if(status === 'completed') {
-        console.log('hiigru');
-        return 'green'
-      }return 'oreng'
+export default {
+  data() {
+    return {
+      isbuyer: true,
     }
-     
-    },
-    computed: {
-      orders() {
-        return this.$store.getters.orders.filter(order=> {
-          console.log(order)
-          console.log(this.user)
-          return order.buyer.fullname===this.user.fullname})
-      },
-       sellersOrders(){
+  },
 
-        return this.$store.getters.orders.filter(order=> order.seller.fullname===this.user.fullname)
-
-      },
-      showTime(time){
-        console.log('this.order.createdAt',time)
-      },
-      // statuss(order){
-      //   if (order.status === 'pending') {
-      //     console.log('oreng')
-      //     return 'oreng'
-      //   }
-      //   if (order.status === 'completed') return 'green'
-      // }
-        user() {
-        console.log('fffffff',this.$store.getters.user)
-        return this.$store.getters.user
-  
-    
+  async created() {
+    await this.$store.dispatch({ type: 'loadOrders' })
+  },
+  methods: {
+    async changeOrderStatus(orderId) {
+      const curOrder = await orderService.getById(orderId)
+      console.log('curOrder', curOrder)
+      curOrder.status = 'completed'
+      curOrder.deliveredAt = await utilService.getFormattedDate()
+      this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
     },
-      earned(){
-      console.log('this.sellersOrders',this.sellersOrders)
-      let earn = this.sellersOrders.reduce((prev,next)=>{
-        console.log('earn')
-        return next+= prev.gig.price
-      },0)
-      console.log('earn',earn)
+
+    sellerBuyerToggle() {
+      this.isbuyer = !this.isbuyer
+      console.log('this.isbuyer', this.isbuyer)
+    },
+    color(status) {
+      console.log('ststus', status)
+      if (status === 'completed') {
+        console.log('hiigru')
+        return 'green'
+      }
+      return 'oreng'
+    },
+  },
+  computed: {
+    orders() {
+      // console.log('yyy',this.$store.getters.orders)
+      // return this.$store.getters.orders
+      // console.log('this.userwwwwww',this.user)
+      const ju = this.$store.getters.orders.filter((order) => {
+        // console.log('orderxxxxxxxxxx',order)
+        return order.buyer._id === this.user._id
+      })
+      return ju
+    },
+    sellersOrders() {
+      const hi = this.$store.getters.orders.filter((order) => {
+        console.log('orderryyyyyy', order)
+
+        return order.seller._id === this.user._id
+      })
+
+      //  console.log('ho',hi)
+      return hi
+    },
+    showTime(time) {
+      console.log('this.order.createdAt', time)
+    },
+    // statuss(order){
+    //   if (order.status === 'pending') {
+    //     console.log('oreng')
+    //     return 'oreng'
+    //   }
+    //   if (order.status === 'completed') return 'green'
+    // }
+    user() {
+      console.log('fffffff', this.$store.getters.user)
+      return this.$store.getters.user
+    },
+    earned() {
+      console.log('this.sellersOrders', this.sellersOrders)
+      let earn = this.sellersOrders.reduce((acc, order) => {
+        console.log('earn', order.gig?.price)
+        return (acc += Number(order.gig?.price) || 0)
+      }, 0)
+      console.log('earns', earn)
       return earn
+      // return 0
     },
-    
-   
-     
-  }
-   
-   }
-
+  },
+}
 </script>

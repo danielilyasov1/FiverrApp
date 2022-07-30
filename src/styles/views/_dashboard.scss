@@ -1,417 +1,394 @@
+.dashboard-nav {
+  width: 100%;
+  position: absolute;
+  top: 78px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
 
-.dashboard-nav{
-    width: 100%;
-    position: absolute;
-    top: 78px;
+  color: $clr9;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in;
+  margin: 2px;
+  border-top: 1px solid rgb(233, 233, 233);
+  border-bottom: 1px solid rgb(233, 233, 233);
+
+  .nav {
     display: flex;
-    background-color: rgb(255, 255, 255);
-
-    color: $clr9;
-    font-weight: 400;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-in;
-    margin: 2px;
-    border-top: 1px solid rgb(233, 233, 233);
-    border-bottom: 1px solid rgb(233, 233, 233);
-   
-        
-      .nav{
-
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        .user-selles-btn{
-            color:rgb(27 212 169);
-            background-color: #abaeb600;
-            border: none;
-            text-decoration: underline;
-            font-weight: 500;
-            font-size: 16px;
-        }
-        
-     .options{
-        display: flex;
-        .opt:hover{
-            box-shadow: inset 0px -2px 0px 0px rgb(27 212 169);   
-        }
-        .opt{
-            padding: 10px;
-            display: flex;
-            position: relative;
-            cursor: pointer;
-            margin-right: 70px;
-        }
-
-     }
-        
-      
-
-      }
-   
-}
-
-
-.user-info-container{
-    background-color: rgb(245, 245, 245);
-    height: fit-content;
-    margin-top: 40px;
-    font-family: Helvetica, sans-serif;    
-
-    .user-info{
-        padding-top: 100px;
-        justify-content: space-between;
-        line-height: 5px;
-        min-height: 100vh;
-        .user-details{
-            font-size: 20px;
-            border-radius: 2px;
-            margin-top: -60px;
-            width: 300px;
-            height: fit-content;
-            padding: 32px;
-            text-align: center;
-            border: 2px solid rgb(235, 232, 232);
-            background-color: rgb(255, 255, 255);
-            .stars{
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-    
-            hr{
-                margin-top: 35px;
-                border: 1px solid rgb(235, 232, 232);
-            }
-            // img{
-            //     width: 100px;
-            //     height: 100px;
-            //     margin-bottom: 15px;
-            //     // border-radius: 50px;
-            // }
-            .user-image{
-                width: 100px;
-                    height: 100px;
-                    // margin-bottom: 15px;
-                    border-radius: 50%;
-                    background-color: rgb(21, 184, 89);
-                    text-align: center;
-            }
-            .member-Since{
-                color: $clr1;
-                font-family: Helvetica, sans-serif;
-                font-size: rem(16px);
-                display: flex;
-                align-items: center;
-                margin-top: -5px;
-                justify-content: space-between;
-                .member{
-                    display: flex;
-                    align-items: center;
-                    svg{
-                        margin-top: 17px;
-                        height: rem(20px);
-                    }
-                    .since{
-                        margin-left: 10px;
-                        margin-bottom: 0;
-                    }
-
-                }
-
-                .date{
-                    font-weight: bolder;
-                    margin-bottom: 0;
-                }
-            }
-        
-        }
-       
-        .progress-container{
-            font-size: 16px;
-            font-family: Helvetica, sans-serif;
-            color: $clr5;
-            text-align: left;
-            line-height: 14px;
-            border-radius: 2px;
-            margin-top: 30px;
-            width: 300px;
-            height: fit-content;
-            padding: 32px;
-            border: 2px solid rgb(235, 232, 232);
-            background-color: rgb(255, 255, 255);
-            .progress{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-right: 32px;
-                span{
-                    margin: 10px 0;
-                }
-                .rate{
-                    margin-top: 0;
-                }
-            }
-            .el-progress--line{
-                width: 60px;
-            }
-            .el-progress-bar__outer{
-                width: 50px;
-            }
-            .el-progress-bar{
-                width: 50px;
-            }
-            .el-progress__text{
-                margin-left: -7px;
-                margin-bottom: 8px;
-                text-align: end;
-
-            }
-         
-        }
-
-        .prodress-data{
-           
-            .earned{
-                margin: 20px 0px;
-            }
-            span{
-                font-weight: 700;
-                float: right;
-            }
-            .response span{
-                color: $clr3;
-            }
-        }
-
-        .orders-container{
-            margin-top: -60px;
-            width: 76%;
-          
-           
-            .sellers-orders-container{
-                .manage-orders{
-                    h1{
-                        font-size: 40px;
-                        font-family:Helvetica, sans-serif;
-                        line-height: 120%;
-                        color: #404145;
-                        margin-top: 0;
-                    }
-                    .sellers-orders-table{
-                        background-color: #fff;
-                        width: 100%;
-                        border: 2px solid rgb(235, 232, 232);
-                        text-align: left;
-                        .buyer{
-                            margin-left: 200px;
-                        }
-                        .table-head{
-                            color: #ABAEB6;
-                            font-weight: 600;
-                            border-bottom: 1px solid rgb(228, 229, 231);
-                            font-size: 12px;
-                            height: 37px;
-                            line-height: 33px;
-                            text-align: left;
-                            text-transform: uppercase;
-                            vertical-align: middle;
-                            white-space: nowrap;
-                        }
-                        .row{
-                            height: 40px;
-                            color: #535456;
-                            font-size: 14px;
-                            font-family: Helvetica, sans-serif;
-                            td{
-                                white-space: normal;
-                                max-width: 300px;
-                                font-size: 14px;
-                                line-height: 20px;
-                                padding: 16px 16px 16px 0;
-                                color: $clr5;
-                                border-top: 1px solid #e4e5e7;
-                                border-bottom: 1px solid #e4e5e7;
-                                font-size: 14px;
-                            }
-                            .buyer-img{
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 50%;
-                            }
-                        }
-                        .statusbtn{
-                            padding: 0 10px 0 0;
-                            .order-status{
-                                height: 20px;
-                                width: 80px;
-                                // padding: 0 4px;
-                                font-size: 10px;
-                                color: #fff;
-                                font-weight: 700;
-                                text-align: center;
-                                text-transform: uppercase;
-                                vertical-align: baseline;
-                                border-radius: 5px;
-                                cursor: pointer;
-                            }
-                        }
-                    }
-                    .pre{
-                        height: 1000px;
-                        line-height: 20px;
-                    }
-                }
-               
-                .no-orders{
-                  
-                    background-color: rgb(255, 255, 255);
-                    color: $clr9;
-                    font-weight: 400;
-                    font-size: 16px;
-                    font-family: Helvetica, sans-serif;
-                    border: 2px solid rgb(235, 232, 232);
-                    height: rem(38px);
-  
-                    line-height: rem(38px);
-                    padding-left: 20px;
-                }
-
-
-                .no-orders-image-container{
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 100px;
-
-
-                    .no-orders-image{
-                        display: block;
-                        background-color: rgb(255, 255, 255);
-                        border-radius: 50%;
-                        height: rem(115px);
-                        width: rem(115px);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        img{
-                            height: rem(80px);
-                            width: rem(80px);
-    
-                        }
-                        
-                    }
-                    .no-orders-txt{
-                        width: 100%;
-                        // margin: auto;
-                        margin-top: 30px;
-                        color: #292929;
-                        font-weight: 600;
-                        font-size: 1rem;
-                        font-family: Helvetica, sans-serif;
-                        text-align: center;
-
-                    }
-                }
-
-
-
-
-            }
-
-
-
-            .order:hover{
-               
-            box-shadow: inset 3px 0px 0px 0px rgb(27 212 169);
-        }
-        .order{
-                height: fit-content;
-                width: 100%;
-                
-                background-color: white;
-                border: 2px solid rgb(235, 232, 232);
-                margin-bottom: 20px;
-                border-radius: 2px;
-                padding: 10px;
-                align-items: center;
-               .issued{
-                margin-left: 50px;
-                margin-right: -55px;
-               }
-
-                .order-info{
-                    display: flex;
-                    width: 100%;
-                    justify-content: space-between;
-                    align-items: center;
-                    > * {
-                        width:rem(150px);
-                    }
-                    .gig-img{
-                        height: rem(100px);
-                        width: rem(166px);
-                        object-fit: cover;
-
-                        // margin-right: 30px;
-                        border-radius: 4px;
-                    }
-                    .seller-img{
-                        margin-left: 30px;
-                        height: rem(60px);
-                        width: rem(60px);
-                        border-radius: 50%;
-                        margin-right: 10px;
-                    }
-                   .name{
-                    font-weight: bolder;
-                    color: $clr1;
-                    margin-left: -30px;
-                   }
-                    .title{
-                        font-size: rem(16px);
-                        font-family: work-sans;
-                        color: #ABAEB6;
-                        // margin-left: 30px;
-                        
-                    }
-                    
-                    .info{
-                        // margin-left: 30px;
-                        font-size: rem(16px);
-                        font-family: work-sans;
-                    }
-                }
-                .status-container{
-                    hr{
-                        height: 1px;
-                        background-color: rgb(235, 232, 232);
-                        border: none;
-                    }
-                    .status{
-                        font-family: work-sans;
-                        font-size: rem(14px);
-                        .status-title{
-                            color: #ABAEB6;
-
-                        }
-                        display: flex;
-                        justify-content: space-between;
-                    }
-
-                }
-               
-               
-              
-    
-            }
-        }
+    justify-content: space-between;
+    width: 100%;
+    .user-selles-btn {
+      color: rgb(27 212 169);
+      background-color: #abaeb600;
+      border: none;
+      text-decoration: underline;
+      font-weight: 500;
+      font-size: 16px;
     }
 
+    .options {
+      display: flex;
+      .opt:hover {
+        box-shadow: inset 0px -2px 0px 0px rgb(27 212 169);
+      }
+      .opt {
+        padding: 10px;
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        margin-right: 70px;
+      }
+    }
+  }
 }
 
-.oreng{
-    background-color: #ffbe5b;
+.user-info-container {
+  background-color: rgb(245, 245, 245);
+  height: fit-content;
+  margin-top: 40px;
+  font-family: Helvetica, sans-serif;
+  // display: block;
+
+  .user-info {
+    display: flex;
+    padding-top: 100px;
+    justify-content: space-between;
+    line-height: 5px;
+    min-height: 100vh;
+    .user-details {
+      font-size: 20px;
+      border-radius: 2px;
+      margin-top: -60px;
+      width: 300px;
+      height: fit-content;
+      padding: 32px;
+      text-align: center;
+      border: 2px solid rgb(235, 232, 232);
+      background-color: rgb(255, 255, 255);
+      .stars {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      hr {
+        margin-top: 35px;
+        border: 1px solid rgb(235, 232, 232);
+      }
+      // img{
+      //     width: 100px;
+      //     height: 100px;
+      //     margin-bottom: 15px;
+      //     // border-radius: 50px;
+      // }
+      .user-image {
+        width: 100px;
+        height: 100px;
+        // margin-bottom: 15px;
+        border-radius: 50%;
+        background-color: rgb(21, 184, 89);
+        text-align: center;
+      }
+      .member-Since {
+        color: $clr1;
+        font-family: Helvetica, sans-serif;
+        font-size: rem(16px);
+        display: flex;
+        align-items: center;
+        margin-top: -5px;
+        justify-content: space-between;
+        .member {
+          display: flex;
+          align-items: center;
+          svg {
+            margin-top: 17px;
+            height: rem(20px);
+          }
+          .since {
+            margin-left: 10px;
+            margin-bottom: 0;
+          }
+        }
+
+        .date {
+          font-weight: bolder;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .progress-container {
+      font-size: 16px;
+      font-family: Helvetica, sans-serif;
+      color: $clr5;
+      text-align: left;
+      line-height: 14px;
+      border-radius: 2px;
+      margin-top: 30px;
+      width: 300px;
+      height: fit-content;
+      padding: 32px;
+      border: 2px solid rgb(235, 232, 232);
+      background-color: rgb(255, 255, 255);
+      .progress {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-right: 32px;
+        span {
+          margin: 10px 0;
+        }
+        .rate {
+          margin-top: 0;
+        }
+      }
+      .el-progress--line {
+        width: 60px;
+      }
+      .el-progress-bar__outer {
+        width: 50px;
+      }
+      .el-progress-bar {
+        width: 50px;
+      }
+      .el-progress__text {
+        margin-left: -7px;
+        margin-bottom: 8px;
+        text-align: end;
+      }
+    }
+
+    .prodress-data {
+      .earned {
+        margin: 20px 0px;
+      }
+      span {
+        font-weight: 700;
+        float: right;
+      }
+      .response span {
+        color: $clr3;
+      }
+    }
+
+    .orders-container {
+      margin-top: -60px;
+      width: 76%;
+
+      .sellers-orders-container {
+        .manage-orders {
+          h1 {
+            font-size: 40px;
+            font-family: Helvetica, sans-serif;
+            line-height: 120%;
+            color: #404145;
+            margin-top: 0;
+          }
+          .sellers-orders-table {
+            background-color: #fff;
+            width: 100%;
+            border: 2px solid rgb(235, 232, 232);
+            text-align: left;
+            .buyer {
+              margin-left: 200px;
+            }
+            .table-head {
+              color: #abaeb6;
+              font-weight: 600;
+              border-bottom: 1px solid rgb(228, 229, 231);
+              font-size: 12px;
+              height: 37px;
+              line-height: 33px;
+              text-align: left;
+              text-transform: uppercase;
+              vertical-align: middle;
+              white-space: nowrap;
+            }
+            .row {
+              height: 40px;
+              color: #535456;
+              font-size: 14px;
+              font-family: Helvetica, sans-serif;
+              td {
+                white-space: normal;
+                max-width: 300px;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 16px 16px 16px 0;
+                color: $clr5;
+                border-top: 1px solid #e4e5e7;
+                border-bottom: 1px solid #e4e5e7;
+                font-size: 14px;
+              }
+              .buyer-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+              }
+            }
+            .statusbtn {
+              padding: 0 10px 0 0;
+              .order-status {
+                height: 20px;
+                width: 80px;
+                // padding: 0 4px;
+                font-size: 10px;
+                color: #fff;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+                vertical-align: baseline;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+            }
+          }
+          .pre {
+            height: 1000px;
+            line-height: 20px;
+          }
+        }
+
+        .no-orders {
+          background-color: rgb(255, 255, 255);
+          color: $clr9;
+          font-weight: 400;
+          font-size: 16px;
+          font-family: Helvetica, sans-serif;
+          border: 2px solid rgb(235, 232, 232);
+          height: rem(38px);
+
+          line-height: rem(38px);
+          padding-left: 20px;
+        }
+
+        .no-orders-image-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 100px;
+
+          .no-orders-image {
+            display: block;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            height: rem(115px);
+            width: rem(115px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              height: rem(80px);
+              width: rem(80px);
+            }
+          }
+          .no-orders-txt {
+            width: 100%;
+            // margin: auto;
+            margin-top: 30px;
+            color: #292929;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: Helvetica, sans-serif;
+            text-align: center;
+          }
+        }
+      }
+
+      .order:hover {
+        box-shadow: inset 3px 0px 0px 0px rgb(27 212 169);
+      }
+      .order {
+        height: fit-content;
+        width: 100%;
+
+        background-color: white;
+        border: 2px solid rgb(235, 232, 232);
+        margin-bottom: 20px;
+        border-radius: 2px;
+        padding: 10px;
+        align-items: center;
+        .issued {
+          text-align: end;
+          //   margin-left: 50px;
+          //   margin-right: -55px;
+        }
+
+        .order-info {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          > * {
+            width: rem(150px);
+          }
+          .gig-img {
+            height: rem(100px);
+            width: rem(166px);
+            object-fit: cover;
+
+            // margin-right: 30px;
+            border-radius: 4px;
+          }
+          .seller-img {
+            margin-left: 30px;
+            height: rem(60px);
+            width: rem(60px);
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          .name {
+            font-weight: bolder;
+            color: $clr1;
+            margin-left: -30px;
+          }
+          .title {
+            font-size: rem(16px);
+            font-family: work-sans;
+            color: #abaeb6;
+            // margin-left: 30px;
+          }
+
+          .info {
+            // margin-left: 30px;
+            font-size: rem(16px);
+            font-family: work-sans;
+          }
+        }
+        .status-container {
+          hr {
+            height: 1px;
+            background-color: rgb(235, 232, 232);
+            border: none;
+          }
+          .status {
+            font-family: work-sans;
+            font-size: rem(14px);
+            .status-title {
+              color: #abaeb6;
+            }
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
 }
-.green{
-    background-color: $clr3;
+
+@media (max-width: 800px) {
+  .user-info-container {
+    display: block;
+
+    .user-info {
+      display: block;
+      background-color: #ffbe5b;
+    }
+  }
+}
+.oreng {
+  background-color: #ffbe5b;
+}
+.green {
+  background-color: $clr3;
 }

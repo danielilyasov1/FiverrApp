@@ -1,160 +1,140 @@
-.user-dropdown{
-    position: absolute;
-    right: 0;
-    background-color: #ffffff;
-    z-index: 800;
-    width: 10%;
-    border: 1px solid #eeeff5;
-    border-radius: 2%;
-    padding: 5px;
-    h1{
-        font-family: Helvetica, sans-serif;
-        font-size: 1em;
-        color: #a2a4a9;
-        font-weight: 100;
-        
-    }
-    h1:hover{
-        cursor: pointer;
-        color: #50b957;
-    }
-
-    .dropdown-hr{
-        width: 100%;
-        color:  #eeeff5;
-    }
-}
-
-.user-image-header{
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 800;
+  width: 10%;
+  border: 1px solid #eeeff5;
+  border-radius: 2%;
+  padding: 5px;
+  h1 {
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+    color: #a2a4a9;
+    font-weight: 100;
+  }
+  h1:hover {
     cursor: pointer;
-    border-radius: 50%;
-    background-color: #50b957;
-    color: white;
-    padding: 10px;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    line-height: 20px;
+    color: #50b957;
+  }
+
+  .dropdown-hr {
+    width: 100%;
+    color: #eeeff5;
+  }
 }
 
-.top-header{
-    height: rem(81px);
-    display: block;
-    align-items: center;
+.user-image-header {
+  cursor: pointer;
+  border-radius: 50%;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
 
-    @media (max-width: 800px) {
-        .app-filter, .seller, .explore {
-            display: none;
-        }
-        .header-container{
-            display: flex;
-            justify-content: space-between;
-            .header-row-container{
-                width: 10%;
-               
-                .main-logo-container{
-                   
-                    .main-logo-container{
-                        margin-right: 0;
-                        text-align: center;
-                        align-self: center;
-                    }
+.top-header {
+  height: rem(81px);
+  display: block;
+  align-items: center;
 
-                }
-
-            }
-            .top-header-nav-bar-container{
-                .user-image-header{
-
-                }
-            }
-
-            
-
-        }
-        .header-row-container{
-            width: 10%;
-        }
-        
-       
+  @media (max-width: 950px) {
+    .app-filter,
+    .seller,
+    .explore {
+      display: none;
     }
-    .header-container{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        // z-index: 5;
-        color: $clr9;
-        .menu-toggle{
-            background-color: #ffffff00;
-            border: none;
-            font-size: rem(25px);
-            color: #616264;
-            font-weight: 100;
-        }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      .header-row-container {
+        width: 10%;
 
-    }
-    .header-row-container{
-        display: flex;
-        align-items: center;
-        width: 60%;
-       
-        .main-logo-container{
-            align-items: center;
-            display: flex;
+        .main-logo-container {
+          .main-logo-container {
+            margin-right: 0;
+            text-align: center;
             align-self: center;
-            font-family: Helvetica, sans-serif;
-           
-            font-size: 1.5em;
-            margin-right: 100px;
-           
-            .main-logo{
-                // color: black;
-                align-self: center;
-                margin-bottom: 45px;
-                letter-spacing: -3.5px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            .while-text h1{
-                color: #ffffff;
-            }
-            .black-text h1{
-                color: #2f3032;
-            }
-                              
-            span{
-            font-size: 1.5em;
-            color: $clr3;
-            font-family:'Times New Roman', Times, serif;           
-            }
-
+          }
         }
-    }
-    .top-header-nav-bar-container{
-        display: flex;
-        align-items: center;
-        // width: 40%;
-        .nav-bar{
-            display: flex;
-            align-items: center;
-            list-style-type: none;
-            .move{
-                margin-right:40px ;
-                font-family: Arial, Helvetica, sans-serif;       
-                font-size: 1.1rem;
-                
-            }
-            .while-text a{
-                color: #ffffff;
-            }
-            .black-text a{
-                color: #2f3032;
-            }
-           
+      }
+      .top-header-nav-bar-container {
+        .user-image-header {
         }
+      }
     }
+    .header-row-container {
+      width: 10%;
+    }
+  }
+  .header-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // z-index: 5;
+    color: $clr9;
+    .menu-toggle {
+      background-color: #ffffff00;
+      border: none;
+      font-size: rem(25px);
+      color: #616264;
+      font-weight: 100;
+    }
+  }
+  .header-row-container {
+    display: flex;
+    align-items: center;
+    width: 60%;
 
+    .main-logo-container {
+      align-items: center;
+      display: flex;
+      align-self: center;
+      font-family: Helvetica, sans-serif;
+
+      font-size: 1.5em;
+      margin-right: 100px;
+
+      .main-logo {
+        // color: black;
+        align-self: center;
+        margin-bottom: 45px;
+        letter-spacing: -3.5px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .while-text h1 {
+        color: #ffffff;
+      }
+      .black-text h1 {
+        color: #2f3032;
+      }
+
+      span {
+        font-size: 1.5em;
+        color: $clr3;
+        font-family: 'Times New Roman', Times, serif;
+      }
+    }
+  }
+  .top-header-nav-bar-container {
+    display: flex;
+    align-items: center;
+    // width: 40%;
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      .move {
+        margin-right: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+      }
+      .while-text a {
+        color: #ffffff;
+      }
+      .black-text a {
+        color: #2f3032;
+      }
+    }
+  }
 }
-
-
-
