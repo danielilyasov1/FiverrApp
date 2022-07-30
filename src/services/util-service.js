@@ -26,7 +26,7 @@ function getRandomIntInc(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
 }
 function getFormattedDate(){
-  return new Date().toUTCString().slice(5,22)
+  return new Date().toUTCString().slice(5,16)
 }
 
 function getLoremIpsum(length = 5) {

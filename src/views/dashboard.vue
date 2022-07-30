@@ -2,20 +2,16 @@
 
 <div class="dashboard-nav" >
   <div class="nav main-layout">
-
     <div class="options">
       <div class="opt"> Orders</div>
       <div class="opt"> Notification</div>
       <div class="opt"> Messages</div>
     </div>
-
-       <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
-
+      <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
    </div>
   </div>
 
 <div class="user-info-container">
-
 <section class="user-info main-layout flex" v-if="orders">
     <div class="left side">
       <div class="user-details" >
@@ -32,10 +28,8 @@
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonIcon"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
           <h4 class="since">Member since</h4>
             </div>
-        
           <!-- <h6>{{orders[0].buyer.memberSince}}</h6> -->
-          <h4 class="date">jul 7777</h4>
-
+          <h4 class="date">May 2021</h4>
           </div>
       </div>
 
@@ -48,32 +42,25 @@
       </div>
       <hr>
       <div class="prodress-data">
-        <div class="earned">Earned in July<span>$235</span></div>
+        <div class="earned">Earned in July<span>{{earned}}</span></div>
         <div class="response">Response time<span>2Hrs</span></div>
       </div>
       </div>
-
     </div>
 
     <div class="orders-container " >
       <div  v-if="orders,isbuyer"  v-for="order in orders" :key="order._id">
       <div>
-        
       </div>
           <div class="order">
             <div class="order-info">
-
             <img class="gig-img" :src="order.gig.img" alt="">
-
             <img class="seller-img" :src="order.seller.imgUrl" alt="">
-
               <div class="name">{{order.seller.fullname}}</div>
-
               <div>
                  <p class="title">Price</p>
                 <p class="info"> $ {{order.gig.price}}</p>
               </div>
-        
               <div>
                  <p class="title">Delivery Time</p>
                 <p class="info"> {{order.gig.daysToMake}} Days</p>
@@ -83,45 +70,32 @@
                 <p class="info">{{order.createdAt}}</p>
               </div>
             </div>
-
             <div class="status-container">
               <hr>
               <div class="status">
-
                 <h1 class="status-title">Order status:</h1>
                 <h1>{{order.status}}</h1>
-
               </div>
             </div>
-          
-
-        
           </div>
-            
       </div>
 
-
      <div v-if="!isbuyer "  class="sellers-orders-container">
-
-      <div  class="no-orders"> shani17751@Gmail.Com's Orders - 0</div>
-
-      <div class="no-orders-image-container">
-
+      <div v-if="!sellersOrders" class="no-orders-image-container">
         <div >
           <div class="no-orders-image">
           <img src="../styles/imgs/inbox.png" alt="">
           </div>
           <div class="no-orders-txt">No Orders Yet </div>
         </div>
-
       </div>
 
-
       <div v-if="sellersOrders" class="manage-orders">
-        <h1>Manage Orders</h1>
+       <h1>Manage Orders</h1>
        <table class="sellers-orders-table">
         <tr class="table-head">
-          <th>BUYER</th>
+          <th class="buyer">BUYER</th>
+          <th></th>
           <th>GIG</th>
           <th>DUE ON</th>
           <th>DELIVERED AT</th>
@@ -129,24 +103,17 @@
           <th>STATUS</th>
         </tr>
         <tr v-for="sellersOrder in sellersOrders" :key="sellersOrder" class="row">
-          <!-- <td> <img class="buyer-img" v-if="sellersOrder.buyer.imgUrl" :src="sellersOrder.buyer.imgUrl" alt=""> {{sellersOrder.buyer.fullname}}</td> -->
+          <td class="buyer"> <img class="buyer-img" :src="sellersOrder.buyer.imgUrl" alt="img"> </td>
           <td>{{sellersOrder.buyer.fullname}}</td>
           <td>{{sellersOrder.gig.title}}</td>
           <td>{{sellersOrder.createdAt}}</td>
           <td>{{sellersOrder.deliveredAt}}</td>
           <td>${{sellersOrder.gig.price}}</td>
-          <td @click="changeOrderStatus(sellersOrder._id)">{{sellersOrder.status}}</td>
+          <td class="statusbtn" @click="changeOrderStatus(sellersOrder._id)"><div class="order-status" :class="color(sellersOrder.status)">{{sellersOrder.status}}</div></td>
         </tr>
-       
-
-
        </table>
-       <!-- <pre class="pre">
-        {{sellersOrders}}
-       </pre> -->
 
       </div>
-
 
     </div>
 
@@ -167,37 +134,20 @@
 
     data() {
       return {
-        // user:null,
-        // displaySellersOrders: true,
         isbuyer: true,
-       
-          // user:null,
-       
       }
     },
   
     async created() {
-        
-    // const { userId } = this.$route.params
-    // this.user = await userService.getById(userId)
-    // console.log('this.user,',this.user)
-         await this.$store.dispatch({ type: 'loadOrders'})
-
-    //      const { userId } = this.$route.params
-    //      console.log('userId',this.$route.params)
-    // this.user = await userService.getById(userId)
-    // console.log('this.user',this.user)
-    
+      await this.$store.dispatch({ type: 'loadOrders'})
     },
     methods: {
       async changeOrderStatus(orderId){
-        // console.log('orderId',orderId)
         let curOrder = await orderService.getById(orderId)
         curOrder.status = 'completed'
         curOrder.deliveredAt =  await utilService.getFormattedDate()
-        // orderService.saveOrder(curOrder)
         console.log('curOrderr',curOrder)
-         this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+        this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
       },
 
       sellerBuyerToggle(){
@@ -205,11 +155,16 @@
         console.log('this.isbuyer',this.isbuyer)
 
       },
+      color(status){
+        console.log('ststus',status)
+      if(status === 'completed') {
+        console.log('hiigru');
+        return 'green'
+      }return 'oreng'
+    }
+     
     },
     computed: {
-      totalPrice(){
-        return (+this.gig.price + +this.sFee).toFixed(2)
-      },
       orders() {
         return this.$store.getters.orders.filter(order=> {
           console.log(order)
@@ -233,10 +188,22 @@
       // }
         user() {
         console.log('fffffff',this.$store.getters.user)
-      return this.$store.getters.user
+        return this.$store.getters.user
   
     
     },
+      earned(){
+      console.log('this.sellersOrders',this.sellersOrders)
+      let earn = this.sellersOrders.reduce((prev,next)=>{
+        console.log('earn')
+        return next+= prev.gig.price
+      },0)
+      console.log('earn',earn)
+      return earn
+    },
+    
+   
+     
   }
    
    }
