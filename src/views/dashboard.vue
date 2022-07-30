@@ -61,14 +61,16 @@
             <div class="order-info">
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
 
-              <div class="my-orders"></div>
-              <img class="seller-img" :src="order.seller.imgUrl" alt="" />
-              <div class="name">{{ order.seller.fullname }}</div>
-              <div>
+              <div class="seller">
+                <img class="seller-img" :src="order.seller.imgUrl" alt="" />
+                <div class="name">{{ order.seller.fullname }}</div>
+              </div>
+
+              <div class="price-info">
                 <p class="title">Price</p>
                 <p class="info">$ {{ order.gig.price }}</p>
               </div>
-              <div>
+              <div class="days-info">
                 <p class="title">Delivery Time</p>
                 <p class="info">{{ order.gig.daysToMake }} Days</p>
               </div>
@@ -77,6 +79,7 @@
                 <p class="info">{{ order.createdAt }}</p>
               </div>
             </div>
+
             <div class="status-container">
               <hr />
               <div class="status">
