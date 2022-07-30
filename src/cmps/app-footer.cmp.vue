@@ -5,7 +5,8 @@
     </footer>
 </template> -->
 <template>
-    <footer class="main-footer flex">
+<hr>
+    <footer class="foooter main-layout space-between flex">
         <div class="flex">
             <div class="bottom-logo main-logo">
                 Binderr<span class="gren">.</span>
@@ -20,31 +21,31 @@
         href="https://twitter.com/"
         class="social twitter-link"
         target="_blank"
-        >
+        ><img src=".././styles/imgs/twitter.png"/>
         </a>
         <a
           href="https://www.facebook.com/"
           class="social facebook-link"
           target="_blank"
-        >
+        ><img src=".././styles/imgs/faceboook.png"/>
         </a>
         <a
-          href="https://www.linkedin.com/"
+          href="https://www.linkedin.com/in/danielle-ilyasov-aa197423a/"
           class="social linkedin-link"
           target="_blank"
-        >
+        ><img src=".././styles/imgs/linkedin.png"/>
         </a>
         <a
           href="https://www.pinterest.com/"
           class="social pinterest-link"
           target="_blank"
-        >
+        ><img src=".././styles/imgs/pinterest.png"/>
         </a>
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/daniel_ilyasov/"
           class="social instagram-link"
           target="_blank"
-        >
+        ><img src=".././styles/imgs/instagram.png"/>
         </a>
       </div>
     </footer>
