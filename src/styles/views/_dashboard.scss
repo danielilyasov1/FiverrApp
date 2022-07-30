@@ -55,13 +55,13 @@
     display: flex;
     padding-top: 100px;
     justify-content: space-between;
-    line-height: 5px;
+    line-height: 15px;
     min-height: 100vh;
     .user-details {
-      font-size: 20px;
+      font-size: rem(20px);
       border-radius: 2px;
       margin-top: -60px;
-      width: 300px;
+      width: 100%;
       height: fit-content;
       padding: 32px;
       text-align: center;
@@ -174,7 +174,7 @@
 
     .orders-container {
       margin-top: -60px;
-      width: 76%;
+      width: 75%;
 
       .sellers-orders-container {
         .manage-orders {
@@ -376,16 +376,48 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .user-info-container {
     display: block;
 
     .user-info {
       display: block;
       background-color: #ffbe5b;
+      .user-details {
+        display: none;
+      }
+
+      .orders-container {
+        width: 100%;
+      }
     }
   }
 }
+
+@media (max-width: 700px) {
+  .user-info-container {
+    .user-info {
+      .user-details {
+      }
+
+      .orders-container {
+        width: 100%;
+        .order {
+          .order-info:not(:first-child) {
+            display: flex;
+            .gig-img {
+              display: block;
+              width: 1000px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// div ul:not(:first-child) {
+
 .oreng {
   background-color: #ffbe5b;
 }

@@ -14,13 +14,8 @@
     <section class="user-info main-layout flex" v-if="orders">
       <div class="left side">
         <div class="user-details">
-          <!-- <img :src="orders[0].buyer.imgUrl" alt=""> -->
-          <!-- <h2>{{orders[0].buyer.fullname}}</h2> -->
-          <!-- <div class="user-image">{{ user.username }}</div> -->
           <img class="user-image" :src="user.imgUrl" alt="" />
-          <!-- <img src="../../public/userimg.png" alt=""/>
-          <h2>{{user.username}}</h2> -->
-          <!-- <pre v-if="user">{{user}}</pre> -->
+
           <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
           <hr />
           <div class="member-Since">
@@ -65,6 +60,8 @@
           <div class="order">
             <div class="order-info">
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
+
+              <div class="my-orders"></div>
               <img class="seller-img" :src="order.seller.imgUrl" alt="" />
               <div class="name">{{ order.seller.fullname }}</div>
               <div>
