@@ -61,7 +61,7 @@
             <div class="order-info">
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
 
-              <div class="seller">
+              <div class="seller flex">
                 <img class="seller-img" :src="order.seller.imgUrl" alt="" />
                 <div class="name">{{ order.seller.fullname }}</div>
               </div>
