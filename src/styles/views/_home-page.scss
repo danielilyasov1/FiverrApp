@@ -34,18 +34,19 @@
             transition: all 0.9s ease ;
         }
         .hero-detail-container{
-            position: absolute;
+            // position: absolute;
             right: rem(245px);
             bottom: rem(50px);
-            z-index: 10;
+            z-index: 10000000000000;
             width: auto;
              float: right;
-             color:white;
+             color:black;
             font-weight: 700;
             font-size: rem(16px);
             line-height: rem(5px);
             font-family:  Helvetica, sans-serif;
             transition: all 0.9s ease ;
+            // background-color: #ffbe5b;
             .star{
                 font-size: 16px;
                  color: #ffbe5b;

@@ -4,9 +4,9 @@
 //ORDER-BOX
 .order-container {
     margin-top: 60px;
-    width: rem(1304px);
-    // display: flex;
-    // flex-direction: row;
+    max-width: rem(1304px);
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     font-family: Helvetica, sans-serif;
     
@@ -23,14 +23,15 @@
             margin-top: -5px;
         }
         .seller-detaile{
-            height: 125px;
+            height: fit-content;
             display: flex;
-            flex-direction: row;
+            // flex-direction: row;
             justify-content: space-evenly;
             align-items:flex-start;
             gap: 20px;
             padding-top: 0px;
             margin-top: 0%;
+            margin-bottom: 30px;
            
             h3{
                 height: fit-content;
@@ -46,7 +47,19 @@
         
         }
 
-         
+        @media(max-width:1100px) {
+            .seller-detaile {
+                display: block;
+            }
+            img{
+                width: 360px;
+                height: fit-content;
+            }
+            .rate{
+                margin: 20px 0px;
+            }
+        }
+        
         .order-details-container {
              
             ul{
@@ -62,7 +75,15 @@
         }
     }
 }
+@media(max-width:1100px) {
+    .order-container {
+        display: block;
+        margin: 0;
+        padding: 0;
+        max-width: rem(400px);
+    }
 
+}
 
 // CHECKOUT-BOX
 
@@ -110,6 +131,6 @@ hr {
     border: 0.1px solid rgb(218, 219, 221);
     // border-color: #e4e5e7;
 }
-.block{
-    display: block;
-}
+// .block{
+//     display: block;
+// }
