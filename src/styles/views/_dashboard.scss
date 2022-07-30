@@ -41,11 +41,11 @@
         margin-right: 70px;
       }
     }
-    @media (max-width:1000px) {
-      .options{
+    @media (max-width: 1000px) {
+      .options {
         display: none;
       }
-      .user-selles-btn{
+      .user-selles-btn {
         height: 40px;
       }
     }
@@ -318,8 +318,8 @@
         align-items: center;
         .issued {
           // text-align: end;
-            margin-left: 50px;
-            margin-right: -55px;
+          margin-left: 50px;
+          margin-right: -55px;
         }
 
         .order-info {
@@ -338,7 +338,7 @@
             // margin-right: 30px;
             border-radius: 4px;
           }
-          .selle{
+          .selle {
             align-items: center;
             justify-content: center;
           }
@@ -367,7 +367,7 @@
             font-family: work-sans;
           }
         }
-       
+
         .status-container {
           hr {
             height: 1px;
@@ -402,18 +402,18 @@
       .orders-container {
         width: 100%;
       }
-      .issued{
+      .issued {
         margin: 0;
-        .info{
+        .info {
           margin-left: -7px;
         }
       }
-      .name{
+      .name {
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 10px;
       }
-      .seller-img{
+      .seller-img {
         margin-top: 10px;
       }
     }
@@ -423,6 +423,11 @@
 @media (max-width: 700px) {
   .user-info-container {
     .user-info {
+      .name {
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
       .orders-container {
         width: 100%;
         .order {
@@ -439,38 +444,71 @@
             padding-top: 15px;
             grid-template-columns: 25% 25% 25% 25%;
             grid-template-rows: 70% 30%;
-            grid-template-areas: 'gig-img gig-img gig-img gig-img'
-                                 'seller price-info days-info issued';
+            grid-template-areas:
+              'gig-img gig-img gig-img gig-img'
+              'seller price-info days-info issued';
           }
           .seller {
             grid-area: seller;
             display: block;
             width: 50px;
-          }
-          .seller-img{
-            margin-left: 0;
+
+            .seller-img {
+              margin-left: 0;
+              height: 2.5rem;
+              width: 2.5rem;
+            }
           }
           .price-info {
             grid-area: price-info;
             width: 40px;
+            .info {
+              font-size: 12px;
+            }
+            .title {
+              font-size: 12px;
+            }
           }
           .issued {
             grid-area: issued;
             width: 100px;
             margin-left: 0px;
+            .info {
+              font-size: 12px;
+              margin-left: 0px;
+            }
+            .title {
+              font-size: 12px;
+              text-align: left;
+            }
           }
-          .days-info{
+          .days-info {
             grid-area: days-info;
             width: 110px;
-            margin-left: -35px;
-
+            margin-left: -25px;
+            .info {
+              font-size: 12px;
+            }
+            .title {
+              font-size: 12px;
+            }
+          }
+          .status-container {
+            hr {
+              margin-top: 10px;
+            }
+            .status {
+              h1 {
+                margin: 0;
+                font-size: 0.8rem;
+              }
+            }
           }
         }
       }
     }
   }
 }
-
 
 .oreng {
   background-color: #ffbe5b;
