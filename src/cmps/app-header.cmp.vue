@@ -1,12 +1,15 @@
 
 <template>
+
+<side-nav></side-nav>
   <header class="top-header">
     <div class="header-container main-layout">
  <div class="header-row-container">
       <div class="main-logo-container">
-        <!-- <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button> -->
-        <router-link to="/">
-          <h1 class="main-logo">Binderr<span>.</span></h1>
+        <button  @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <router-link to="/" :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
+          'black-text':'']">
+          <h1 class="main-logo" >Binderr<span>.</span></h1>
         </router-link>
       </div>
 
@@ -17,13 +20,15 @@
       <nav class="top-header-nav-bar-container">
         <!-- <ul class="nav-bar clean-list flex"> -->
         <ul class="nav-bar ">
-          <li class="move">
+          <li class="move" :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
+          'black-text':'']">
             <router-link to="/gig">Explore</router-link>
           </li>
-          <li class="move">
+          <li class="move"  :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
+          'black-text':'']">
             <router-link to="/">Become a Seller</router-link>
           </li>
-          <li v-if="!user"  class="move">
+          <li v-if="!user"  class="move" :class="[altBackground ? 'while-text' : 'black-text', altBackground && isFilterDisplayed ? 'black-text' : '']">
             <router-link to="/">Sign In</router-link>
           </li>
          
@@ -56,6 +61,7 @@
 import appFilter from "../cmps/app-filter.cmp.vue";
 import categoryFilter from "../cmps/category-filter.cmp.vue";
 import login from "../cmps/login.cmp.vue";
+import sideNav from "../cmps/side-nav.cmp.vue";
 
 
 export default {
@@ -64,11 +70,14 @@ export default {
     appFilter,
     categoryFilter,
     login,
+    sideNav
 
 
   },
   data: () => {
     return {
+      isMenuOpen:false,
+       textBlack: false,
       displayLogin: false,
       isFilterDisplayed: false,
 
@@ -95,6 +104,13 @@ export default {
   },
 
   methods: {
+    menuToggle(){
+      this.isMenuOpen=! this.isMenuOpen
+    },
+    handleScroll(ev) {
+      this.textBlack = true
+      if (window.scrollY === 0) this.textBlack = false
+    },
     async moveToDashboard(){
       this.isUserDropdownDisplay=false
      await this.$router.push(`/dashboard/${this.user._id}`)
@@ -142,11 +158,11 @@ export default {
 
   created() {
 
-
+  window.addEventListener("scroll", this.handleScroll)
     window.addEventListener("scroll", this.handleScroll2)
   },
   destroyed() {
-
+  window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("scroll", this.handleScroll2);
   },
    watch: {

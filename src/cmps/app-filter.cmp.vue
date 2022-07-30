@@ -1,12 +1,13 @@
 
 <template>
-  <section>
+  <!-- <section> -->
     <div class="filter-container">
-      <input @input="changeTitleFilter" class="filter-input" type="text" placeholder="  What service are you looking for today?" >
+       <el-input @input="changeTitleFilter" class="filter-input" type="text" placeholder="  What service are you looking for today?"/>
+      <!-- <input @input="changeTitleFilter" class="filter-input" type="text" placeholder="  What service are you looking for today?" > -->
       <button class="filter-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
-  </section>
+  <!-- </section> -->
 </template>
 
 <script>
