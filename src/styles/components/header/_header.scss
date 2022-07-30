@@ -31,16 +31,53 @@
     background-color: #50b957;
     color: white;
     padding: 10px;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     text-align: center;
-    line-height: 10px;
+    line-height: 20px;
 }
 
 .top-header{
     height: rem(81px);
     display: block;
     align-items: center;
+
+    @media (max-width: 800px) {
+        .app-filter, .seller, .explore {
+            display: none;
+        }
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            .header-row-container{
+                width: 10%;
+               
+                .main-logo-container{
+                   
+                    .main-logo-container{
+                        margin-right: 0;
+                        text-align: center;
+                        align-self: center;
+                    }
+
+                }
+
+            }
+            .top-header-nav-bar-container{
+                .user-image-header{
+
+                }
+            }
+
+            
+
+        }
+        .header-row-container{
+            width: 10%;
+        }
+        
+       
+    }
     .header-container{
         height: 100%;
         display: flex;
@@ -48,12 +85,6 @@
         justify-content: space-between;
         // z-index: 5;
         color: $clr9;
-
-    }
-    .header-row-container{
-        display: flex;
-        align-items: center;
-        width: 60%;
         .menu-toggle{
             background-color: #ffffff00;
             border: none;
@@ -61,17 +92,22 @@
             color: #616264;
             font-weight: 100;
         }
+
+    }
+    .header-row-container{
+        display: flex;
+        align-items: center;
+        width: 60%;
+       
         .main-logo-container{
             align-items: center;
             display: flex;
             align-self: center;
             font-family: Helvetica, sans-serif;
-            // font-weight: 900;
+           
             font-size: 1.5em;
             margin-right: 100px;
-            // color: black;
-            // letter-spacing: -2.6px;
-            // //  margin-top:1rem;
+           
             .main-logo{
                 // color: black;
                 align-self: center;

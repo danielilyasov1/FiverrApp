@@ -1,32 +1,35 @@
 
 <template>
 
-<side-nav></side-nav>
   <header class="top-header">
+    <side-nav v-if="isMenuOpen" @menuToggle="menuToggle"></side-nav>
+
     <div class="header-container main-layout">
- <div class="header-row-container">
+
+      <button v-if="displayToggle"  @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+
+      <div class="header-row-container">
       <div class="main-logo-container">
-        <button  @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
         <router-link to="/" :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
           'black-text':'']">
           <h1 class="main-logo" >Binderr<span>.</span></h1>
         </router-link>
       </div>
 
-       <app-filter to="/app-filter" @setFilter="setFilter" :class="[isFilterDisplayed && altBackground ? 'displaySearch' : '', !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
+       <app-filter to="/app-filter" @setFilter="setFilter" class="app-filter" :class="[isFilterDisplayed && altBackground ? 'displaySearch' : '', !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
       !altBackground ? 'filter-category' : '']"></app-filter>
       </div>
 
       <nav class="top-header-nav-bar-container">
         <!-- <ul class="nav-bar clean-list flex"> -->
         <ul class="nav-bar ">
-          <li class="move" :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
+          <li class="move explore" :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
           'black-text':'']">
             <router-link to="/gig">Explore</router-link>
           </li>
-          <li class="move"  :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
+          <li class="move seller"  :class="[altBackground&&textBlack? 'black-text':'while-text',!altBackground?
           'black-text':'']">
-            <router-link to="/">Become a Seller</router-link>
+            <router-link to="/" >Become a Seller</router-link>
           </li>
           <li v-if="!user"  class="move" :class="[altBackground ? 'while-text' : 'black-text', altBackground && isFilterDisplayed ? 'black-text' : '']">
             <router-link to="/">Sign In</router-link>
@@ -47,7 +50,7 @@
 
    
     
-    <category-filter   :class="[isFilterDisplayed && altBackground ? 'displayFilter' : '', !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
+    <category-filter class="category-filter"  :class="[isFilterDisplayed && altBackground ? 'displayFilter' : '', !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
     !altBackground ? 'filter-category' : '', isHeaderDashboard? 'displayFilterNone':'']" />
    
   <login class="join-container" v-if="displayLogin" ></login>
@@ -70,12 +73,11 @@ export default {
     appFilter,
     categoryFilter,
     login,
-    sideNav
-
-
+    sideNav,
   },
   data: () => {
     return {
+      displayToggle: null,
       isMenuOpen:false,
        textBlack: false,
       displayLogin: false,
@@ -104,6 +106,11 @@ export default {
   },
 
   methods: {
+     handleScroll3(e) {
+         if (e.target.innerWidth < 800)  this.displayToggle= true 
+         if (e.target.innerWidth > 800)  this.displayToggle= false 
+
+      },
     menuToggle(){
       this.isMenuOpen=! this.isMenuOpen
     },
@@ -157,11 +164,13 @@ export default {
   },
 
   created() {
+     window.addEventListener("resize", this.handleScroll3);
 
   window.addEventListener("scroll", this.handleScroll)
     window.addEventListener("scroll", this.handleScroll2)
   },
   destroyed() {
+     window.removeEventListener("resize", this.handleScroll3);
   window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("scroll", this.handleScroll2);
   },
@@ -184,7 +193,7 @@ export default {
   /* padding-left:200px; */
   
   background-color: rgb(255, 255, 255);
-  z-index: 1000;
+
   
     color: #74767e;
     font-weight: 400;

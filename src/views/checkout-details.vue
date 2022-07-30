@@ -72,9 +72,9 @@ import { userService } from '../services/user-service'
     },
     methods: {
       async addOrder(){
-        console.log('new order')
-          const newOrder= await orderService.getEmptyOrder()
+        const newOrder= await orderService.getEmptyOrder()
          
+        console.log('this.user',this.user)
 
           // newOrder.buyer._id= this.user._id
           newOrder.buyer.fullname= this.user.fullname
@@ -88,7 +88,7 @@ import { userService } from '../services/user-service'
           newOrder.gig.title=this.gig.title
           newOrder.gig.price=this.totalPrice
           newOrder.gig.daysToMake=this.gig.daysToMake
-          console.log('newOrder',newOrder)
+          // console.log('newOrder',newOrder)
 
         
            this.$store.dispatch({ type: "addOrder", newOrder: newOrder })

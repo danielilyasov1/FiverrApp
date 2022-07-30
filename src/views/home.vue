@@ -1,11 +1,6 @@
 <template>
 
-<!-- <div id='mydiv' >
 
-
-   
-    
-</div> -->
 
   <div class="heroDeats " v-for="(heroDeats, index) in heroesDetails" :key="heroDeats">
       <div class="heroes" :class="[index !== heroeDetailsIdx ? 'displayHeroDeats': 'dontDisplayHeroDeats']">
