@@ -150,13 +150,8 @@ export default {
       console.log('curOrder', curOrder)
       curOrder.status = 'completed'
       curOrder.deliveredAt = await utilService.getFormattedDate()
-      await this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
-      const msg = {
-        txt: 'changed status',
-        username: 'Guest',
-      }
-      socketService.emit('chat newMsg', msg)
-
+      this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      // location.reload()
     },
 
     sellerBuyerToggle() {
