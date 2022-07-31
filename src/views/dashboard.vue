@@ -141,6 +141,8 @@
 // import { userService } from '../services/user-service'
 import { orderService } from '../services/order-service'
 // import { socketService } from '../services/socket.service'
+import { socketService } from '../services/socket.service'
+
 import { utilService } from '../services/util-service'
 
 export default {
@@ -152,14 +154,25 @@ export default {
 
   async created() {
     await this.$store.dispatch({ type: 'loadOrders' })
+    socketService.on('edit-order', this.editOrder)
+
   },
   methods: {
+    editOrder(newOrder) {
+      console.log('edit order')
+      this.$store.commit({ type: 'addOrder', newOrder })
+    },
     async changeOrderStatus(orderId) {
       const curOrder = await orderService.getById(orderId)
       console.log('curOrder', curOrder)
       curOrder.status = 'completed'
       curOrder.deliveredAt = await utilService.getFormattedDate()
       this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      const msg = {
+        txt: 'changed status',
+        username: 'Guest',
+      }
+      socketService.emit('change status', msg)
       // location.reload()
     },
 

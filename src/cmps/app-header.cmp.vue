@@ -83,7 +83,7 @@ import appFilter from '../cmps/app-filter.cmp.vue'
 import categoryFilter from '../cmps/category-filter.cmp.vue'
 import login from '../cmps/login.cmp.vue'
 import sideNav from '../cmps/side-nav.cmp.vue'
-// import { socketService } from '../services/socket.service.js'
+import { socketService } from '../services/socket.service.js'
 
 export default {
   tempalte: ``,
@@ -136,8 +136,7 @@ export default {
       this.isMenuOpen = !this.isMenuOpen
     },
     addMsg(msg) {
-      console.log('got msg from back', msg)
-      console.log('add msggg')
+      console.log('got msg from back order', msg) //open modal user msg -> the order as been accepeted
     },
     handleScroll(ev) {
       this.isJoinBtnGreen = true
@@ -195,12 +194,14 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('scroll', this.handleScroll2)
     // socketService.on('chat addMsg', this.addMsg)
+    socketService.on('send to seller', this.addMsg)
+    socketService.on('accept', this.addMsg)
   },
   unmounted() {
     window.removeEventListener('resize', this.handleScroll3)
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('scroll', this.handleScroll2)
-    // socketService.off('chat addMsg', this.addMsg)
+    socketService.off('chat addMsg', this.addMsg)
   },
   watch: {
     '$route.query.category'() {
