@@ -1,4 +1,5 @@
 import { orderService } from '../../services/order-service.js'
+import { socketService } from '../../services/socket.service.js'
 
 export default {
   state: {
@@ -6,7 +7,7 @@ export default {
   },
   getters: {
     orders({ orders }) {
-      console.log('getter order');
+      console.log('getter order')
       return orders
     },
   },
@@ -20,10 +21,7 @@ export default {
       if (idx !== -1) {
         state.orders.splice(idx, 1, newOrder)
         console.log('state.orders', state.orders)
-      }
-      else state.orders.push(newOrder)
-
-
+      } else state.orders.push(newOrder)
 
       // let isNewItem = true;
       // let map = state.orders.map(item=> {
@@ -35,7 +33,7 @@ export default {
       // });
       // state.orders=map;
       // if (isNewItem) state.orders.push(newOrder);
-    }
+    },
   },
   actions: {
     //    async loadOrders({ commit, state }) {
@@ -50,14 +48,14 @@ export default {
     async addOrder({ commit }, { newOrder }) {
       console.log('eeeeeeeeee', newOrder)
       // commit({ type: 'addOrder', newOrder: newOrder })
-      await orderService
-        .saveOrder(newOrder)
-        .then((savedOrder) => {
-          console.log('savedOrder', savedOrder)
+      await orderService.saveOrder(newOrder).then((savedOrder) => {
+        console.log('savedOrder', savedOrder)
 
-          commit({ type: 'addOrder', newOrder: savedOrder })
-          return savedOrder
-        })
-    }
-  }
+        commit({ type: 'addOrder', newOrder: savedOrder })
+        socketService.emit('editOrder', newOrder)
+
+        return savedOrder
+      })
+    },
+  },
 }
