@@ -3,7 +3,7 @@
   <section class="details-page flex main-layout">
     <div class="gig-details" v-if="gig">
       <div class="linksprator">
-        <router-link to="/">Binder</router-link> >
+        <router-link to="/">Binder</router-link> <span>> </span>
         <router-link :to="{ path: '/gig', query: { category: gig.category } }">{{ gig.category }}</router-link>
       </div>
       <h1>{{ gig.title }}</h1>
