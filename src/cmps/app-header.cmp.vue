@@ -7,37 +7,32 @@
 
       <div class="header-row-container">
         <div class="main-logo-container">
-          <router-link to="/" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <router-link to="/"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <h1 class="main-logo">Binderr<span>.</span></h1>
           </router-link>
         </div>
 
-        <app-filter
-          to="/app-filter"
-          @setFilter="setFilter"
-          class="app-filter"
-          :class="[
-            isFilterDisplayed && altBackground ? 'displaySearch' : '',
-            !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
-            !altBackground ? 'filter-category' : '',
-          ]"
-        ></app-filter>
+        <app-filter to="/app-filter" @setFilter="setFilter" class="app-filter" :class="[
+          isFilterDisplayed && altBackground ? 'displaySearch' : '',
+          !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
+          !altBackground ? 'filter-category' : '',
+        ]"></app-filter>
       </div>
 
       <nav class="top-header-nav-bar-container">
         <!-- <ul class="nav-bar clean-list flex"> -->
         <ul class="nav-bar">
-          <li class="move explore" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <li class="move explore"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <router-link to="/gig">Explore</router-link>
           </li>
-          <li class="move seller" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <li class="move seller"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <router-link to="/">Become a Seller</router-link>
           </li>
-          <li
-            v-if="!user"
-            class="move"
-            :class="[altBackground ? 'while-text' : 'black-text', altBackground && isFilterDisplayed ? 'black-text' : '']"
-          >
+          <li v-if="!user" class="move"
+            :class="[altBackground ? 'while-text' : 'black-text', altBackground && isFilterDisplayed ? 'black-text' : '']">
             <router-link to="/">Sign In</router-link>
           </li>
 
@@ -56,15 +51,12 @@
       <h1 @click="logout">Logout</h1>
     </div>
 
-    <category-filter
-      class="category-filter"
-      :class="[
-        isFilterDisplayed && altBackground ? 'displayFilter' : '',
-        !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
-        !altBackground ? 'filter-category' : '',
-        isHeaderDashboard ? 'displayFilterNone' : '',
-      ]"
-    />
+    <category-filter class="category-filter" :class="[
+      isFilterDisplayed && altBackground ? 'displayFilter' : '',
+      !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
+      !altBackground ? 'filter-category' : '',
+      isHeaderDashboard ? 'displayFilterNone' : '',
+    ]" />
 
     <login class="join-container" v-if="displayLogin"></login>
     <div v-if="displayLogin" class="greyBg" @click="openLoginModal"></div>
@@ -76,6 +68,8 @@ import appFilter from '../cmps/app-filter.cmp.vue'
 import categoryFilter from '../cmps/category-filter.cmp.vue'
 import login from '../cmps/login.cmp.vue'
 import sideNav from '../cmps/side-nav.cmp.vue'
+// import { socketService } from '../services/socket.service.js'
+
 
 export default {
   tempalte: ``,
@@ -121,6 +115,10 @@ export default {
     },
     menuToggle() {
       this.isMenuOpen = !this.isMenuOpen
+    },
+    addMsg(msg) {
+      console.log('got msg from back', msg)
+      console.log('add msggg')
     },
     handleScroll(ev) {
       this.textBlack = true
@@ -173,11 +171,14 @@ export default {
 
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('scroll', this.handleScroll2)
+    // socketService.on('chat addMsg', this.addMsg)
+
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('resize', this.handleScroll3)
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('scroll', this.handleScroll2)
+    // socketService.off('chat addMsg', this.addMsg)
   },
   watch: {
     '$route.query.category'() {
@@ -214,6 +215,7 @@ export default {
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
 }
+
 .filter-category {
   display: flex;
   background-color: rgb(255, 255, 255);
@@ -223,10 +225,12 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
 }
+
 .displaySearch {
   /* display: block; */
   opacity: 1;
 }
+
 .displaySearchNone {
   /* display: none; */
   opacity: 0;

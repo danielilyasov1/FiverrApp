@@ -197,7 +197,7 @@
     </div>
   </section>
 
-  <pre>{{ reviews }}</pre>
+  <!-- <pre>{{ reviews }}</pre> -->
 </template>
 
 <script>

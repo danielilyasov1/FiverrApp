@@ -20,16 +20,11 @@
           <hr />
           <div class="member-Since">
             <div class="member">
-              <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
-                focusable="false"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                data-testid="PersonIcon"
-              >
+              <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true"
+                viewBox="0 0 24 24" data-testid="PersonIcon">
                 <path
-                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                ></path>
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                </path>
               </svg>
               <h4 class="since">Member since</h4>
             </div>
@@ -41,8 +36,10 @@
         <div class="progress-container" v-if="!isbuyer">
           <div class="progress">
             <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
-            <span class="rate">Response rate </span><el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span
-            ><el-progress percentage="85" color="#1dbf73" /> <span>Order completion</span><el-progress percentage="100" color="#1dbf73" />
+            <span class="rate">Response rate </span>
+            <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span>
+            <el-progress percentage="85" color="#1dbf73" /> <span>Order completion</span>
+            <el-progress percentage="100" color="#1dbf73" />
           </div>
           <hr />
           <div class="prodress-data">
@@ -134,6 +131,7 @@
 <script>
 // import { userService } from '../services/user-service'
 import { orderService } from '../services/order-service'
+// import { socketService } from '../services/socket.service'
 import { utilService } from '../services/util-service'
 
 export default {
@@ -152,7 +150,13 @@ export default {
       console.log('curOrder', curOrder)
       curOrder.status = 'completed'
       curOrder.deliveredAt = await utilService.getFormattedDate()
-      this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      await this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      const msg = {
+        txt: 'changed status',
+        username: 'Guest',
+      }
+      socketService.emit('chat newMsg', msg)
+
     },
 
     sellerBuyerToggle() {

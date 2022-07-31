@@ -54,7 +54,12 @@
                  
             }
         }
-
+        @media (max-width:1500px) {
+            .hero-detail-container{
+            right: rem(20px);
+            bottom: rem(-480px);
+            }
+        }
     }
     
 }
