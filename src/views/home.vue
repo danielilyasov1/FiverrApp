@@ -36,8 +36,8 @@
        <div class="popular-searches">
          Popular: 
          <button  @click="moveToExploreFilter('Wordpress')">WordPress</button>
-         <button @click="moveToExploreFilter('Logo')">Logo Design</button>
-         <button @click="moveToExploreFilter('VideoExplainer')">Video Explainer</button>
+         <button @click="moveToExploreFilter('Logo Design')">Logo Design</button>
+         <button @click="moveToExploreFilter('Video Explainer')">Video Explainer</button>
          <button @click="moveToExploreFilter('programming')">programming</button>
        </div>
    </main>

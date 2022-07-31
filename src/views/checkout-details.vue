@@ -6,7 +6,7 @@
         <img :src="gig.imgs[0]" alt="" />
         <div class="rate">
           <h3>{{ gig.title }}</h3>
-          <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (730)</div>
+          <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; {{gig.rate}}</span> ({{gig.review}})</div>
         </div>
         <h4>Price $ {{ gig.price }}</h4>
       </div>

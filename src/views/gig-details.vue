@@ -13,7 +13,7 @@
         <div>&nbsp;{{ gig.owner.level }}</div>
         <div class="space">&nbsp;|&nbsp;</div>
         <div class="stars">
-          <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.owner.rate }}</span> ({{ gig.owner.review }})
+          <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span> ({{ gig.review }})
         </div>
       </div>
       <div class="block text-center" m="t-4">
@@ -110,7 +110,7 @@
           <div class="owner-details">
             <div class="owner-fullname">{{ gig.owner.fullname }}</div>
             <div class="stars">
-              <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.owner.rate }}</span> ({{ gig.owner.review }})
+              <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span> ({{ gig.review }})
             </div>
             <el-button @click="" class="btn-contact" plain>Contact Me</el-button>
           </div>
