@@ -153,6 +153,7 @@ export default {
       curOrder.status = 'completed'
       curOrder.deliveredAt = await utilService.getFormattedDate()
       this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
+      // location.reload()
     },
 
     sellerBuyerToggle() {

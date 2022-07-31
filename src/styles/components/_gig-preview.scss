@@ -20,6 +20,13 @@
   margin-bottom: 42px;
 }
 
+@media (max-width: 800px) {
+  .sentence {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+}
+
 .hcategory {
   padding-top: 45px;
   font-family: Helvetica, sans-serif;
