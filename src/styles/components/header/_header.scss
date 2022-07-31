@@ -40,6 +40,7 @@
   @media (max-width: 950px) {
     .app-filter,
     .seller,
+    .signIn,
     .explore {
       display: none;
     }
@@ -125,9 +126,10 @@
       align-items: center;
       list-style-type: none;
       .move {
-        margin-right: 40px;
+        margin-right: 30px;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 600;
       }
       .while-text a {
         color: #ffffff;
