@@ -20,11 +20,16 @@
           <hr />
           <div class="member-Since">
             <div class="member">
-              <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true"
-                viewBox="0 0 24 24" data-testid="PersonIcon">
+              <svg
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
+                focusable="false"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                data-testid="PersonIcon"
+              >
                 <path
-                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
-                </path>
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
               </svg>
               <h4 class="since">Member since</h4>
             </div>
@@ -37,8 +42,8 @@
           <div class="progress">
             <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
             <span class="rate">Response rate </span>
-            <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span>
-            <el-progress percentage="85" color="#1dbf73" /> <span>Order completion</span>
+            <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span> <el-progress percentage="85" color="#1dbf73" />
+            <span>Order completion</span>
             <el-progress percentage="100" color="#1dbf73" />
           </div>
           <hr />
@@ -56,13 +61,16 @@
           <div></div>
           <div class="order">
             <div class="order-info">
+              <!-- <div class="imgs-container"> -->
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
 
-              <div class="seller flex">
+              <div class="seller">
                 <img class="seller-img" :src="order.seller.imgUrl" alt="" />
                 <div class="name">{{ order.seller.fullname }}</div>
               </div>
+              <!-- </div> -->
 
+              <!-- <div class="order-detail-info"> -->
               <div class="price-info">
                 <p class="title">Price</p>
                 <p class="info">$ {{ order.gig.price }}</p>
@@ -75,13 +83,14 @@
                 <p class="title">Issued At</p>
                 <p class="info">{{ order.createdAt }}</p>
               </div>
+              <!-- </div> -->
             </div>
 
             <div class="status-container">
               <hr />
               <div class="status">
                 <h1 class="status-title">Order status:</h1>
-                <h1>{{ order.status }}</h1>
+                <h1 class="status-info">{{ order.status }}</h1>
               </div>
             </div>
           </div>
