@@ -88,7 +88,7 @@
             <path d="M2.66667 7.5H1" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
             <path d="M6.00016 7.5H4.3335" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
           </svg>
-          <div class="">
+          <div v-if="small">
             <p>Highly responsive!</p>
             <span>Known for exceptionally quick replies</span>
           </div>
@@ -189,7 +189,7 @@
           <path d="M2.66667 7.5H1" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
           <path d="M6.00016 7.5H4.3335" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
         </svg>
-        <div class="">
+        <div v-if="!small">
           <p>Highly responsive!</p>
           <span>Known for exceptionally quick replies</span>
         </div>
