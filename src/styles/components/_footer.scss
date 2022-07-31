@@ -40,10 +40,11 @@
 
 @media (max-width:800px) {
 	.foooter{
-		padding-left:0;
-		.footer-text{
-			align-self: center;
-			margin-left: 15px;
-		}
+		// padding-left:0;
+		// .footer-text{
+		// 	align-self: center;
+		// 	margin-left: 15px;
+		// }
+		display: none;
 	}
 }

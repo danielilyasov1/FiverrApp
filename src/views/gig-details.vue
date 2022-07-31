@@ -118,7 +118,7 @@
         <div class="extended-owner-details">
           <ul class="user-state flex clean-list">
             <li>
-              From <br /><strong>{{ gig.owner.loc }}</strong>
+              From <br /><strong>{{ gig.owner.from }}</strong>
             </li>
             <li>
               Avg. response time <br /><strong>{{ gig.owner.avgResponceTime }}</strong>
