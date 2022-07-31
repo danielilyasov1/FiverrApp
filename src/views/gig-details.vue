@@ -93,7 +93,7 @@
             <span>Known for exceptionally quick replies</span>
           </div>
         </div>
-        <div class="about-gig">
+        <div class="about-gig main-layout">
           <!-- <div class="reviews">
             <button>See all reviews</button>
           </div> -->
