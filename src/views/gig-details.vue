@@ -196,8 +196,8 @@
     </div>
   </section>
   <a id="reviews">{{ reviews.length }} Reviews</a>
-  <div>xxxxx{{ reviews }}</div>
-  <!-- <review /> -->
+  <!-- <div>xxxxx{{ reviews }}</div> -->
+  <review />
 </template>
 
 <script>
