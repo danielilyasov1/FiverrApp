@@ -202,7 +202,7 @@
 
 <script>
 import { gigService } from '../services/gig-service'
-// import review from
+import review from '../cmps/review.cmp.vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -262,6 +262,7 @@ export default {
   components: {
     VueperSlides,
     VueperSlide,
+    review,
     // ArrowRight
   },
 }

@@ -58,19 +58,15 @@
 
       <div class="orders-container">
         <div v-if="(orders, isbuyer)" v-for="order in orders" :key="order._id">
-          <div></div>
           <div class="order">
             <div class="order-info">
-              <!-- <div class="imgs-container"> -->
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
 
               <div class="seller">
                 <img class="seller-img" :src="order.seller.imgUrl" alt="" />
                 <div class="name">{{ order.seller.fullname }}</div>
               </div>
-              <!-- </div> -->
 
-              <!-- <div class="order-detail-info"> -->
               <div class="price-info">
                 <p class="title">Price</p>
                 <p class="info">$ {{ order.gig.price }}</p>
@@ -83,7 +79,6 @@
                 <p class="title">Issued At</p>
                 <p class="info">{{ order.createdAt }}</p>
               </div>
-              <!-- </div> -->
             </div>
 
             <div class="status-container">
