@@ -5,7 +5,6 @@
     </footer>
 </template> -->
 <template>
-<hr>
     <footer class="foooter main-layout space-between flex">
         <div class="flex">
             <div class="bottom-logo main-logo">

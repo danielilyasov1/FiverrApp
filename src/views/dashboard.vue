@@ -6,7 +6,7 @@
         <div class="opt">Notification</div>
         <div class="opt">Messages</div>
       </div>
-      <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
+      <button @click="sellerBuyerToggle" class="user-selles-btn">{{SwitchTo}}</button>
     </div>
   </div>
 
@@ -140,15 +140,14 @@
 <script>
 // import { userService } from '../services/user-service'
 import { orderService } from '../services/order-service'
-// import { socketService } from '../services/socket.service'
 import { socketService } from '../services/socket.service'
-
 import { utilService } from '../services/util-service'
 
 export default {
   data() {
     return {
       isbuyer: true,
+      SwitchTo:'Switch to Seller',
     }
   },
 
@@ -159,13 +158,16 @@ export default {
   },
   methods: {
     editOrder(newOrder) {
-      console.log('edit order')
       this.$store.commit({ type: 'addOrder', newOrder })
     },
     async changeOrderStatus(orderId) {
       const curOrder = await orderService.getById(orderId)
-      console.log('curOrder', curOrder)
-      curOrder.status = 'completed'
+      if(curOrder.status === 'Pending'){
+        curOrder.status = 'approved'
+      } 
+      else{
+        curOrder.status = 'completed'
+      }
       curOrder.deliveredAt = await utilService.getFormattedDate()
       this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
       const msg = {
@@ -173,66 +175,56 @@ export default {
         username: 'Guest',
       }
       socketService.emit('change status', msg)
-      // location.reload()
     },
-
+    
     sellerBuyerToggle() {
       this.isbuyer = !this.isbuyer
+      this.SwitchTo = 'Switch to Buyer'
       console.log('this.isbuyer', this.isbuyer)
     },
     color(status) {
-      console.log('ststus', status)
+      console.log('color', status)
       if (status === 'completed') {
-        console.log('hiigru')
         return 'green'
       }
-      return 'oreng'
+      if(status === 'Pending'){
+        return 'oreng'
+      }
+      if(status === 'approved'){
+        return 'blue'
+      }
     },
   },
   computed: {
+    
     orders() {
-      // console.log('yyy',this.$store.getters.orders)
-      // return this.$store.getters.orders
-      // console.log('this.userwwwwww',this.user)
       const ju = this.$store.getters.orders.filter((order) => {
-        // console.log('orderxxxxxxxxxx',order)
         return order.buyer._id === this.user._id
       })
       return ju
     },
     sellersOrders() {
       const hi = this.$store.getters.orders.filter((order) => {
-        console.log('orderryyyyyy', order)
 
         return order.seller._id === this.user._id
       })
 
-      //  console.log('ho',hi)
       return hi
     },
     showTime(time) {
       console.log('this.order.createdAt', time)
     },
-    // statuss(order){
-    //   if (order.status === 'pending') {
-    //     console.log('oreng')
-    //     return 'oreng'
-    //   }
-    //   if (order.status === 'completed') return 'green'
-    // }
+  
     user() {
-      console.log('fffffff', this.$store.getters.user)
       return this.$store.getters.user
     },
     earned() {
-      console.log('this.sellersOrders', this.sellersOrders)
       let earn = this.sellersOrders.reduce((acc, order) => {
         console.log('earn', order.gig?.price)
         return (acc += Number(order.gig?.price) || 0)
       }, 0)
       console.log('earns', earn)
       return earn
-      // return 0
     },
   },
 }

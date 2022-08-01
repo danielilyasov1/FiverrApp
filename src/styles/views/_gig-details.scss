@@ -24,6 +24,9 @@
     cursor: pointer;
     text-decoration: underline;
   }
+  span{
+    color: $clr1;
+  }
 }
 
 .gig-details {
@@ -68,7 +71,7 @@
     svg {
       transform: translate(25px, 10%);
     }
-
+    
     right: 0;
     padding: 0;
   }
@@ -86,11 +89,15 @@
     position: absolute;
     svg {
       background-color: #ffffff;
+      opacity: 1;
       border-radius: 50%;
       width: 50px;
       height: 50px;
       padding: 10px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+      &:hover{
+        background-color: pink;
+      }
     }
   }
 
@@ -142,6 +149,7 @@
       font-size: 20px;
       line-height: 28px;
       margin-bottom: 2px;
+      margin-left: -28px;
     }
     @media (max-width: 1100px) {
       h2 {
@@ -159,7 +167,7 @@
       overflow-wrap: break-word;
       margin-top: 0;
       margin-bottom: 4rem;
-      margin-left: -25px;
+      margin-left: -30px;
       padding: 0;
       font-size: 16px;
       color: $clr5;

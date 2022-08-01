@@ -102,13 +102,7 @@ export default {
 
       // this.$router.push(`/gig/${this.gig._id}`)
     },
-    // changePlace(e) {
-    //   if (e.target.innerWidth < 1200) {
-    //     this.small = true
-    //   } else {
-    //     this.small = false
-    //   }
-    // },
+  
   },
   computed: {
     orders() {
@@ -125,9 +119,7 @@ export default {
       this.sFee = this.gig.price * 0.03
       return this.sFee.toFixed(2)
     },
-    // showside() {
-    //   return this.small ? 'flex-col' : 'flex-row'
-    // },
+   
   },
 
   unmounted() { },
