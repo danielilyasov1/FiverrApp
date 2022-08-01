@@ -30,7 +30,11 @@
           <li class="move explore" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <router-link to="/gig">Explore</router-link>
           </li>
-          <li class="move seller" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <li
+            v-if="user && !user.isSeller"
+            class="move seller"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']"
+          >
             <router-link to="/">Become a Seller</router-link>
           </li>
           <li
@@ -73,7 +77,7 @@
       ]"
     />
 
-    <login class="join-container" v-if="displayLogin"></login>
+    <login @dontDisplayLogin="dontDisplayLogin" class="join-container" v-if="displayLogin"></login>
     <div v-if="displayLogin" class="greyBg" @click="openLoginModal"></div>
   </header>
 </template>
@@ -128,6 +132,9 @@ export default {
   },
 
   methods: {
+    dontDisplayLogin() {
+      this.displayLogin = false
+    },
     handleScroll3(e) {
       if (e.target.innerWidth < 950) this.displayToggle = true
       if (e.target.innerWidth > 950) this.displayToggle = false
