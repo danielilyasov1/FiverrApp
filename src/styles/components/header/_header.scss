@@ -75,11 +75,17 @@
     // z-index: 5;
     color: $clr9;
     .menu-toggle {
+      display: none;
       background-color: #ffffff00;
       border: none;
       font-size: rem(25px);
       color: #616264;
       font-weight: 100;
+    }
+    @media (max-width: 950px) {
+      .menu-toggle {
+        display: block;
+      }
     }
   }
   .header-row-container {

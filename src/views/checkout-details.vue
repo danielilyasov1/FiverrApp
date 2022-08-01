@@ -6,7 +6,9 @@
         <img :src="gig.imgs[0]" alt="" />
         <div class="rate">
           <h3>{{ gig.title }}</h3>
-          <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span> ({{ gig.review }})</div>
+          <div class="stars">
+            <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span> ({{ gig.review }})
+          </div>
         </div>
         <h4>Price $ {{ gig.price }}</h4>
       </div>
@@ -19,9 +21,10 @@
             <i class="checkMark">
               <svg width="16" height="16" viewBox="0 0 11 9" xmins="http://www.w3.org/2000/svg" fill="#1ea968">
                 <path
-                  d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z">
-                </path>
-              </svg> </i>{{ feats }}
+                  d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"
+                ></path>
+              </svg> </i
+            >{{ feats }}
           </li>
         </ul>
       </div>
@@ -96,13 +99,12 @@ export default {
 
       await this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
       this.$router.push(`/dashboard/${this.user._id}`)
-      socketService.emit('new order', { txt: 'got new order' })
+      socketService.emit('new order', { txt: 'Got New Order' })
 
       //  this.$router.push(`/dashboard`)
 
       // this.$router.push(`/gig/${this.gig._id}`)
     },
-  
   },
   computed: {
     orders() {
@@ -119,9 +121,8 @@ export default {
       this.sFee = this.gig.price * 0.03
       return this.sFee.toFixed(2)
     },
-   
   },
 
-  unmounted() { },
+  unmounted() {},
 }
 </script>

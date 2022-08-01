@@ -1,9 +1,16 @@
 <template>
   <header class="top-header">
     <side-nav v-if="isMenuOpen" @menuToggle="menuToggle"></side-nav>
+    <div v-if="isDisplayMsg" class="newMessageModal flex">
+      <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+      <div>
+        <h1>{{ newOrderMsg.txt }}</h1>
+        <p>a new order is waiting in your dashboard</p>
+      </div>
+    </div>
 
     <div class="header-container main-layout">
-      <button v-if="displayToggle" @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      <button @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
 
       <div class="header-row-container">
         <div class="main-logo-container">
@@ -99,8 +106,9 @@ export default {
   },
   data: () => {
     return {
-      // isUserSeller: this.user.isSeller,
-      displayToggle: null,
+      isDisplayMsg: false,
+      newOrderMsg: null,
+      // displayToggle: null,
       isMenuOpen: false,
       textBlack: false,
       isJoinBtnGreen: false,
@@ -135,15 +143,24 @@ export default {
     dontDisplayLogin() {
       this.displayLogin = false
     },
-    handleScroll3(e) {
-      if (e.target.innerWidth < 950) this.displayToggle = true
-      if (e.target.innerWidth > 950) this.displayToggle = false
-    },
+    // handleScroll3(e) {
+    //   if (e.target.innerWidth < 950) this.displayToggle = true
+    //   if (e.target.innerWidth > 950) this.displayToggle = false
+    // },
     menuToggle() {
       this.isMenuOpen = !this.isMenuOpen
     },
-    addMsg(msg) {
+    async addMsg(msg) {
       console.log('got msg from back order', msg) //open modal user msg -> the order as been accepeted
+      this.newOrderMsg = msg
+      await this.openMsgModal()
+    },
+    async openMsgModal() {
+      console.log('xoxoxoxoxoxo')
+      this.isDisplayMsg = true
+      await setTimeout(() => {
+        this.isDisplayMsg = false
+      }, 2000)
     },
     handleScroll(ev) {
       this.isJoinBtnGreen = true
@@ -196,7 +213,7 @@ export default {
   },
 
   created() {
-    window.addEventListener('resize', this.handleScroll3)
+    // window.addEventListener('resize', this.handleScroll3)
 
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('scroll', this.handleScroll2)
@@ -205,7 +222,7 @@ export default {
     socketService.on('accept', this.addMsg)
   },
   unmounted() {
-    window.removeEventListener('resize', this.handleScroll3)
+    // window.removeEventListener('resize', this.handleScroll3)
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('scroll', this.handleScroll2)
     socketService.off('chat addMsg', this.addMsg)

@@ -42,7 +42,7 @@
           <vueper-slide v-for="(img, i) in gig.imgs" :key="i" :image="img" @click.native="$refs.vueperslides2.goToSlide(i)"> </vueper-slide>
         </vueper-slides>
 
-        <div class="side-details info-side" v-if="small">
+        <div class="side-details info-side display-extra">
           <div class="side-price">US${{ gig.price }}</div>
           <div class="side-title">Order Details</div>
           <div class="side-subtitle">{{ gig.more }}</div>
@@ -66,7 +66,7 @@
             <button class="side-btn" @click="createOrder">Continue ( US${{ gig.price }} )</button>
           </footer>
         </div>
-        <div class="side-details side-extra flex" v-if="small">
+        <div class="side-details side-extra flex display-extra">
           <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M29 16C29 8.8203 23.1797 3 16 3C8.8203 3 3 8.8203 3 16C3 23.1797 8.8203 29 16 29C23.1797 29 29 23.1797 29 16Z"
@@ -88,7 +88,7 @@
             <path d="M2.66667 7.5H1" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
             <path d="M6.00016 7.5H4.3335" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
           </svg>
-          <div v-if="small">
+          <div>
             <p>Highly responsive!</p>
             <span>Known for exceptionally quick replies</span>
           </div>
@@ -142,7 +142,7 @@
           </vs-collapse> -->
     </div>
     <div class="side sticky">
-      <div class="side-details" v-if="!small">
+      <div class="side-details display-side-extra">
         <div class="side-price">US${{ gig.price }}</div>
         <div class="side-title">Order Details</div>
         <div class="side-subtitle">{{ gig.more }}</div>
@@ -166,7 +166,7 @@
           <button class="side-btn" @click="createOrder">Continue (US${{ gig.price }})</button>
         </footer>
       </div>
-      <div class="side-details side-extra flex" v-if="!small">
+      <div class="side-extra side-details flex display-side-extra">
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M29 16C29 8.8203 23.1797 3 16 3C8.8203 3 3 8.8203 3 16C3 23.1797 8.8203 29 16 29C23.1797 29 29 23.1797 29 16Z"
@@ -188,20 +188,21 @@
           <path d="M2.66667 7.5H1" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
           <path d="M6.00016 7.5H4.3335" stroke="#C5C6C9" stroke-width="1.66667" stroke-miterlimit="10"></path>
         </svg>
-        <div v-if="!small">
+        <div>
           <p>Highly responsive!</p>
           <span>Known for exceptionally quick replies</span>
         </div>
       </div>
     </div>
   </section>
-  <a id="reviews">{{reviews.length}} Reviews</a>
-  <review />
+  <a id="reviews">{{ reviews.length }} Reviews</a>
+  <div>xxxxx{{ reviews }}</div>
+  <!-- <review /> -->
 </template>
 
 <script>
 import { gigService } from '../services/gig-service'
-// import review from 
+// import review from
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -219,7 +220,7 @@ export default {
     const { gigId } = this.$route.params
     this.gig = await gigService.getById(gigId)
 
-    window.addEventListener('resize', this.changePlace)
+    // window.addEventListener('resize', this.changePlace)
   },
   computed: {
     reviews() {
@@ -227,7 +228,7 @@ export default {
     },
   },
   destroyed() {
-    window.removeEventListener('resize', this.changePlace)
+    // window.removeEventListener('resize', this.changePlace)
   },
   methods: {
     createOrder() {
@@ -250,13 +251,13 @@ export default {
       // this.$router.push(`/user`)
       this.$router.push(`/checkout/${this.gig._id}`)
     },
-    changePlace(e) {
-      if (e.target.innerWidth < 1200) {
-        this.small = true
-      } else {
-        this.small = false
-      }
-    },
+    // changePlace(e) {
+    //   if (e.target.innerWidth < 1200) {
+    //     this.small = true
+    //   } else {
+    //     this.small = false
+    //   }
+    // },
   },
   components: {
     VueperSlides,

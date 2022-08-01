@@ -24,7 +24,7 @@
     cursor: pointer;
     text-decoration: underline;
   }
-  span{
+  span {
     color: $clr1;
   }
 }
@@ -71,7 +71,7 @@
     svg {
       transform: translate(25px, 10%);
     }
-    
+
     right: 0;
     padding: 0;
   }
@@ -95,7 +95,7 @@
       height: 50px;
       padding: 10px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
-      &:hover{
+      &:hover {
         background-color: pink;
       }
     }
@@ -281,9 +281,14 @@
   }
 }
 //////////////////////////////////////////////side///////////////////////////////////////////
-.side {
-  height: fit-content;
-}
+// .side-sticky {
+//   display: block;
+//   @media (max-width: 950px) {
+//     .side-sticky {
+//       display: none;
+//     }
+//   }
+// }
 
 .side-details {
   margin-top: 20px;
@@ -361,6 +366,7 @@
 }
 
 .side-extra {
+  // display: block;
   padding: 20px 24px;
   margin-top: 30px;
   svg {
@@ -374,3 +380,36 @@
     margin-bottom: 8px;
   }
 }
+
+.display-side-extra {
+  display: block;
+}
+@media (max-width: 950px) {
+  .display-side-extra {
+    display: none;
+  }
+}
+
+.display-extra {
+  display: none;
+}
+@media (max-width: 950px) {
+  .display-extra {
+    display: block;
+  }
+}
+
+// @media (max-width: 950px) {
+//   .side-extra {
+//     display: none;
+//   }
+// }
+
+// .info-side {
+//   display: none;
+// }
+// @media (max-width: 950px) {
+//   .info-side {
+//     display: none;
+//   }
+// }
