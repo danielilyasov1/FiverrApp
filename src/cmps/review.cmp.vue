@@ -8,7 +8,7 @@
       </div>
       <div class="from flex">
         <!-- <img class="flag" :src="review.by.fromImg"/> -->
-        <div class="country">{{ review.by }}</div>
+        <div class="country">{{ review.by.from }}</div>
       </div>
       <p>{{ review.txt }}</p>
       <div class="helpful">

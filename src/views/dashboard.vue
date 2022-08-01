@@ -16,7 +16,7 @@
         <div class="user-details">
           <img class="user-image" :src="user.imgUrl" alt="" />
 
-          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
+          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5 </span> (1K+)</div>
           <hr />
           <div class="member-Since">
             <div class="member">

@@ -195,7 +195,7 @@
       </div>
     </div>
   </section>
-  <a id="reviews">{{ reviews.length }} Reviews</a>
+  <a id="reviews">{{ gig.review }} Reviews</a>
   <!-- <div>xxxxx{{ reviews }}</div> -->
   <review />
 </template>
