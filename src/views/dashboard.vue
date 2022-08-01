@@ -6,7 +6,7 @@
         <div class="opt">Notification</div>
         <div class="opt">Messages</div>
       </div>
-      <button @click="sellerBuyerToggle" class="user-selles-btn">{{SwitchTo}}</button>
+      <button @click="sellerBuyerToggle" class="user-selles-btn">{{ SwitchTo }}</button>
     </div>
   </div>
 
@@ -142,14 +142,13 @@ export default {
   data() {
     return {
       isbuyer: true,
-      SwitchTo:'Switch to Seller',
+      SwitchTo: 'Switch to Seller',
     }
   },
 
   async created() {
     await this.$store.dispatch({ type: 'loadOrders' })
     socketService.on('edit-order', this.editOrder)
-
   },
   methods: {
     editOrder(newOrder) {
@@ -157,21 +156,21 @@ export default {
     },
     async changeOrderStatus(orderId) {
       const curOrder = await orderService.getById(orderId)
-      if(curOrder.status === 'Pending'){
+      if (curOrder.status === 'Pending') {
         curOrder.status = 'approved'
-      } 
-      else{
+      } else {
         curOrder.status = 'completed'
       }
       curOrder.deliveredAt = await utilService.getFormattedDate()
       this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
       const msg = {
-        txt: 'changed status',
+        txt: 'Changed Status',
         username: 'Guest',
+        miniTxt: 'Your order status has been changed',
       }
       socketService.emit('change status', msg)
     },
-    
+
     sellerBuyerToggle() {
       this.isbuyer = !this.isbuyer
       this.SwitchTo = 'Switch to Buyer'
@@ -182,16 +181,15 @@ export default {
       if (status === 'completed') {
         return 'green'
       }
-      if(status === 'Pending'){
+      if (status === 'Pending') {
         return 'oreng'
       }
-      if(status === 'approved'){
+      if (status === 'approved') {
         return 'blue'
       }
     },
   },
   computed: {
-    
     orders() {
       const ju = this.$store.getters.orders.filter((order) => {
         return order.buyer._id === this.user._id
@@ -200,7 +198,6 @@ export default {
     },
     sellersOrders() {
       const hi = this.$store.getters.orders.filter((order) => {
-
         return order.seller._id === this.user._id
       })
 
@@ -209,7 +206,7 @@ export default {
     showTime(time) {
       console.log('this.order.createdAt', time)
     },
-  
+
     user() {
       return this.$store.getters.user
     },

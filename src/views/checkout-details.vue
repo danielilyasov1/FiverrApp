@@ -99,7 +99,7 @@ export default {
 
       await this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
       this.$router.push(`/dashboard/${this.user._id}`)
-      socketService.emit('new order', { txt: 'Got New Order' })
+      socketService.emit('new order', { txt: 'Got New Order', miniTxt: 'A new order is waiting in your dashboard' })
 
       //  this.$router.push(`/dashboard`)
 

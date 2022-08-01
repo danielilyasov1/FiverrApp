@@ -1,11 +1,13 @@
 <template>
   <header class="top-header">
     <side-nav v-if="isMenuOpen" @menuToggle="menuToggle"></side-nav>
+
     <div v-if="isDisplayMsg" class="newMessageModal flex">
+      <!-- <div class="newMessageModal flex"> -->
       <div class="check"><i class="fa-solid fa-circle-check"></i></div>
       <div>
         <h1>{{ newOrderMsg.txt }}</h1>
-        <p>a new order is waiting in your dashboard</p>
+        <p>{{ newOrderMsg.miniTxt }}</p>
       </div>
     </div>
 
@@ -67,11 +69,15 @@
         </ul>
       </nav>
     </div>
-    <div v-if="isUserDropdownDisplay" class="user-dropdown">
-      <h1 @click="isUserDropdownDisplay = false">Profile</h1>
-      <h1 @click="moveToDashboard">Dashboard</h1>
-      <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
-      <h1 @click="logout">Logout</h1>
+
+    <div v-if="isUserDropdownDisplay" class="dropdown-cont main-layout">
+      <div class="triangle"><i class="fa-solid fa-caret-up"></i></div>
+      <div class="user-dropdown">
+        <h1 @click="isUserDropdownDisplay = false">Profile</h1>
+        <h1 @click="moveToDashboard">Dashboard</h1>
+        <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
+        <h1 @click="logout">Logout</h1>
+      </div>
     </div>
 
     <category-filter
@@ -108,6 +114,7 @@ export default {
     return {
       isDisplayMsg: false,
       newOrderMsg: null,
+      miniMsg: null,
       // displayToggle: null,
       isMenuOpen: false,
       textBlack: false,
@@ -152,7 +159,11 @@ export default {
     },
     async addMsg(msg) {
       console.log('got msg from back order', msg) //open modal user msg -> the order as been accepeted
+      // if (msg === 'Got New Order') this.miniMsg = 'a new order is waiting in your dashboard'
+      // if (msg === 'Changed Status') this.miniMsg = 'your order status has been changed'
       this.newOrderMsg = msg
+      // this.miniMsg = miniMsg
+
       await this.openMsgModal()
     },
     async openMsgModal() {
