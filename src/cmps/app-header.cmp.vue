@@ -71,12 +71,14 @@
     </div>
 
     <div v-if="isUserDropdownDisplay" class="dropdown-cont main-layout">
-      <div class="triangle"><i class="fa-solid fa-caret-up"></i></div>
       <div class="user-dropdown">
-        <h1 @click="isUserDropdownDisplay = false">Profile</h1>
-        <h1 @click="moveToDashboard">Dashboard</h1>
-        <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
-        <h1 @click="logout">Logout</h1>
+        <div class="triangle"><i class="fa-solid fa-caret-up"></i></div>
+        <div class="modal-opt">
+          <h1 @click="isUserDropdownDisplay = false">Profile</h1>
+          <h1 @click="moveToDashboard">Dashboard</h1>
+          <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
+          <h1 @click="logout">Logout</h1>
+        </div>
       </div>
     </div>
 

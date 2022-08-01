@@ -1,15 +1,6 @@
 .dropdown-cont {
   display: flex;
   justify-content: flex-end;
-  .triangle {
-    color: #ffffff;
-    // border: 1px solid #eeeff5;
-    z-index: 1500;
-    font-size: 40px;
-    position: relative;
-    top: -29px;
-    right: 6px;
-  }
 }
 
 .user-dropdown {
@@ -18,11 +9,25 @@
   top: 75px;
 
   background-color: #ffffff;
-  z-index: 800;
+  z-index: 80;
   width: 150px;
-  border: 1px solid #eeeff5;
+  border: 1px solid #b9bac1;
   border-radius: 1%;
   padding: 10px 20px 10px 20px;
+  .modal-opt {
+    z-index: 30;
+  }
+  .triangle {
+    color: #ffffff;
+    // border: 1px solid #eeeff5;
+    z-index: 20;
+    font-size: 40px;
+    position: absolute;
+    top: -23px;
+    // top: -29px;
+    right: 3px;
+    text-shadow: 0px -1px 1px #a09b9b;
+  }
 
   h1 {
     font-family: Helvetica, sans-serif;
