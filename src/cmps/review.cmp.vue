@@ -4,7 +4,7 @@
       <div class="name">
         <img class="user-profile-image" :src="review.by.imgUrl" />
         <h5>{{ review.by.fullname }}</h5>
-        <div class="stars"></div>
+        <div class="stars">
           &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rate-num">{{ review.rate }}</span>
         </div>
       </div>
