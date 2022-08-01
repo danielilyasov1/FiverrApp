@@ -94,14 +94,13 @@
           </div>
         </div>
         <div class="about-gig main-layout">
-          <!-- <div class="reviews">
-            <button>See all reviews</button>
-          </div> -->
+          <div class="reviews">
+            <a href="#reviews">See all reviews</a>
+          </div>
 
           <h2>About This Gig</h2>
           <div class="limit">
             <pre> {{ gig.description }}</pre>
-            <!-- <div>{{ gig.description }}</div> -->
           </div>
         </div>
         <h2 class="aboutH2">About The Seller</h2>
@@ -196,12 +195,13 @@
       </div>
     </div>
   </section>
-
-  <!-- <pre>{{ reviews }}</pre> -->
+  <a id="reviews">{{reviews.length}} Reviews</a>
+  <review />
 </template>
 
 <script>
 import { gigService } from '../services/gig-service'
+// import review from 
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
