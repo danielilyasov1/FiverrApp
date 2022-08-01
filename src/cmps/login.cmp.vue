@@ -4,7 +4,7 @@
     <h1 v-if="user">user: {{ user.username }}</h1>
     <form class="sign-up-form" @submit.prevent="login" v-if="!isSignup">
       <div>
-        <h2 class="join">Sign In to Fiverr</h2>
+        <h2 class="join">Sign In to Binderr</h2>
       </div>
       <div>
         <input class="input" type="text" placeholder="Enter you username" v-model="newUser.username" autocomplete="off" />

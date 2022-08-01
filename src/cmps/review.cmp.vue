@@ -1,16 +1,22 @@
 <template>
-  <section class="reviews-container main-layout">
+  <section class="reviews-container">
     <ul class="reviews" v-for="review in reviews" :key="review._id">
-      <img class="user-profile-image" :src="review.by.imgUrl" />
       <div class="name">
+        <img class="user-profile-image" :src="review.by.imgUrl" />
         <h5>{{ review.by.fullname }}</h5>
-        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733; {{ review.rate }}</span>
+        <div class="stars">
+          &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rate-num">{{ review.rate }}</span>
+        </div>
       </div>
-      <div class="from flex">
-        <!-- <img class="flag" :src="review.by.fromImg"/> -->
-        <div class="country">{{ review.by.from }}</div>
+      <div class="review-flag">
+        <img :src="review.by.flagimg" alt="" />
+        <p>{{ review.by.from }}</p>
       </div>
-      <p>{{ review.txt }}</p>
+      <!-- <div class="from flex">
+        <div class="country">{{ review.by }}</div>
+      </div> -->
+      <p class="review-content">{{ review.txt }}</p>
+
       <div class="helpful">
         <span class="XQskgrQ thumbs-icon" style="width: 14px; height: 14px">
           <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">

@@ -1,52 +1,50 @@
-.flex{
-    display:flex
+.flex {
+  display: flex;
 }
-.flex-col{
-    display: flex;
-    flex-direction: column;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
-.flex-row{
-    display: flex;
-    flex-direction: row;
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
-
 
 .clean-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.stars{
-    span{
-
-        color: #ffbe5b;
-        font-weight: 700;
-    }
+.stars {
+  span {
+    color: #ffbe5b;
+    font-weight: 700;
+  }
 }
 
-.space-between{
-    justify-content: space-between;
+.space-between {
+  justify-content: space-between;
 }
 
-.space1{
-    padding: 1px;
+.space1 {
+  padding: 1px;
 }
 .equal-padding {
-    padding: 20px 20px;
- }
- .flex-padding {
-    padding: 2em 2rem;
- }
+  padding: 20px 20px;
+}
+.flex-padding {
+  padding: 2em 2rem;
+}
 
- .sticky{
-    position: sticky;
-    top: 20px;
- }
+.sticky {
+  position: sticky;
+  top: 20px;
+}
 
- .checkMark{
-    color:$clr3
+.checkMark {
+  color: $clr3;
 }
 .unCheckMark {
-    color:$clr6;
+  color: $clr6;
 }
