@@ -16,20 +16,15 @@
         <div class="user-details">
           <img class="user-image" :src="user.imgUrl" alt="" />
 
-          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 5 </span> (1K+)</div>
+          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9 </span> (285)</div>
           <hr />
           <div class="member-Since">
             <div class="member">
-              <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
-                focusable="false"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                data-testid="PersonIcon"
-              >
+              <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true"
+                viewBox="0 0 24 24" data-testid="PersonIcon">
                 <path
-                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                ></path>
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                </path>
               </svg>
               <h4 class="since">Member since</h4>
             </div>
@@ -42,7 +37,8 @@
           <div class="progress">
             <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
             <span class="rate">Response rate </span>
-            <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span> <el-progress percentage="85" color="#1dbf73" />
+            <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span>
+            <el-progress percentage="85" color="#1dbf73" />
             <span>Order completion</span>
             <el-progress percentage="100" color="#1dbf73" />
           </div>

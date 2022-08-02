@@ -1,3 +1,16 @@
+.header-review{
+  font-size: 20px;
+  font-weight: bold;
+  .stars {
+    color: #ffbe5b;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 15px;
+  }
+}
+
 .reviews-container {
   //   display: block;
   width: 100%;

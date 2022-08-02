@@ -143,7 +143,7 @@
             </div>
           </vs-collapse-item>
           </vs-collapse> -->
-      <a id="reviews">{{ reviews.length }} Reviews</a>
+      <a class="header-review" id="reviews">{{ gig.review }} Reviews <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span></a>
       <review />
     </div>
     <div class="side sticky display-side-extra">
@@ -200,7 +200,6 @@
       </div>
     </div>
   </section>
-  <a id="reviews">{{ gig.review }} Reviews</a>
 </template>
 
 <script>
