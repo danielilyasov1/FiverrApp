@@ -61,7 +61,7 @@
       <div class="check-list">
         <h2>A whole world of freelance talent at your fingertips</h2>
         <h6>
-          <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M8 1.75C4.54822 1.75 1.75 4.54822 1.75 8C1.75 11.4518 4.54822 14.25 8 14.25C11.4518 14.25 14.25 11.4518 14.25 8C14.25 4.54822 11.4518 1.75 8 1.75ZM0.25 8C0.25 3.71979 3.71979 0.25 8 0.25C12.2802 0.25 15.75 3.71979 15.75 8C15.75 12.2802 12.2802 15.75 8 15.75C3.71979 15.75 0.25 12.2802 0.25 8Z"
             ></path>
@@ -73,7 +73,7 @@
         </h6>
         <p>Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
         <h6>
-          <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M8 1.75C4.54822 1.75 1.75 4.54822 1.75 8C1.75 11.4518 4.54822 14.25 8 14.25C11.4518 14.25 14.25 11.4518 14.25 8C14.25 4.54822 11.4518 1.75 8 1.75ZM0.25 8C0.25 3.71979 3.71979 0.25 8 0.25C12.2802 0.25 15.75 3.71979 15.75 8C15.75 12.2802 12.2802 15.75 8 15.75C3.71979 15.75 0.25 12.2802 0.25 8Z"
             ></path>
@@ -85,7 +85,7 @@
         </h6>
         <p>Find the right freelancer to begin working on your project within minutes.</p>
         <h6>
-          <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M8 1.75C4.54822 1.75 1.75 4.54822 1.75 8C1.75 11.4518 4.54822 14.25 8 14.25C11.4518 14.25 14.25 11.4518 14.25 8C14.25 4.54822 11.4518 1.75 8 1.75ZM0.25 8C0.25 3.71979 3.71979 0.25 8 0.25C12.2802 0.25 15.75 3.71979 15.75 8C15.75 12.2802 12.2802 15.75 8 15.75C3.71979 15.75 0.25 12.2802 0.25 8Z"
             ></path>
@@ -97,7 +97,7 @@
         </h6>
         <p>Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
         <h6>
-          <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M8 1.75C4.54822 1.75 1.75 4.54822 1.75 8C1.75 11.4518 4.54822 14.25 8 14.25C11.4518 14.25 14.25 11.4518 14.25 8C14.25 4.54822 11.4518 1.75 8 1.75ZM0.25 8C0.25 3.71979 3.71979 0.25 8 0.25C12.2802 0.25 15.75 3.71979 15.75 8C15.75 12.2802 12.2802 15.75 8 15.75C3.71979 15.75 0.25 12.2802 0.25 8Z"
             ></path>
@@ -167,8 +167,19 @@
     <div v-if="displayVid" class="greyBg"></div>
   </div>
 
+  <!-- 
+   <div class="founders">
+      <div class="img"></div>
+      <div class="description">
+         <p>Brighid Gannon (DNP,PMHNP-BC),Co-Founder | Lavender</p>
+         <h3>"We used Fiverr for SEO, our logo, website, copy, animated videos- literally everything. It was like
+            working with a human right next to you versus being across thr world."</h3>
+      </div>
+   </div> -->
+
   <div class="founders main-layout">
     <button class="btn-left"><i class="fa-solid fa-angle-left"></i></button>
+    <!-- <div class="img"></div> -->
     <img
       src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg"
       alt=""
@@ -195,6 +206,7 @@
 import categoryFilter from '../cmps/category-filter.cmp.vue'
 export default {
   comments: {
+    // appFilter,
   },
   components: {
     categoryFilter,
@@ -207,30 +219,31 @@ export default {
         {
           stars: '⭐',
           details: 'Moon, Marketing Export',
-          imgUrl: 'https://res.cloudinary.com/camayadibir22/image/upload/v1659290962/fiverr1_srz9xi.jpg',
+          imgUrl: '/src/styles/imgs/fiverr1.png',
         },
         {
           stars: '',
           details: 'Zack, Bar Owner',
-          imgUrl: 'https://res.cloudinary.com/camayadibir22/image/upload/v1659290962/fiverr2_aidvoo.jpg',
+          imgUrl: '/src/styles/imgs/fiverr2.png',
         },
         {
           stars: '',
           details: 'Rikita, Shoemaker and Designer',
-          imgUrl: 'https://res.cloudinary.com/camayadibir22/image/upload/v1659290962/fiverr3_uefpej.jpg',
+          imgUrl: '/src/styles/imgs/fiverr3.png',
         },
         {
           stars: '⭐',
           details: 'Gabrielle, Video Editor',
-          imgUrl: 'https://res.cloudinary.com/camayadibir22/image/upload/v1659290965/fiverr4_wqltwv.jpg',
+          imgUrl: '/src/styles/imgs/fiverr4.png',
         },
         {
           stars: '',
           details: 'Andrea, Fashion Designer',
-          imgUrl: 'https://res.cloudinary.com/camayadibir22/image/upload/v1659290962/fiverr5_i9aogo.jpg',
+          imgUrl: '/src/styles/imgs/fiverr5.png',
         },
       ],
 
+      // display5: false,
       displayVid: false,
       pageIdx: 0,
       cardsNumInPage: 5,
@@ -253,8 +266,12 @@ export default {
     this.heroInterval = setInterval(() => {
       if (this.heroeDetailsIdx === 4) this.heroeDetailsIdx = -1
       this.heroeDetailsIdx++
+      // console.log('this.heroeDetailsIdx',this.heroeDetailsIdx)
     }, 5000)
 
+    window.addEventListener('resize', this.myEventHandler)
+  },
+  unmounted() {
     window.addEventListener('resize', this.myEventHandler)
   },
   unmounted() {},
@@ -265,8 +282,28 @@ export default {
   },
   methods: {
     async setTitle(e) {
+      // await this.$route.query.category
+      // console.log('ff', this.$route.query.category)
+
+      // this.$emit('setFilter', {
+      //   ...this.filterBy,
+      //   category: this.$route.query.category,
+
+      // })
       this.$router.push({ path: '/gig', query: { title: e.target.value } })
     },
+    //  async setTitleFilter() {
+    //    await this.$route.query.category
+    //    this.$router.push({ path: '/gig',query: { title: this.filterBy.title, category: this.$route.query.category} })
+    //    // await this.$route.query.title
+    //    console.log('ffd', this.$route.query)
+
+    //    this.$emit('setFilter', {
+    //      // ...this.filterBy,
+    //      title: this.$route.query.title,
+    //      category: this.$route.query.category,
+    //    })
+    //  },
     myEventHandler(e) {
       if (e.target.innerWidth < 650) {
         this.cardsNumInPage = 1
@@ -280,6 +317,7 @@ export default {
         this.cardsNumInPage = 5
       }
 
+      // console.log('this.cardsNumInPage',this.cardsNumInPage)
     },
     getCardsToDisplay(array, size) {
       const newArray = []
@@ -290,6 +328,7 @@ export default {
         newArray.push(chunk)
       }
       return newArray
+      //   this.carrArray= newArray
     },
     onSetPages(dir) {
       let size = this.cardsToDisplay.length
@@ -306,9 +345,14 @@ export default {
     },
     moveToExploreFilter(filtercategory) {
       this.$router.push({ path: '/gig', query: { category: filtercategory } })
+      // await this.$router.isReady()
+      // this.$router.push(`/user`)
+
+      // this.$router.push(`/gig?category=${filtercategory}`)
     },
   },
 
   unmounted() {},
 }
 </script>
+<style></style>
