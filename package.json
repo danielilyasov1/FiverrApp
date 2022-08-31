@@ -22,7 +22,9 @@
     "vue3-carousel": "^0.1.40",
     "vueperslides": "^3.4.2",
     "vuesax": "^3.12.2",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "socket.io-client": "^4.4.1"
+
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",

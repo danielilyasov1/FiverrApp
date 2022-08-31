@@ -1,29 +1,32 @@
 import { userService } from '../../services/user-service.js'
 import { utilService } from '../../services/util-service'
+import { socketService } from '../../services/socket.service'
 export default {
   state: {
     loggedinUser: utilService.loadFromSessionStorage('user') || null,
-      
+
   },
   getters: {
     user(state) {
       return state.loggedinUser
     },
-    
+
   },
   mutations: {
     setUser(state, { user }) {
       state.loggedinUser = user
     },
-  
-    
-   
+
+
+
   },
   actions: {
     async login({ commit }, { cred }) {
       try {
         const user = await userService.login(cred)
         commit({ type: 'setUser', user })
+        socketService.emit('set-user-socket', user._id)
+        //set-user-socket
         utilService.saveToSessionStorage('user', user)
       } catch (err) {
         console.log(err)
@@ -47,7 +50,7 @@ export default {
         console.log(err)
       }
     },
-    
+
   }
 }
 

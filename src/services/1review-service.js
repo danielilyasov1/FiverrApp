@@ -98,7 +98,7 @@ function _createReviews() {
         "rate": 5,
         "by": {
           "_id": "u102",
-          "fullname": "s_sassen",
+          "fullname": "s",
           "imgUrl": "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/65f00e2bbab274bead481367f563d68c-1577778632421/46c9715e-2396-47a5-997a-087adcbd3cca.jpg"
         }
       },

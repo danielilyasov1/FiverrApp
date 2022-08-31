@@ -2,41 +2,66 @@
   <header class="top-header">
     <side-nav v-if="isMenuOpen" @menuToggle="menuToggle"></side-nav>
 
+    <div v-if="isDisplayMsg" class="newMessageModal flex">
+      <!-- <div class="newMessageModal flex"> -->
+      <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+      <div>
+        <h1>{{ newOrderMsg.txt }}</h1>
+        <p>{{ newOrderMsg.miniTxt }}</p>
+      </div>
+    </div>
+
     <div class="header-container main-layout">
-      <button v-if="displayToggle" @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      <button @click="menuToggle" class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
 
       <div class="header-row-container">
         <div class="main-logo-container">
-          <router-link to="/"
-            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <router-link to="/" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <h1 class="main-logo">Binderr<span>.</span></h1>
           </router-link>
         </div>
 
-        <app-filter to="/app-filter" @setFilter="setFilter" class="app-filter" :class="[
-          isFilterDisplayed && altBackground ? 'displaySearch' : '',
-          !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
-          !altBackground ? 'filter-category' : '',
-        ]"></app-filter>
+        <app-filter
+          to="/app-filter"
+          @setFilter="setFilter"
+          class="app-filter"
+          :class="[
+            isFilterDisplayed && altBackground ? 'displaySearch' : '',
+            !isFilterDisplayed && altBackground ? 'displaySearchNone' : '',
+            !altBackground ? 'filter-category' : '',
+          ]"
+        ></app-filter>
       </div>
 
       <nav class="top-header-nav-bar-container">
         <!-- <ul class="nav-bar clean-list flex"> -->
         <ul class="nav-bar">
-          <li class="move explore"
-            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <li class="move explore" :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
             <router-link to="/gig">Explore</router-link>
           </li>
-          <li class="move seller"
-            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']">
+          <li
+            v-if="user && !user.isSeller"
+            class="move seller"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']"
+          >
             <router-link to="/">Become a Seller</router-link>
           </li>
-          <li v-if="!user" class="move"
-            :class="[altBackground ? 'while-text' : 'black-text', altBackground && isFilterDisplayed ? 'black-text' : '']">
+          <li
+            v-if="!user"
+            class="move signIn"
+            :class="[altBackground && textBlack ? 'black-text' : 'while-text', !altBackground ? 'black-text' : '']"
+          >
             <router-link to="/">Sign In</router-link>
           </li>
 
-          <button v-if="!user" class="join-btn" @click="openLoginModal">Join</button>
+          <button
+            v-if="!user"
+            class="join-btn"
+            :class="[altBackground && isJoinBtnGreen ? 'green-btn' : 'join-btn', !altBackground ? 'green-btn' : '']"
+            @click="openLoginModal"
+          >
+            Join
+          </button>
 
           <!-- <div @click="displayUserDropdown"  v-if="user" class="user-image-header">{{user.username}}</div> -->
           <!-- <div @click="displayUserDropdown" v-if="user" class="user-image-header"><img :src="user.imgUrl" alt="" /></div> -->
@@ -44,21 +69,30 @@
         </ul>
       </nav>
     </div>
-    <div v-if="isUserDropdownDisplay" class="user-dropdown">
-      <h1 @click="isUserDropdownDisplay = false">Profile</h1>
-      <h1 @click="moveToDashboard">Dashboard</h1>
-      <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
-      <h1 @click="logout">Logout</h1>
+
+    <div v-if="isUserDropdownDisplay" class="dropdown-cont main-layout">
+      <div class="user-dropdown">
+        <div class="triangle"><i class="fa-solid fa-caret-up"></i></div>
+        <div class="modal-opt">
+          <h1 @click="isUserDropdownDisplay = false">Profile</h1>
+          <h1 @click="moveToDashboard">Dashboard</h1>
+          <hr @click="isUserDropdownDisplay = false" class="dropdown-hr" />
+          <h1 @click="logout">Logout</h1>
+        </div>
+      </div>
     </div>
 
-    <category-filter class="category-filter" :class="[
-      isFilterDisplayed && altBackground ? 'displayFilter' : '',
-      !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
-      !altBackground ? 'filter-category' : '',
-      isHeaderDashboard ? 'displayFilterNone' : '',
-    ]" />
+    <category-filter
+      class="category-filter"
+      :class="[
+        isFilterDisplayed && altBackground ? 'displayFilter' : '',
+        !isFilterDisplayed && altBackground ? 'displayFilterNone' : '',
+        !altBackground ? 'filter-category' : '',
+        isHeaderDashboard ? 'displayFilterNone' : '',
+      ]"
+    />
 
-    <login class="join-container" v-if="displayLogin"></login>
+    <login @dontDisplayLogin="dontDisplayLogin" class="join-container" v-if="displayLogin"></login>
     <div v-if="displayLogin" class="greyBg" @click="openLoginModal"></div>
   </header>
 </template>
@@ -68,8 +102,7 @@ import appFilter from '../cmps/app-filter.cmp.vue'
 import categoryFilter from '../cmps/category-filter.cmp.vue'
 import login from '../cmps/login.cmp.vue'
 import sideNav from '../cmps/side-nav.cmp.vue'
-// import { socketService } from '../services/socket.service.js'
-
+import { socketService } from '../services/socket.service.js'
 
 export default {
   tempalte: ``,
@@ -81,9 +114,13 @@ export default {
   },
   data: () => {
     return {
-      displayToggle: null,
+      isDisplayMsg: false,
+      newOrderMsg: null,
+      miniMsg: null,
+      // displayToggle: null,
       isMenuOpen: false,
       textBlack: false,
+      isJoinBtnGreen: false,
       displayLogin: false,
       isFilterDisplayed: false,
 
@@ -93,6 +130,9 @@ export default {
     }
   },
   computed: {
+    // isUserSeller() {
+    //   return this.user.isSeller
+    // },
     user() {
       return this.$store.getters.user
     },
@@ -109,20 +149,39 @@ export default {
   },
 
   methods: {
-    handleScroll3(e) {
-      if (e.target.innerWidth < 950) this.displayToggle = true
-      if (e.target.innerWidth > 950) this.displayToggle = false
+    dontDisplayLogin() {
+      this.displayLogin = false
     },
+    // handleScroll3(e) {
+    //   if (e.target.innerWidth < 950) this.displayToggle = true
+    //   if (e.target.innerWidth > 950) this.displayToggle = false
+    // },
     menuToggle() {
       this.isMenuOpen = !this.isMenuOpen
     },
-    addMsg(msg) {
-      console.log('got msg from back', msg)
-      console.log('add msggg')
+    async addMsg(msg) {
+      console.log('got msg from back order', msg) //open modal user msg -> the order as been accepeted
+      // if (msg === 'Got New Order') this.miniMsg = 'a new order is waiting in your dashboard'
+      // if (msg === 'Changed Status') this.miniMsg = 'your order status has been changed'
+      this.newOrderMsg = msg
+      // this.miniMsg = miniMsg
+
+      await this.openMsgModal()
+    },
+    async openMsgModal() {
+      console.log('xoxoxoxoxoxo')
+      this.isDisplayMsg = true
+      await setTimeout(() => {
+        this.isDisplayMsg = false
+      }, 2000)
     },
     handleScroll(ev) {
+      this.isJoinBtnGreen = true
       this.textBlack = true
-      if (window.scrollY === 0) this.textBlack = false
+      if (window.scrollY === 0) {
+        this.textBlack = false
+        this.isJoinBtnGreen = false
+      }
     },
     async moveToDashboard() {
       this.isUserDropdownDisplay = false
@@ -167,18 +226,19 @@ export default {
   },
 
   created() {
-    window.addEventListener('resize', this.handleScroll3)
+    // window.addEventListener('resize', this.handleScroll3)
 
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('scroll', this.handleScroll2)
     // socketService.on('chat addMsg', this.addMsg)
-
+    socketService.on('send to seller', this.addMsg)
+    socketService.on('accept', this.addMsg)
   },
   unmounted() {
-    window.removeEventListener('resize', this.handleScroll3)
+    // window.removeEventListener('resize', this.handleScroll3)
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('scroll', this.handleScroll2)
-    // socketService.off('chat addMsg', this.addMsg)
+    socketService.off('chat addMsg', this.addMsg)
   },
   watch: {
     '$route.query.category'() {

@@ -1,85 +1,46 @@
 <template>
   <!-- <section v-if="!user" > -->
-  <section  >
-    <h1 v-if="user">user: {{user.username}}</h1>
-    <form class="sign-up-form" @submit.prevent="login" v-if="!isSignup" >
-      <div >
-        <h2 class="join">Sign In to Fiverr</h2>
-        
+  <section>
+    <h1 v-if="user">user: {{ user.username }}</h1>
+    <form class="sign-up-form" @submit.prevent="login" v-if="!isSignup">
+      <div>
+        <h2 class="join">Sign In to Binderr</h2>
       </div>
       <div>
-       
-        <input
-           class="input"
-          type="text"
-          placeholder="Enter you username"
-          v-model="newUser.username"
-          autocomplete="off"
-        />
+        <input class="input" type="text" placeholder="Enter you username" v-model="newUser.username" autocomplete="off" />
       </div>
 
-      <div >
-        <label for="password" >Password</label>
-        <input
-          class="input"
-          type="password"
-          v-model="newUser.password"
-          placeholder="Enter your password"
-        />
+      <div>
+        <label for="password">Password</label>
+        <input class="input" type="password" v-model="newUser.password" placeholder="Enter your password" />
       </div>
 
-      <div >
+      <div>
         <button class="form-btn" type="submit">Login</button>
       </div>
 
-      <button @click="isSignup = !isSignup" >
-        Don't have an account? Sign up now!
-      </button>
+      <button @click="isSignup = !isSignup">Don't have an account? Sign up now!</button>
     </form>
 
-    <form class="sign-up-form" @submit.prevent="signup" v-if="isSignup" >
-      <div >
+    <form class="sign-up-form" @submit.prevent="signup" v-if="isSignup">
+      <div>
         <h2 class="join">Join Binderr</h2>
-       
       </div>
-      <div >
-        
-        <input class="input"
-       
-          type="text"
-          
-          placeholder="Enter your fullname"
-          v-model="newUser.fullname"
-          autocomplete="off"
-        />
+      <div>
+        <input class="input" type="text" placeholder="Enter your fullname" v-model="newUser.fullname" autocomplete="off" />
       </div>
-      <div >
-       
-        <input
-          class="input"
-          type="text"
-         
-          placeholder="Enter you username"
-          v-model="newUser.username"
-          autocomplete="off"
-        />
+      <div>
+        <input class="input" type="text" placeholder="Enter you username" v-model="newUser.username" autocomplete="off" />
       </div>
-      <div >
-       
-        <input
-           class="input"
-          type="password"
-         
-          v-model="newUser.password"
-          placeholder="Enter your password"
-        />
+      <div>
+        <input class="input" type="password" v-model="newUser.password" placeholder="Enter your password" />
       </div>
 
-      <div >
-        <button  type="submit"  class="form-btn">Sign up</button>
+      <div>
+        <button type="submit" class="form-btn">Sign up</button>
       </div>
       <div class="agree">By joining I agree to receive emails from Binderr.</div>
-      <hr>
+      <hr />
       <div class="sign-in">
         <p class="isMember">Already a member?</p>
         <button @click="isSignup = !isSignup" class="sign-in-btn">Sign in</button>
@@ -90,27 +51,21 @@
       </button> -->
     </form>
   </section>
-
-
-
-  
-
-
-
-
-
- 
 </template>
 
 <script>
-  // import { utilService } from '../services/util-service.js'
+// import { utilService } from '../services/util-service.js'
 export default {
   name: 'login',
-   data() {
-    return  {
+  data() {
+    return {
       isSignup: false,
-      newUser: { 
-        fullname: '', username: '', password: '', memberSince:  this.memberSince},
+      newUser: {
+        fullname: '',
+        username: '',
+        password: '',
+        memberSince: this.memberSince,
+      },
     }
   },
   computed: {
@@ -118,24 +73,25 @@ export default {
       return this.$store.getters.user
     },
     // async memberSince(){
-    //   return await utilService.getFormattedDate() 
+    //   return await utilService.getFormattedDate()
     // }
   },
   methods: {
-     async login() {
-      console.log('login',this.newUser )
+    async login() {
+      console.log('login', this.newUser)
       await this.$store.dispatch({ type: 'login', cred: this.newUser })
       this.$router.push('/')
+      this.$emit('dontDisplayLogin')
     },
     async signup() {
-      console.log('login',this.newUser )
+      console.log('login', this.newUser)
       await this.$store.dispatch({ type: 'signup', cred: this.newUser })
       this.$router.push('/')
+      this.$emit('dontDisplayLogin')
     },
     async logout() {
       await this.$store.dispatch({ type: 'logout' })
     },
   },
 }
-
 </script>

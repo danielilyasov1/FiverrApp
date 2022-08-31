@@ -1,26 +1,27 @@
-import { reviewService } from '../../services/1review-service.js'
+import { reviewService } from '../../services/review-service.js'
 
 export default {
   state: {
-      reviews: [],
+    reviews: [],
   },
   getters: {
     reviews({ reviews }) {
-        return reviews
-      },
+      return reviews
+    },
   },
   mutations: {
     setReviews(state, { reviews }) {
-        state.reviews = reviews
-      },
-   
+      state.reviews = reviews
+    },
+
   },
   actions: {
-     loadReviews({ commit, state }) {
-        reviewService.query().then((reviews) => {
-          commit({ type: 'setReviews', reviews })
-        })
-      },
- 
+    loadReviews({ commit, state }) {
+      reviewService.query().then((reviews) => {
+        console.log('reviewssssss', reviews)
+        commit({ type: 'setReviews', reviews })
+      })
+    },
+
   }
 }

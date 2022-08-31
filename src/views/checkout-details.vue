@@ -6,7 +6,9 @@
         <img :src="gig.imgs[0]" alt="" />
         <div class="rate">
           <h3>{{ gig.title }}</h3>
-          <div class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; {{gig.rate}}</span> ({{gig.review}})</div>
+          <div class="stars">
+            <span>&#9733;&#9733;&#9733;&#9733;&#9733; {{ gig.rate }}</span> ({{ gig.review }})
+          </div>
         </div>
         <h4>Price $ {{ gig.price }}</h4>
       </div>
@@ -59,6 +61,8 @@
 import { gigService } from '../services/gig-service'
 import { orderService } from '../services/order-service'
 import { userService } from '../services/user-service'
+import { socketService } from '../services/socket.service'
+
 // import { orderService } from '../services/order-service'
 export default {
   data() {
@@ -95,17 +99,12 @@ export default {
 
       await this.$store.dispatch({ type: 'addOrder', newOrder: newOrder })
       this.$router.push(`/dashboard/${this.user._id}`)
+      socketService.emit('new order', { txt: 'Got New Order', miniTxt: 'A new order is waiting in your dashboard' })
+
       //  this.$router.push(`/dashboard`)
 
       // this.$router.push(`/gig/${this.gig._id}`)
     },
-    // changePlace(e) {
-    //   if (e.target.innerWidth < 1200) {
-    //     this.small = true
-    //   } else {
-    //     this.small = false
-    //   }
-    // },
   },
   computed: {
     orders() {
@@ -122,9 +121,6 @@ export default {
       this.sFee = this.gig.price * 0.03
       return this.sFee.toFixed(2)
     },
-    // showside() {
-    //   return this.small ? 'flex-col' : 'flex-row'
-    // },
   },
 
   unmounted() {},

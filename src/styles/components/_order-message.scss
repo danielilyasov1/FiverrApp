@@ -1,0 +1,49 @@
+.newMessageModal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: left;
+  z-index: 100;
+  background-color: #ffffff;
+  width: auto;
+  box-shadow: 0 0 2px 0.1px;
+  border-radius: 5px;
+  padding: 20px;
+  justify-content: space-around;
+  color: rgb(45, 43, 43);
+  font-family: Helvetica, sans-serif;
+  margin: auto;
+  .check {
+    // color: rgb(74, 212, 59);
+    color: $clr3;
+    font-size: 40px;
+    margin-right: 20px;
+  }
+
+  h1 {
+    // font-size: ;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  p {
+    color: rgb(190, 190, 184);
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .newMessageModal {
+    width: 82%;
+    align-items: center;
+    h1 {
+      margin-bottom: 0px;
+      font-size: 25px;
+    }
+    p {
+      display: none;
+    }
+  }
+}

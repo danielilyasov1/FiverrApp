@@ -6,7 +6,7 @@
         <div class="opt">Notification</div>
         <div class="opt">Messages</div>
       </div>
-      <button @click="sellerBuyerToggle" class="user-selles-btn">Switch to Seller</button>
+      <button @click="sellerBuyerToggle" class="user-selles-btn">{{ SwitchTo }}</button>
     </div>
   </div>
 
@@ -16,7 +16,7 @@
         <div class="user-details">
           <img class="user-image" :src="user.imgUrl" alt="" />
 
-          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</span> (1K+)</div>
+          <div v-if="!isbuyer" class="stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733; 4.9 </span> (285)</div>
           <hr />
           <div class="member-Since">
             <div class="member">
@@ -38,7 +38,8 @@
             <!-- <div>Response Rate <el-progress percentage="98" color="#1dbf73" /></div> -->
             <span class="rate">Response rate </span>
             <el-progress percentage="98" color="#1dbf73" /> <span>Delivered on time</span>
-            <el-progress percentage="85" color="#1dbf73" /> <span>Order completion</span>
+            <el-progress percentage="85" color="#1dbf73" />
+            <span>Order completion</span>
             <el-progress percentage="100" color="#1dbf73" />
           </div>
           <hr />
@@ -53,12 +54,11 @@
 
       <div class="orders-container">
         <div v-if="(orders, isbuyer)" v-for="order in orders" :key="order._id">
-          <div></div>
           <div class="order">
             <div class="order-info">
               <img class="gig-img" :src="order.gig.imgs[0]" alt="" />
 
-              <div class="seller flex">
+              <div class="seller">
                 <img class="seller-img" :src="order.seller.imgUrl" alt="" />
                 <div class="name">{{ order.seller.fullname }}</div>
               </div>
@@ -81,7 +81,7 @@
               <hr />
               <div class="status">
                 <h1 class="status-title">Order status:</h1>
-                <h1>{{ order.status }}</h1>
+                <h1 class="status-info">{{ order.status }}</h1>
               </div>
             </div>
           </div>
@@ -131,86 +131,88 @@
 <script>
 // import { userService } from '../services/user-service'
 import { orderService } from '../services/order-service'
-// import { socketService } from '../services/socket.service'
+import { socketService } from '../services/socket.service'
 import { utilService } from '../services/util-service'
 
 export default {
   data() {
     return {
       isbuyer: true,
+      SwitchTo: 'Switch to Seller',
     }
   },
 
   async created() {
     await this.$store.dispatch({ type: 'loadOrders' })
+    socketService.on('edit-order', this.editOrder)
   },
   methods: {
+    editOrder(newOrder) {
+      this.$store.commit({ type: 'addOrder', newOrder })
+    },
     async changeOrderStatus(orderId) {
       const curOrder = await orderService.getById(orderId)
-      console.log('curOrder', curOrder)
-      curOrder.status = 'completed'
+      if (curOrder.status === 'Pending') {
+        curOrder.status = 'approved'
+      } else {
+        curOrder.status = 'completed'
+      }
       curOrder.deliveredAt = await utilService.getFormattedDate()
       this.$store.dispatch({ type: 'addOrder', newOrder: curOrder })
-      // location.reload()
+      const msg = {
+        txt: 'Changed Status',
+        username: 'Guest',
+        miniTxt: 'Your order status has been changed',
+      }
+      socketService.emit('change status', msg)
     },
 
     sellerBuyerToggle() {
       this.isbuyer = !this.isbuyer
+      this.SwitchTo = 'Switch to Buyer'
       console.log('this.isbuyer', this.isbuyer)
     },
     color(status) {
-      console.log('ststus', status)
+      console.log('color', status)
       if (status === 'completed') {
-        console.log('hiigru')
         return 'green'
       }
-      return 'oreng'
+      if (status === 'Pending') {
+        return 'oreng'
+      }
+      if (status === 'approved') {
+        return 'blue'
+      }
     },
   },
   computed: {
     orders() {
-      // console.log('yyy',this.$store.getters.orders)
-      // return this.$store.getters.orders
-      // console.log('this.userwwwwww',this.user)
       const ju = this.$store.getters.orders.filter((order) => {
-        // console.log('orderxxxxxxxxxx',order)
         return order.buyer._id === this.user._id
       })
       return ju
     },
     sellersOrders() {
       const hi = this.$store.getters.orders.filter((order) => {
-        console.log('orderryyyyyy', order)
-
         return order.seller._id === this.user._id
       })
 
-      //  console.log('ho',hi)
       return hi
     },
     showTime(time) {
       console.log('this.order.createdAt', time)
     },
-    // statuss(order){
-    //   if (order.status === 'pending') {
-    //     console.log('oreng')
-    //     return 'oreng'
-    //   }
-    //   if (order.status === 'completed') return 'green'
-    // }
+
     user() {
-      console.log('fffffff', this.$store.getters.user)
       return this.$store.getters.user
     },
     earned() {
-      console.log('this.sellersOrders', this.sellersOrders)
       let earn = this.sellersOrders.reduce((acc, order) => {
         console.log('earn', order.gig?.price)
         return (acc += Number(order.gig?.price) || 0)
       }, 0)
       console.log('earns', earn)
       return earn
-      // return 0
     },
   },
 }

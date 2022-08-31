@@ -11,7 +11,6 @@
   font-family: Arial, Helvetica, sans-serif;
   transition-duration: 0.4s;
   transition-timing-function: ease-in;
-  margin: 2px;
   border-top: 1px solid rgb(233, 233, 233);
   border-bottom: 1px solid rgb(233, 233, 233);
 
@@ -84,12 +83,7 @@
         margin-top: 35px;
         border: 1px solid rgb(235, 232, 232);
       }
-      // img{
-      //     width: 100px;
-      //     height: 100px;
-      //     margin-bottom: 15px;
-      //     // border-radius: 50px;
-      // }
+  
       .user-image {
         width: 100px;
         height: 100px;
@@ -199,7 +193,10 @@
             border: 2px solid rgb(235, 232, 232);
             text-align: left;
             .buyer {
-              margin-left: 200px;
+              padding-left: 10px;
+            }
+            .buyer-img{
+              margin-left: 10px;
             }
             .table-head {
               color: #abaeb6;
@@ -226,7 +223,6 @@
                 padding: 16px 16px 16px 0;
                 color: $clr5;
                 border-top: 1px solid #e4e5e7;
-                border-bottom: 1px solid #e4e5e7;
                 font-size: 14px;
               }
               .buyer-img {
@@ -236,11 +232,11 @@
               }
             }
             .statusbtn {
-              padding: 0 10px 0 0;
+              // padding: 0 10px 0 0;
               .order-status {
                 height: 20px;
-                width: 80px;
-                // padding: 0 4px;
+                padding: 0 4px ;
+                margin: 0;
                 font-size: 10px;
                 color: #fff;
                 font-weight: 700;
@@ -316,20 +312,24 @@
         border-radius: 2px;
         padding: 10px;
         align-items: center;
-        .issued {
-          // text-align: end;
-          margin-left: 50px;
-          margin-right: -55px;
-        }
+        // .issued {
+        //   // text-align: end;
+        //   margin-left: 50px;
+        //   margin-right: -55px;
+        // }
 
         .order-info {
           display: flex;
           width: 100%;
           justify-content: space-between;
           align-items: center;
-          > * {
-            width: rem(150px);
-          }
+          // > * {
+          //   width: rem(150px);
+          // }
+
+          // .imgs-container {
+          //   display: flex;
+          //   align-items: center;
           .gig-img {
             height: rem(100px);
             width: rem(166px);
@@ -338,22 +338,40 @@
             // margin-right: 30px;
             border-radius: 4px;
           }
-          .selle {
+          .seller {
+            // margin-left: rem(-25px);
+            margin-right: rem(25px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             align-items: center;
-            justify-content: center;
+            height: rem(100px);
+            // height: 100%;
+            // width: 100%;
+            .seller-img {
+              height: rem(60px);
+              width: rem(60px);
+              margin: auto;
+              border-radius: 50%;
+
+              // margin-bottom: 10px;
+            }
+            .name {
+              font-weight: bolder;
+              color: $clr1;
+              text-align: center;
+              // align-self: center;
+              // margin-left: rem(-30px);
+            }
           }
-          .seller-img {
-            margin-left: rem(10px);
-            height: rem(60px);
-            width: rem(60px);
-            border-radius: 50%;
-            margin-right: rem(10px);
-          }
-          .name {
-            font-weight: bolder;
-            color: $clr1;
-            // margin-left: rem(-30px);
-          }
+          // }
+          // .order-detail-info {
+          //   display: flex;
+          //   width: 100%;
+          //   justify-content: space-between;
+          //   margin-left: 50px;
+          // }
+
           .title {
             font-size: rem(16px);
             font-family: work-sans;
@@ -377,8 +395,16 @@
           .status {
             font-family: work-sans;
             font-size: rem(14px);
+            line-height: 5px;
+
             .status-title {
               color: #abaeb6;
+              margin: 0;
+              padding: 5px;
+            }
+            .status-info {
+              margin: 0;
+              padding: 5px;
             }
             display: flex;
             justify-content: space-between;
@@ -412,9 +438,14 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 10px;
+        text-align: center;
       }
-      .seller-img {
-        margin-top: 10px;
+      .seller {
+        // margin-left: rem(25px);
+
+        .seller-img {
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -427,6 +458,7 @@
         font-size: 12px;
         margin-top: 0px;
         margin-bottom: 0px;
+        text-align: center;
       }
       .orders-container {
         width: 100%;
@@ -452,9 +484,12 @@
             grid-area: seller;
             display: block;
             width: 50px;
+            margin-left: 0;
+            margin-right: 0;
 
             .seller-img {
               margin-left: 0;
+              margin-right: 0;
               height: 2.5rem;
               width: 2.5rem;
             }
@@ -515,4 +550,7 @@
 }
 .green {
   background-color: $clr3;
+}
+.blue {
+  background-color: rgb(61, 61, 196);
 }
