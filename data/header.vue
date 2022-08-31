@@ -9,21 +9,21 @@ export default {
     }
   },
   methods: {
-    handleScroll(ev) {
+    handleScroll() {
       this.isScroll = true
-      if (window.scrollY === 0) this.isScroll = false
+      if (!window.scrollY ) this.isScroll = false
     },
   },
   computed: {
     checkHomeRoute() {
       const path = this.$route.path.split('/')
-      return path[path.length - 1].toLowerCase() === ''
+      return !path[path.length - 1].toLowerCase() 
     },
   },
   created() {
     window.addEventListener('scroll', this.handleScroll)
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('scroll', this.handleScroll)
   },
 }
