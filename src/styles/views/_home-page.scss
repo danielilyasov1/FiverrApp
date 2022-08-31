@@ -427,6 +427,7 @@
             color: #003912;
             font-size: rem(34px);
             line-height: 47px;
+            padding-right: rem(40px);
         }
         
     }
@@ -452,9 +453,31 @@
         transform: translate(-25px, 10%); 
     }
     .btn-right{
-        transform: translate(1310px, 10%); 
+        transform: translate(rem(1250px), 10%); 
     }
 
 }
 
+@media(max-width:950px){
+    .founders{
+        flex-direction: column;
 
+        img{
+            width: 100%;
+        }
+        .description{
+            padding: 0;
+            h3{
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .btn-left{
+            display: none;
+        }
+        .btn-right{
+            display: none;
+        }
+    }
+
+}
