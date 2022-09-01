@@ -182,7 +182,7 @@
   color: #fff;
   justify-content: space-between;
   position: relative;
-  
+
   .option {
     border-radius: 4px;
     height: rem(355px);
@@ -358,6 +358,7 @@
   display: flex;
   margin-bottom: rem(100px);
   position: relative;
+  font-size: 20px;
   
   img {
     width: 40.5%;
@@ -428,6 +429,7 @@
         display: none;
       }
     }
+
   }
 
   .main-layout {
@@ -491,6 +493,17 @@
   }
 
   .founders {
+    flex-direction: column;
+    img{
+      width: 100%;
+    }
+    .description{
+      padding: 0;
+      h3{
+        padding: 0;
+        width: 100%;
+      }
+    }
     .btn-right {
       display: none;
     }

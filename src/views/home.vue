@@ -170,19 +170,8 @@
     <div v-if="displayVid" class="greyBg"></div>
   </div>
 
-  <!-- 
-   <div class="founders">
-      <div class="img"></div>
-      <div class="description">
-         <p>Brighid Gannon (DNP,PMHNP-BC),Co-Founder | Lavender</p>
-         <h3>"We used Fiverr for SEO, our logo, website, copy, animated videos- literally everything. It was like
-            working with a human right next to you versus being across thr world."</h3>
-      </div>
-   </div> -->
-
   <div class="founders main-layout">
     <button class="btn-left"><i class="fa-solid fa-angle-left"></i></button>
-    <!-- <div class="img"></div> -->
     <img
       src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg"
       alt=""
