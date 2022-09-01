@@ -181,7 +181,8 @@
   font-family: Helvetica, sans-serif;
   color: #fff;
   justify-content: space-between;
-
+  position: relative;
+  
   .option {
     border-radius: 4px;
     height: rem(355px);
@@ -231,15 +232,10 @@
     cursor: pointer;
   }
   .btn-left {
-    transform: translate(-25px, 10%);
+    left: 8px;
   }
   .btn-right {
-    transform: translate(1310px, 10%);
-  }
-}
-@media (max-width: 1420px) {
-  .btn-right {
-    transform: translate(50%, 10%);
+    right: 8px;
   }
 }
 
@@ -361,7 +357,8 @@
   margin-top: rem(100px);
   display: flex;
   margin-bottom: rem(100px);
-
+  position: relative;
+  
   img {
     width: 40.5%;
     height: auto;
@@ -408,10 +405,10 @@
     cursor: pointer;
   }
   .btn-left {
-    transform: translate(-25px, 10%);
+    left: 8px;
   }
   .btn-right {
-    transform: translate(rem(1250px), 10%);
+    right: 8px;
   }
 }
 
@@ -490,15 +487,6 @@
       .media-img.paypal {
         display: none;
       }
-    }
-  }
-
-  .gallery {
-    .btn-right {
-      display: none;
-    }
-    .btn-left {
-      display: none;
     }
   }
 
