@@ -2,6 +2,7 @@
   <div class="heroDeats" v-for="(heroDeats, index) in heroesDetails" :key="heroDeats">
     <div class="heroes" :class="[index !== heroeDetailsIdx ? 'displayHeroDeats' : 'dontDisplayHeroDeats']">
       <img class="home-hero-img" :src="heroDeats.imgUrl" alt="" />
+      <img class="mobile-bg" src="/src/styles/imgs/fiverr-mobile-bg.png" alt="" />
 
       <div class="hero-detail-container main-layout">
         <p v-if="heroDeats.stars" class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
@@ -12,13 +13,15 @@
 
   <div class="main-layout">
     <main class="home-page">
-      <h1>Find the perfect <span> &nbsp; freelance</span></h1>
-      <h1>services for your business</h1>
+      <h1 class="home-title">Find the perfect <span> &nbsp; freelance</span> services for your business</h1>
+
+      <!-- <h1>services for your business</h1> -->
       <div class="search-input">
         <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
         <input @change="setTitle" class="input" type="text" placeholder='Try "building mobile app"' />
         <button class="button">Search</button>
       </div>
+      <button class="button-mobile">Search</button>
 
       <!-- <app-filter to="/app-filter" class="main-filter"  @setFilter="setFilter"></app-filter> -->
 
@@ -35,11 +38,11 @@
   <div class="media">
     <div class="imgs">
       <div class="trusted">Trusted By:</div>
-      <img src="../styles/imgs/Facebook.png" alt="" />
-      <img src="../styles/imgs/google.png" alt="" />
-      <img src="../styles/imgs/netflix.png" alt="" />
-      <img src="../styles/imgs/pg.png" alt="" />
-      <img src="../styles/imgs/paypal.png" alt="" />
+      <img class="media-img" src="../styles/imgs/Facebook.png" alt="" />
+      <img class="media-img" src="../styles/imgs/google.png" alt="" />
+      <img class="media-img" src="../styles/imgs/netflix.png" alt="" />
+      <img class="media-img" src="../styles/imgs/pg.png" alt="" />
+      <img class="media-img paypal" src="../styles/imgs/paypal.png" alt="" />
     </div>
   </div>
 
