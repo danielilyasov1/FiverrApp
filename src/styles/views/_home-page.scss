@@ -14,18 +14,13 @@
   position: relative;
   top: -80px;
   .heroes {
-    // animation-name: example1;
-    // animation-duration: 2s;
 
     .home-hero-img {
       position: relative;
       float: right;
       transition: all 0.9s ease;
-      //   display: block;
     }
     .mobile-bg {
-      //   position: relative;
-      //   float: right;
       display: none;
     }
 
@@ -67,8 +62,6 @@
 }
 
 .home-page {
-  //   position: absolute;
-  //   top: 200px;
   position: absolute;
   top: 20%;
 
@@ -76,13 +69,8 @@
 
   .home-title {
     font-size: rem(48px);
-    // line-height: rem(16px);
     line-height: rem(48px);
     max-width: 750px;
-    // text-wrap: wrap;
-    // max-width: 700px;
-    // inline-size: 700px;
-    // overflow-wrap: anywhere;
 
     color: #fff;
 
@@ -111,7 +99,6 @@
       height: 100%;
       border: none;
       width: 60%;
-      //   width: rem(526px);
       border: none;
       border-radius: 0;
       font-size: rem(20px);
@@ -171,8 +158,6 @@
     align-items: center;
     .trusted {
       width: rem(150px);
-      // padding: 10px;
-      // margin-right: 10px;
       font-family: Helvetica, sans-serif;
       color: #c8cbd2;
     }
@@ -193,22 +178,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  // display: flex;
   font-family: Helvetica, sans-serif;
   color: #fff;
   justify-content: space-between;
 
   .option {
     border-radius: 4px;
-    // margin-right: rem(20px);
-    // width: 100%;
-    // min-width: rem(245px);
     height: rem(355px);
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
-    // margin-left: 10px;
-    // transition: opacity .3s ease-in-out;
   }
   .option p {
     padding-top: rem(20px);
@@ -240,7 +219,6 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    // position: relative;
     align-self: center;
     border: none;
     background-color: #ffffff;
@@ -440,7 +418,6 @@
 @media (max-width: 950px) {
   .heroDeats {
     .heroes {
-      //   display: block;
       .home-hero-img {
         display: none;
       }
@@ -465,7 +442,6 @@
         max-width: 500px;
         font-size: 32px;
         line-height: 40px;
-        //   max-width: 700px;
       }
 
       .search-input {
