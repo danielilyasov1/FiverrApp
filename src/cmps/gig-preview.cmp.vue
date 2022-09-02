@@ -16,7 +16,7 @@
     <div class="content-info" @click="goToDetail">
       <a>&#9733; {{gig.rate}}<span>({{gig.review}})</span></a>
     </div>
-    <footer class="previw-footer flex">
+    <footer class="preview-footer flex">
       <p @click="test" :class="liked">&#10084;</p>
       <div class="flex price">
         <small>STARTING AT<span>US${{ gig.price }}</span></small>

@@ -142,9 +142,6 @@
     font-family: Helvetica, sans-serif;
     margin-top: 2rem;
     padding-right: 0px;
-    // .reviews {
-    //   float: right;
-    // }
 
     h2 {
       font-size: 20px;
@@ -152,19 +149,11 @@
       margin-bottom: 2px;
       margin-left: -28px;
     }
-    @media (max-width: 1100px) {
-      h2 {
-        margin-left: -30px;
-        padding-bottom: 20px;
-      }
-    }
 
     pre {
       font-family: Helvetica, sans-serif;
-
       word-wrap: break-word;
       white-space: pre-wrap;
-      // word-break: break-all;
       overflow-wrap: break-word;
       margin-top: 0;
       margin-bottom: 4rem;
@@ -175,6 +164,16 @@
       display: inline-block;
       line-height: 24px;
       letter-spacing: 1px;
+    }
+    @media (max-width: 1100px) {
+      h2 {
+        margin-left: -30px;
+        padding-bottom: 20px;
+      }
+
+      pre {
+        margin-left: 0;
+      }
     }
   }
 
@@ -224,7 +223,6 @@
   }
 
   .extended-owner-details {
-    // width: 36.56rem;
     height: 35rem;
     padding: 24px;
     border: 1px solid #efeff0;
@@ -262,7 +260,6 @@
       overflow-wrap: break-word;
       margin-top: 0;
       margin-bottom: 0;
-      // margin-left: -8px;
       padding: 0;
       font-size: 16px;
       color: $clr5;
@@ -277,26 +274,20 @@
     margin-right: 0;
     padding: 0 10px 0 10px;
   }
-  .details-page {
-    // display: block;
+  .extended-owner-details {
+    pre{
+      margin-top: 10px;
+    }
   }
+  
 }
 //////////////////////////////////////////////side///////////////////////////////////////////
-// .side-sticky {
-//   display: block;
-//   @media (max-width: 950px) {
-//     .side-sticky {
-//       display: none;
-//     }
-//   }
-// }
 
 .side-details {
   margin-top: 20px;
   border: 1px solid #e4e5e7;
   padding: 2em 1.5em;
   font-family: Helvetica, sans-serif;
-  // width: rem(413px);
   height: fit-content;
 
   .side-title {
@@ -367,7 +358,6 @@
 }
 
 .side-extra {
-  // display: block;
   display: flex;
   padding: 20px 24px;
   margin-top: 30px;
@@ -401,18 +391,3 @@
     display: block;
   }
 }
-
-// @media (max-width: 950px) {
-//   .side-extra {
-//     display: none;
-//   }
-// }
-
-// .info-side {
-//   display: none;
-// }
-// @media (max-width: 950px) {
-//   .info-side {
-//     display: none;
-//   }
-// }
