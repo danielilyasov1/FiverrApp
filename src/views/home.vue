@@ -211,7 +211,8 @@ export default {
         {
           stars: '⭐',
           details: 'Moon, Marketing Export',
-          imgUrl: '/src/styles/imgs/fiverr1.png',
+          // imgUrl: '/src/styles/imgs/fiverr1.png',
+          imgUrl: 'public/fiverr1.png',
         },
         {
           stars: '',
