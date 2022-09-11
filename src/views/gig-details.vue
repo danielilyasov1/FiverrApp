@@ -132,6 +132,7 @@
               Last delivery <br /><strong>{{ gig.owner.lastDelivery }}</strong>
             </li>
           </ul>
+          <test></test>
           <hr />
           <pre>{{ gig.owner.about }}</pre>
         </div>
